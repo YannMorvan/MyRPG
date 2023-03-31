@@ -1,0 +1,17 @@
+# Folder
+.vscode
+.idea
+.obj
+doxygen
+
+# Binaries
+unit_test
+a.out
+my_rpg
+
+# Extension
+*.o
+*.a
+*.gcda
+*.gcno
+vgcore.*
