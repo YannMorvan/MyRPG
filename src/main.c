@@ -28,18 +28,20 @@ int main(void)
             "character", "./assets/slime.png"))
             return 84;
 
-    while (sfRenderWindow_isOpen(game->engine->window)) {
-        while (sfRenderWindow_pollEvent(game->engine->window, &game->engine->event)) {
+    while (sfRenderWindow_isOpen(game->engine->window->window)) {
+        while (sfRenderWindow_pollEvent(game->engine->window->window, &game->engine->event)) {
             if (game->engine->event.type == sfEvtClosed)
-                sfRenderWindow_close(game->engine->window);
+                sfRenderWindow_close(game->engine->window->window);
         }
         game->engine->time->delta = sfClock_restart(game->engine->time->clock);
-        update_collision(game->engine);
+
         write_framerate(game->engine);
-        sfRenderWindow_clear(game->engine->window, sfBlack);
+        sfRenderWindow_clear(game->engine->window->window, sfBlack);
         display_sprites(game->engine);
+        update_collision(game->engine);
+        display_quadtree(game->engine);
         display_collision(game->engine);
-        sfRenderWindow_display(game->engine->window);
+        sfRenderWindow_display(game->engine->window->window);
     }
 
     return 0;

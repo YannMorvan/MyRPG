@@ -25,7 +25,7 @@ OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
 UNIT_TEST	:=	./unit_test
 
 RM			:=	rm -rf
-MAKE		:=	make -sC$(LIB)
+MAKE		:=	make -sC$(LIB) -j
 
 CC			:=	gcc
 CFLAGS		:=	-I./include/ -Wall -Wextra
@@ -85,6 +85,6 @@ fclean:				clean tests_clean
 
 re:					fclean all
 
-.PHONY:				all clean fclean re
+.PHONY:				all clean fclean re $(NAME)
 
 .SILENT:			all test_run test_coverage debug clean fclean re

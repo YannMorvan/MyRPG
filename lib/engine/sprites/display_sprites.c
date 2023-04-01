@@ -14,6 +14,6 @@ void display_sprites(engine_t *engine)
 
     for (list_node_t *node = sprites->head; node != NULL; node = node->next) {
         sprite = node->value;
-        sfRenderWindow_drawSprite(engine->window, sprite->sprite, NULL);
+        sfRenderWindow_drawSprite(engine->window->window, sprite->sprite, NULL);
     }
 }

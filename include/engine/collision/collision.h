@@ -10,6 +10,29 @@
 
     #include "engine/struct.h"
 
+    #define MAX_DEPTH 5
+    #define MAX_OBJECTS 4
+
+/**
+ * @brief Create a quadtree object
+ *
+ * @param rect The rectangle of the quadtree
+ * @return quadtree_t* The quadtree
+ */
+quadtree_t *create_quadtree(sfFloatRect rect, ui_t depth);
+
+sfBool create_child_quadtree(quadtree_t *quadtree);
+
+sfBool quadtree_insert(quadtree_t *quadtree, collider_t *collider);
+
+/**
+ * @brief Destroy the quadtree
+ *
+ * @param quadtree The quadtree
+ * @return sfBool False if an error occurred
+ */
+sfBool display_quadtree(engine_t *engine);
+
 /**
  * @brief Update the collision
  *
@@ -21,7 +44,7 @@ void update_collision(engine_t *engine);
  * @brief Display the collision
  *
  * @param engine The engine
- * @return sfBool The state of the collision
+ * @return sfBool False if an error occurred
  */
 sfBool display_collision(engine_t *engine);
 

@@ -5,8 +5,6 @@
 ** ice_strnrev.c
 */
 
-#include <stddef.h>
-
 #include "ice/assert.h"
 #include "ice/string.h"
 

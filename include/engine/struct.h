@@ -18,6 +18,8 @@ typedef enum collider_collision_s {NO_COLLISION = 0, COLLISION = 1}
     collider_collision_t;
 
 typedef struct quadtree_s {
+    ui_t depth;
+    sfFloatRect rect;
     list_t *colliders;
     struct quadtree_s *nw;
     struct quadtree_s *ne;
@@ -64,8 +66,14 @@ typedef struct delta_time_s {
     sfTime delta;
 } delta_time_t;
 
-typedef struct engine_s {
+typedef struct window_s {
     sfRenderWindow *window;
+    sfVideoMode mode;
+    char *name;
+} window_t;
+
+typedef struct engine_s {
+    window_t *window;
     delta_time_t *time;
     sfEvent event;
     textures_t *textures;

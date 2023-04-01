@@ -5,8 +5,6 @@
 ** ice_memcmp.c
 */
 
-#include <stdlib.h>
-
 #include "ice/assert.h"
 
 int ice_memcmp(const void *s1, const void *s2, ull_t n)
