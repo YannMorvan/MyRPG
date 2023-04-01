@@ -65,5 +65,9 @@ engine_t *create_engine(ui_t width, ui_t height,
         return NULL;
     if (!engine->window || !engine_malloc(engine) || !engine_create(engine))
         return NULL;
+    engine->window->view = sfView_createFromRect((sfFloatRect){0, 0,
+        (float)width, (float)height});
+    if (!engine->window->view)
+        return NULL;
     return engine;
 }

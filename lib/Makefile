@@ -148,6 +148,11 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				display_collision.c		\
 				)
 
+DIR			+= ./engine/window/
+SRC			+= $(addprefix $(lastword $(DIR)),\
+				clear_window.c		\
+				)
+
 DIR_TEST	:=	../tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				test_array.c		\

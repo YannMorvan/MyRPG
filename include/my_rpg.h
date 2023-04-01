@@ -8,6 +8,7 @@
 #ifndef MY_RPG_MY_RPG_H
     #define MY_RPG_MY_RPG_H
 
+    #include "engine/window.h"
     #include "engine/engine.h"
     #include "engine/sprite.h"
     #include "engine/texture.h"

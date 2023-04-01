@@ -19,10 +19,10 @@ int main(void)
     srand(time(NULL));
     if (!game)
         return 84;
-    game->engine = create_engine(960, 540, "My Rpg", sfClose);
+    game->engine = create_engine(960, 540, "My Rpg", sfClose | sfResize);
     if (!game->engine)
         return 84;
-    for (int i = 0; i < 1000; i++)
+    for (int i = 0; i < 100; i++)
         if (!create_character(game->engine,
             (sfVector2f){(float)(rand() % 960), (float)(rand() % 540)},
             "character", "./assets/slime.png"))
@@ -36,7 +36,8 @@ int main(void)
         game->engine->time->delta = sfClock_restart(game->engine->time->clock);
 
         write_framerate(game->engine);
-        sfRenderWindow_clear(game->engine->window->window, sfBlack);
+//        sfRenderWindow_clear(game->engine->window->window, sfBlack);
+        clear_window(game->engine);
         display_sprites(game->engine);
         update_collision(game->engine);
         display_quadtree(game->engine);

@@ -70,6 +70,7 @@ typedef struct window_s {
     sfRenderWindow *window;
     sfVideoMode mode;
     char *name;
+    sfView *view;
 } window_t;
 
 typedef struct engine_s {
