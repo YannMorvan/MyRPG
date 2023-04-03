@@ -17,6 +17,7 @@ SRC			:=	$(addprefix $(DIR),\
 DIR			+=	$(addprefix $(DIR), ./init/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				get_game.c				\
+				create_player.c			\
 				)
 
 DIR_TEST	:=	./tests/

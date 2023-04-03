@@ -20,5 +20,12 @@ game_t *get_game(void)
     if (!game->engine)
         return NULL;
     srand(time(NULL));
+    game->player = create_player(game->engine);
+    if (!game->player)
+        return NULL;
+    game->monsters = list_create();
+    if (!game->monsters)
+        return NULL;
+    sfRenderWindow_setFramerateLimit(game->engine->window->window, 60);
     return game;
 }
