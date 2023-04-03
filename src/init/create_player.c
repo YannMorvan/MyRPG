@@ -8,13 +8,15 @@
 #include <stdlib.h>
 
 #include "my_rpg.h"
+#include "ice/memory.h"
 
 player_t *create_player(engine_t *engine)
 {
-    player_t *player = malloc(sizeof(player_t));
+    player_t *player = ice_calloc(1, sizeof(player_t));
 
     if (!player)
         return NULL;
+    player->speed = 150;
     player->character = create_character(engine, (sfVector2f){0, 0},
         "player", "./assets/player.png");
     if (!player->character)

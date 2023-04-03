@@ -21,4 +21,14 @@
 character_t *create_character(engine_t *engine, sfVector2f pos,
     char *name, char *path);
 
+/**
+ * @brief Destroy a character object
+ *
+ * @param engine The engine
+ * @param character The character
+ * @param offset The offset
+ */
+void move_character(engine_t *engine, character_t *character,
+    sfVector2f offset);
+
 #endif /* !MY_RPG_CHARACTER_H */

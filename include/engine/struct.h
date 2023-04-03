@@ -52,7 +52,7 @@ typedef struct character_s {
 
 typedef struct delta_time_s {
     sfClock *clock;
-    sfTime delta;
+    float delta;
 } delta_time_t;
 
 typedef struct window_s {

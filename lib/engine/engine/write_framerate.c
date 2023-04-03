@@ -15,8 +15,8 @@ sfBool write_framerate(engine_t *engine)
     static ui_t frame = 0;
     char str[108];
 
-    fps += 1 / sfTime_asSeconds(engine->time->delta);
-    time += sfTime_asSeconds(engine->time->delta);
+    fps += 1 / engine->time->delta;
+    time += engine->time->delta;
     frame++;
     if (time < 1)
         return sfTrue;

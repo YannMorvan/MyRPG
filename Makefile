@@ -9,15 +9,27 @@ NAME		:=	my_rpg
 
 LIB			:=	./lib/
 
-DIR			:=	./src/
+DIR_SRC		:=	./src/
+
+DIR			:=	$(DIR_SRC)
 SRC			:=	$(addprefix $(DIR),\
 				main.c				\
 				)
 
-DIR			+=	$(addprefix $(DIR), ./init/)
+DIR			+=	$(addprefix $(DIR_SRC), ./init/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				get_game.c				\
 				create_player.c			\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), ./event/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				event_player.c					\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), ./update/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				update_player.c					\
 				)
 
 DIR_TEST	:=	./tests/

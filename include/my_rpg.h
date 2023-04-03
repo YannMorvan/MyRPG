@@ -17,6 +17,8 @@
 
 typedef struct player_s {
     character_t *character;
+    int speed;
+    sfVector2f velocity;
 } player_t;
 
 typedef struct game_s {
@@ -28,5 +30,9 @@ typedef struct game_s {
 game_t *get_game(void);
 
 player_t *create_player(engine_t *engine);
+
+void event_player(game_t *game, sfEvent event);
+
+void update_player(game_t *game);
 
 #endif /* !MY_RPG_MY_RPG_H */

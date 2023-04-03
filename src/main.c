@@ -36,8 +36,10 @@ int main(void)
         while (sfRenderWindow_pollEvent(game->engine->window->window, &game->engine->event)) {
             if (game->engine->event.type == sfEvtClosed)
                 sfRenderWindow_close(game->engine->window->window);
+            event_player(game, game->engine->event);
         }
-        game->engine->time->delta = sfClock_restart(game->engine->time->clock);
+        sfTime elapsed_time = sfClock_restart(game->engine->time->clock);
+        game->engine->time->delta = sfTime_asSeconds(elapsed_time);
 
         for (list_node_t *node = characters->head; node; node = node->next) {
             character = node->value;
@@ -47,10 +49,12 @@ int main(void)
             character->collider->rect.top += pos.y;
         }
 
+        update_player(game);
+        update_collision(game->engine);
+
         write_framerate(game->engine);
         clear_window(game->engine);
         display_sprites(game->engine);
-        update_collision(game->engine);
         sfRenderWindow_display(game->engine->window->window);
     }
 

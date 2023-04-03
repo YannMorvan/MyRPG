@@ -131,6 +131,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+= ./engine/character/
 SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_character.c		\
+				move_character.c		\
 				)
 
 DIR			+= ./engine/collider/
