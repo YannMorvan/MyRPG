@@ -7,7 +7,6 @@
 
 #include "ice/memory.h"
 #include "engine/struct.h"
-#include "engine/collision/collision.h"
 
 collider_t *create_collider(engine_t *engine, sfFloatRect rect,
     collider_static_t state)
@@ -15,6 +14,6 @@ collider_t *create_collider(engine_t *engine, sfFloatRect rect,
     collider_t *collider = ice_calloc(1, sizeof(collider_t));
 
     *collider = (collider_t){rect, NO_COLLISION, state};
-    quadtree_insert(engine->colliders->quadtree, collider);
+    list_add(engine->colliders->colliders, collider);
     return collider;
 }

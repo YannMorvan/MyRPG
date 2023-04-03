@@ -9,7 +9,6 @@
 
 #include "ice/string.h"
 #include "engine/sprite.h"
-#include "engine/collision/collision.h"
 
 static window_t *create_window(ui_t width, ui_t height,
     const char *name, sfUint32 style)
@@ -44,13 +43,9 @@ static sfBool engine_create(engine_t *engine)
     engine->textures->textures = list_create();
     engine->sprites->sprites = list_create();
     engine->colliders->colliders = list_create();
-    engine->colliders->quadtree = create_quadtree((sfFloatRect){0, 0,
-        (float)engine->window->mode.width,
-        (float)engine->window->mode.height}, 0);
     engine->time->clock = sfClock_create();
     return engine->textures->textures && engine->sprites->sprites
-        && engine->colliders->colliders && engine->colliders->quadtree
-        && engine->time->clock;
+        && engine->colliders->colliders && engine->time->clock;
 }
 
 engine_t *create_engine(ui_t width, ui_t height,

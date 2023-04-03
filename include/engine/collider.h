@@ -21,4 +21,11 @@
 collider_t *create_collider(engine_t *engine, sfFloatRect rect,
     collider_static_t state);
 
+/**
+ * @brief Update the collision of the colliders
+ *
+ * @param engine The engine
+ */
+void update_collision(engine_t *engine);
+
 #endif /* !MY_RPG_COLLIDER_H */

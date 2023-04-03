@@ -17,18 +17,7 @@ typedef enum collider_static_s {MOVING = 0, STATIC = 1} collider_static_t;
 typedef enum collider_collision_s {NO_COLLISION = 0, COLLISION = 1}
     collider_collision_t;
 
-typedef struct quadtree_s {
-    ui_t depth;
-    sfFloatRect rect;
-    list_t *colliders;
-    struct quadtree_s *nw;
-    struct quadtree_s *ne;
-    struct quadtree_s *sw;
-    struct quadtree_s *se;
-} quadtree_t;
-
 typedef struct colliders_s {
-    quadtree_t *quadtree;
     list_t *colliders;
 } colliders_t;
 

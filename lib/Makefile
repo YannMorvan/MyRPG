@@ -136,16 +136,7 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 DIR			+= ./engine/collider/
 SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_collider.c		\
-				)
-
-DIR			+= ./engine/collider/collision/
-SRC			+= $(addprefix $(lastword $(DIR)),\
-				create_quadtree.c		\
-				create_child_quadtree.c	\
-				display_quadtree.c		\
-				quadtree_insert.c		\
 				update_collision.c		\
-				display_collision.c		\
 				)
 
 DIR			+= ./engine/window/

@@ -14,7 +14,6 @@
     #include "engine/texture.h"
     #include "engine/character.h"
     #include "engine/collider.h"
-    #include "engine/collision/collision.h"
 
 typedef struct game_s {
     engine_t *engine;
