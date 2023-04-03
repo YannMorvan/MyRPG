@@ -14,6 +14,11 @@ SRC			:=	$(addprefix $(DIR),\
 				main.c				\
 				)
 
+DIR			+=	$(addprefix $(DIR), ./init/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				get_game.c				\
+				)
+
 DIR_TEST	:=	./tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				)

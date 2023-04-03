@@ -5,25 +5,18 @@
 ** main.c
 */
 
-#include <time.h>
 #include <stdlib.h>
-
-#include <malloc.h>
 
 #include "my_rpg.h"
 
 int main(void)
 {
-    game_t *game = malloc(sizeof(game_t));
+    game_t *game = get_game();
     list_t *characters = list_create();
     character_t *character = NULL;
-    sfVector2f pos = {0, 0};
+    sfVector2f pos;
 
-    srand(time(NULL));
-    if (!game)
-        return 84;
-    game->engine = create_engine(960, 540, "My Rpg", sfClose | sfResize);
-    if (!game->engine)
+    if (!game || !characters)
         return 84;
     for (int i = 0; i < 100; i++) {
         character = create_character(game->engine,
@@ -34,6 +27,10 @@ int main(void)
         if (list_add(characters, character))
             return 84;
     }
+
+    sfImage *icon = sfImage_createFromFile("./assets/slime.png");
+    sfVector2u size = sfImage_getSize(icon);
+    sfRenderWindow_setIcon(game->engine->window->window, size.x, size.y, sfImage_getPixelsPtr(icon));
 
     while (sfRenderWindow_isOpen(game->engine->window->window)) {
         while (sfRenderWindow_pollEvent(game->engine->window->window, &game->engine->event)) {

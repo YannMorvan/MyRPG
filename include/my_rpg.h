@@ -19,4 +19,6 @@ typedef struct game_s {
     engine_t *engine;
 } game_t;
 
+game_t *get_game(void);
+
 #endif /* !MY_RPG_MY_RPG_H */
