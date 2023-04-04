@@ -15,7 +15,7 @@
  *
  * @param engine The engine
  * @param pos The position of the character
- * @param name The name of the character
+ * @param name The name of the texture
  * @param path The path to the texture
  */
 character_t *create_character(engine_t *engine, sfVector2f pos,

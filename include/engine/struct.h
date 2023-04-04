@@ -17,6 +17,7 @@
     #define COLLIDER_PLAYER 0b00000010
     #define COLLIDER_MONSTER 0b00000100
     #define COLLIDER_WALL 0b00001000
+    #define COLLIDER_SPELL 0b00010000
 
 typedef enum collider_static_s {MOVING = 0, STATIC = 1} collider_static_t;
 
