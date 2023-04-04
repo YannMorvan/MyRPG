@@ -13,7 +13,8 @@
 void update_monsters(game_t *game)
 {
     sfVector2f offset = {0, 0};
-    sfVector2f player_pos = sfSprite_getPosition(game->player->character->sprite->sprite);
+    sfVector2f player_pos = sfSprite_getPosition(
+        game->player->character->sprite->sprite);
     sfVector2f monster_pos;
     sfVector2f distance;
     float length;
@@ -30,5 +31,4 @@ void update_monsters(game_t *game)
         offset.y = (distance.y / length) * (float)monster->speed;
         move_character(game->engine, monster->character, offset);
     }
-
 }
