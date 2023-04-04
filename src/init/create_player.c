@@ -25,5 +25,7 @@ player_t *create_player(engine_t *engine)
         (sfIntRect){0, 0, 16, 21});
     sfSprite_setScale(player->character->sprite->sprite,
         (sfVector2f){2, 2});
+    sfSprite_setOrigin(player->character->sprite->sprite,
+        (sfVector2f){8, 10});
     return player;
 }

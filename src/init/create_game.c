@@ -10,7 +10,7 @@
 
 #include "my_rpg.h"
 
-game_t *get_game(void)
+game_t *create_game(void)
 {
     game_t *game = malloc(sizeof(game_t));
 

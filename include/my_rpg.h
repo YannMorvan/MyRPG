@@ -15,6 +15,11 @@
     #include "engine/character.h"
     #include "engine/collider.h"
 
+typedef struct monster_s {
+    character_t *character;
+    int speed;
+} monster_t;
+
 typedef struct player_s {
     character_t *character;
     int speed;
@@ -27,12 +32,16 @@ typedef struct game_s {
     list_t *monsters;
 } game_t;
 
-game_t *get_game(void);
+game_t *create_game(void);
 
 player_t *create_player(engine_t *engine);
 
 void event_player(game_t *game, sfEvent event);
 
 void update_player(game_t *game);
+
+sfBool add_monster(game_t *game);
+
+void update_monsters(game_t *game);
 
 #endif /* !MY_RPG_MY_RPG_H */

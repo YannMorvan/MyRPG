@@ -18,18 +18,20 @@ SRC			:=	$(addprefix $(DIR),\
 
 DIR			+=	$(addprefix $(DIR_SRC), ./init/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				get_game.c				\
+				create_game.c			\
 				create_player.c			\
+				add_monster.c			\
 				)
 
 DIR			+=	$(addprefix $(DIR_SRC), ./event/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				event_player.c					\
+				event_player.c			\
 				)
 
 DIR			+=	$(addprefix $(DIR_SRC), ./update/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				update_player.c					\
+				update_player.c			\
+				update_monsters.c		\
 				)
 
 DIR_TEST	:=	./tests/
@@ -48,7 +50,7 @@ MAKE		:=	make -sC$(LIB) -j
 CC			:=	gcc
 CFLAGS		:=	-I./include/ -Wall -Wextra
 LDFLAGS		:=	-L$(LIB)
-LDLIBS		:=	-lice -lcsfml-graphics -lcsfml-system
+LDLIBS		:=	-lice -lm -lcsfml-graphics -lcsfml-system
 
 all:				$(DIR_OBJ) $(NAME)
 
