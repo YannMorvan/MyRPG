@@ -10,25 +10,32 @@
 #include "my_rpg.h"
 #include "ice/macro.h"
 
+static void update_monster(game_t *game, list_node_t *node,
+    sfVector2f player_pos)
+{
+    monster_t *monster = node->value;
+    sfVector2f monster_pos = sfSprite_getPosition(
+        monster->character->sprite->sprite);
+    sfVector2f distance = {
+        player_pos.x - monster_pos.x, player_pos.y - monster_pos.y};
+    float length = ABS(distance.x) + ABS(distance.y);
+    if (length < 1)
+        return;
+    move_character(game->engine, monster->character,
+        (sfVector2f){(distance.x / length) * (float)monster->speed,
+        (distance.y / length) * (float)monster->speed});
+    if (monster->character->collider->collide_type == COLLIDER_PLAYER)
+        list_pop_node(game->monsters, node);
+}
+
 void update_monsters(game_t *game)
 {
-    sfVector2f offset = {0, 0};
     sfVector2f player_pos = sfSprite_getPosition(
         game->player->character->sprite->sprite);
-    sfVector2f monster_pos;
-    sfVector2f distance;
-    float length;
+    list_node_t *next_node;
 
-    for (list_node_t *node = game->monsters->head; node; node = node->next) {
-        monster_t *monster = node->value;
-        monster_pos = sfSprite_getPosition(monster->character->sprite->sprite);
-        distance.x = player_pos.x - monster_pos.x;
-        distance.y = player_pos.y - monster_pos.y;
-        length = ABS(distance.x) + ABS(distance.y);
-        if (length < 1)
-            continue;
-        offset.x = (distance.x / length) * (float)monster->speed;
-        offset.y = (distance.y / length) * (float)monster->speed;
-        move_character(game->engine, monster->character, offset);
+    for (list_node_t *node = game->monsters->head; node; node = next_node) {
+        next_node = node->next;
+        update_monster(game, node, player_pos);
     }
 }

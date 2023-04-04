@@ -138,6 +138,7 @@ DIR			+= ./engine/collider/
 SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_collider.c		\
 				update_collision.c		\
+				collider_set_type.c		\
 				)
 
 DIR			+= ./engine/window/

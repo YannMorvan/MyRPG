@@ -12,6 +12,12 @@
 
     #include "list.h"
 
+    #define COLLIDER_NONE 0b00000000
+    #define COLLIDER_CURSOR 0b00000001
+    #define COLLIDER_PLAYER 0b00000010
+    #define COLLIDER_MONSTER 0b00000100
+    #define COLLIDER_WALL 0b00001000
+
 typedef enum collider_static_s {MOVING = 0, STATIC = 1} collider_static_t;
 
 typedef enum collider_collision_s {NO_COLLISION = 0, COLLISION = 1}
@@ -23,6 +29,8 @@ typedef struct colliders_s {
 
 typedef struct collider_s {
     sfFloatRect rect;
+    int self_type;
+    int collide_type;
     collider_collision_t is_collide;
     collider_static_t is_static;
 } collider_t;

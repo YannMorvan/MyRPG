@@ -28,5 +28,6 @@ sfBool add_monster(game_t *game)
     offset = sfSprite_getTextureRect(monster->character->sprite->sprite);
     sfSprite_setOrigin(monster->character->sprite->sprite,
         (sfVector2f){(float)offset.width / 2, (float)offset.height / 2});
+    collider_set_type(monster->character->collider, COLLIDER_MONSTER);
     return !list_add(game->monsters, monster);
 }

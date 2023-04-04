@@ -30,5 +30,6 @@ player_t *create_player(engine_t *engine)
     sfSprite_setOrigin(player->character->sprite->sprite,
         (sfVector2f){8, 10});
     sfSprite_setPosition(player->character->sprite->sprite, pos);
+    collider_set_type(player->character->collider, COLLIDER_PLAYER);
     return player;
 }

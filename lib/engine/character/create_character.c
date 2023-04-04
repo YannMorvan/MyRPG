@@ -27,7 +27,7 @@ character_t *create_character(engine_t *engine, sfVector2f pos,
         return NULL;
     sfSprite_setPosition(character->sprite->sprite, pos);
     rect = sfSprite_getGlobalBounds(character->sprite->sprite);
-    character->collider = create_collider(engine, rect, MOVING);
+    character->collider = create_collider(engine, rect, COLLIDER_NONE, MOVING);
     if (!character->collider)
         return NULL;
     return character;
