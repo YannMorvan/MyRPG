@@ -13,11 +13,13 @@
 player_t *create_player(engine_t *engine)
 {
     player_t *player = ice_calloc(1, sizeof(player_t));
+    sfVector2f pos = {(float)engine->window->mode.width / 2,
+        (float)engine->window->mode.height / 2};
 
     if (!player)
         return NULL;
     player->speed = 150;
-    player->character = create_character(engine, (sfVector2f){0, 0},
+    player->character = create_character(engine, pos,
         "player", "./assets/player.png");
     if (!player->character)
         return NULL;
@@ -27,5 +29,6 @@ player_t *create_player(engine_t *engine)
         (sfVector2f){2, 2});
     sfSprite_setOrigin(player->character->sprite->sprite,
         (sfVector2f){8, 10});
+    sfSprite_setPosition(player->character->sprite->sprite, pos);
     return player;
 }
