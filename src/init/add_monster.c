@@ -15,7 +15,10 @@ sfBool add_monster(game_t *game)
 {
     monster_t *monster = ice_calloc(1, sizeof(monster_t));
     float angle = (float)((float)(rand() % 360) * M_PI / 180);
-    sfVector2f pos = {500 * cosf(angle), 500 * sinf(angle)};
+    sfVector2f player_pos = sfSprite_getPosition(
+        game->player->character->sprite->sprite);
+    sfVector2f pos = {500 * cosf(angle) + player_pos.x,
+        500 * sinf(angle) + player_pos.y};
     sfIntRect offset;
 
     if (!monster)
