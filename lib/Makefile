@@ -128,6 +128,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				add_sprite.c				\
 				add_sprite_and_texture.c	\
 				display_sprites.c			\
+				destroy_sprite.c			\
 				)
 
 DIR			+= ./engine/character/

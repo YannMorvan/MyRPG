@@ -8,12 +8,13 @@
 #include <malloc.h>
 
 #include "engine/struct.h"
+#include "engine/sprite.h"
 
 void destroy_engine(engine_t *engine)
 {
     list_destroy(engine->textures->textures);
-    list_destroy(engine->sprites->sprites);
-    list_destroy(engine->colliders->colliders);
+    list_destroy_node(engine->sprites->sprites, (void *)destroy_sprite);
+    list_destroy_node(engine->colliders->colliders, free);
     free(engine->textures);
     free(engine->sprites);
     free(engine->colliders);

@@ -36,4 +36,11 @@ sprite_t *add_sprite_and_texture(engine_t *engine, char *name, char *path);
  */
 void display_sprites(engine_t *engine);
 
+/**
+ * @brief Destroy the sprite
+ *
+ * @param sprite The sprite
+ */
+void destroy_sprite(sprite_t *sprite);
+
 #endif /* !MY_RPG_SPRITE_H */
