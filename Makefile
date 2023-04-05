@@ -25,13 +25,19 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_SRC), ./event/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
+				event_game.c			\
 				event_player.c			\
 				)
 
 DIR			+=	$(addprefix $(DIR_SRC), ./update/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
+				update_game.c			\
 				update_player.c			\
 				update_monsters.c		\
+				)
+DIR			+=	$(addprefix $(DIR_SRC), ./display/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				display_game.c			\
 				)
 
 DIR_TEST	:=	./tests/
