@@ -17,7 +17,7 @@ int my_rpg(void)
     for (int i = 0; i < 10; i++)
         if (!add_monster(game))
             return 84;
-    while (sfRenderWindow_isOpen(game->engine->window->window)) {
+    while (sfRenderWindow_isOpen(WINDOW(game))) {
         event_game(game);
         update_game(game);
         display_game(game);

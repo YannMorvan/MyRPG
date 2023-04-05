@@ -11,5 +11,5 @@ void display_game(game_t *game)
 {
     clear_window(game->engine);
     display_sprites(game->engine);
-    sfRenderWindow_display(game->engine->window->window);
+    sfRenderWindow_display(WINDOW(game));
 }
