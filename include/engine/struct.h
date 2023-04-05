@@ -61,6 +61,7 @@ typedef struct character_s {
 
 typedef struct mouse_s {
     sfVector2i pos;
+    sfVector2f posf;
     collider_t *collider;
 } mouse_t;
 

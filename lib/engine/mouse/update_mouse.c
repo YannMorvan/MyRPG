@@ -10,6 +10,10 @@
 void update_mouse(engine_t *engine, mouse_t *mouse)
 {
     mouse->pos = sfMouse_getPositionRenderWindow(engine->window->window);
-    mouse->collider->rect.left = (float)mouse->pos.x;
-    mouse->collider->rect.top = (float)mouse->pos.y;
+    mouse->posf = sfRenderWindow_mapPixelToCoords(
+        engine->window->window, mouse->pos, engine->window->view);
+    mouse->collider->rect.left =
+        mouse->posf.x - mouse->collider->rect.width / 2;
+    mouse->collider->rect.top =
+        mouse->posf.y - mouse->collider->rect.height / 2;
 }

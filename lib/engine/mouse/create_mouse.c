@@ -14,7 +14,7 @@ mouse_t *create_mouse(engine_t *engine)
 
     if (!mouse)
         return NULL;
-    mouse->collider = create_collider(engine, (sfFloatRect){0, 0, 1, 1},
+    mouse->collider = create_collider(engine, (sfFloatRect){0, 0, 5, 5},
         COLLIDER_CURSOR, MOVING);
     if (!mouse->collider)
         return NULL;
