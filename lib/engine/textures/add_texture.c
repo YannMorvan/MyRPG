@@ -7,6 +7,7 @@
 
 #include <malloc.h>
 
+#include "ice/string.h"
 #include "engine/struct.h"
 
 texture_t *add_texture(engine_t *engine, char *name, char *path)
@@ -16,7 +17,9 @@ texture_t *add_texture(engine_t *engine, char *name, char *path)
 
     if (texture == NULL)
         return NULL;
-    texture->name = name;
+    texture->name = ice_strdup(name);
+    if (texture->name == NULL)
+        return NULL;
     texture->texture = sfTexture_createFromFile(path, NULL);
     if (texture->texture == NULL)
         return NULL;

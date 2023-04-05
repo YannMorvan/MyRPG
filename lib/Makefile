@@ -119,8 +119,9 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 
 DIR			+=	./engine/textures/
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				add_texture.c	\
-				get_texture.c	\
+				add_texture.c		\
+				get_texture.c		\
+				destroy_texture.c	\
 				)
 
 DIR			+=	./engine/sprites/

@@ -9,10 +9,11 @@
 
 #include "engine/struct.h"
 #include "engine/sprite.h"
+#include "engine/texture.h"
 
 void destroy_engine(engine_t *engine)
 {
-    list_destroy(engine->textures->textures);
+    list_destroy_node(engine->textures->textures, (void *)destroy_texture);
     list_destroy_node(engine->sprites->sprites, (void *)destroy_sprite);
     list_destroy_node(engine->colliders->colliders, free);
     free(engine->textures);

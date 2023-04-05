@@ -29,4 +29,11 @@ texture_t *add_texture(engine_t *engine, char *name, char *path);
  */
 texture_t *get_texture(engine_t *engine, char *name);
 
+/**
+ * @brief Destroy the texture
+ *
+ * @param texture The texture
+ */
+void destroy_texture(texture_t *texture);
+
 #endif /* !MY_RPG_TEXTURE_H */
