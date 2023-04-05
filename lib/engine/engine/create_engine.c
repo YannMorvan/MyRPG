@@ -8,6 +8,7 @@
 #include <malloc.h>
 
 #include "ice/string.h"
+#include "engine/mouse.h"
 #include "engine/sprite.h"
 
 static window_t *create_window(ui_t width, ui_t height,
@@ -44,8 +45,9 @@ static sfBool engine_create(engine_t *engine)
     engine->sprites->sprites = list_create();
     engine->colliders->colliders = list_create();
     engine->time->clock = sfClock_create();
+    engine->mouse = create_mouse(engine);
     return engine->textures->textures && engine->sprites->sprites
-        && engine->colliders->colliders && engine->time->clock;
+        && engine->colliders->colliders && engine->time->clock && engine->mouse;
 }
 
 engine_t *create_engine(ui_t width, ui_t height,

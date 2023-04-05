@@ -150,6 +150,13 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				clear_window.c		\
 				)
 
+DIR			+= ./engine/mouse/
+SRC			+= $(addprefix $(lastword $(DIR)),\
+				create_mouse.c		\
+				update_mouse.c		\
+				destroy_mouse.c		\
+				)
+
 DIR_TEST	:=	../tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				test_array.c		\

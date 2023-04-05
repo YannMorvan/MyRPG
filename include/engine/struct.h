@@ -59,6 +59,11 @@ typedef struct character_s {
     collider_t *collider;
 } character_t;
 
+typedef struct mouse_s {
+    sfVector2i pos;
+    collider_t *collider;
+} mouse_t;
+
 typedef struct delta_time_s {
     sfClock *clock;
     float delta;
@@ -78,6 +83,7 @@ typedef struct engine_s {
     textures_t *textures;
     sprites_t *sprites;
     colliders_t *colliders;
+    mouse_t *mouse;
 } engine_t;
 
 #endif /* !MY_RPG_STRUCT_H */

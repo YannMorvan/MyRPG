@@ -7,7 +7,7 @@
 
 #include <malloc.h>
 
-#include "engine/struct.h"
+#include "engine/mouse.h"
 #include "engine/sprite.h"
 #include "engine/texture.h"
 
@@ -21,6 +21,7 @@ void destroy_engine(engine_t *engine)
     free(engine->colliders);
     sfClock_destroy(engine->time->clock);
     free(engine->time);
+    destroy_mouse(engine->mouse);
     sfRenderWindow_destroy(engine->window->window);
     sfView_destroy(engine->window->view);
     free(engine->window->name);
