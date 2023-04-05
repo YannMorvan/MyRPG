@@ -114,6 +114,7 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_engine.c		\
 				update_engine.c		\
 				write_framerate.c	\
+				destroy_engine.c	\
 				)
 
 DIR			+=	./engine/textures/

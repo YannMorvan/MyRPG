@@ -37,4 +37,11 @@ void update_engine(engine_t *engine);
  */
 sfBool write_framerate(engine_t *engine);
 
+/**
+ * @brief Destroy the engine
+ *
+ * @param engine The engine
+ */
+void destroy_engine(engine_t *engine);
+
 #endif /* !MY_RPG_ENGINE_H */
