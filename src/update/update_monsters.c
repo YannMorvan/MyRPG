@@ -24,8 +24,10 @@ static void update_monster(game_t *game, list_node_t *node,
     move_character(game->engine, monster->character,
         (sfVector2f){(distance.x / length) * (float)monster->speed,
         (distance.y / length) * (float)monster->speed});
-    if (monster->character->collider->collide_type == COLLIDER_PLAYER)
-        list_pop_node(game->monsters, node);
+    if (monster->character->collider->collide_type == COLLIDER_PLAYER) {
+        list_remove_node(game->monsters, node);
+        destroy_monster(monster);
+    }
 }
 
 void update_monsters(game_t *game)

@@ -122,4 +122,29 @@ void update_monsters(game_t *game);
  */
 void display_game(game_t *game);
 
+//
+// DESTROY
+//
+
+/**
+ * @brief Destroy the game
+ *
+ * @param game The game
+ */
+void destroy_game(game_t *game);
+
+/**
+ * @brief Destroy the player
+ *
+ * @param player The player
+ */
+void destroy_player(player_t *player);
+
+/**
+ * @brief Destroy the monster
+ *
+ * @param monster The monster
+ */
+void destroy_monster(monster_t *monster);
+
 #endif /* !MY_RPG_MY_RPG_H */

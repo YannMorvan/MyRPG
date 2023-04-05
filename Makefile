@@ -35,9 +35,17 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_player.c			\
 				update_monsters.c		\
 				)
+
 DIR			+=	$(addprefix $(DIR_SRC), ./display/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				display_game.c			\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), ./destroy/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				destroy_game.c			\
+				destroy_player.c		\
+				destroy_monster.c		\
 				)
 
 DIR_TEST	:=	./tests/

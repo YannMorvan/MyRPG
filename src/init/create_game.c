@@ -26,6 +26,6 @@ game_t *create_game(void)
     game->monsters = list_create();
     if (!game->monsters)
         return NULL;
-    sfRenderWindow_setFramerateLimit(game->engine->window->window, 60);
+    sfRenderWindow_setFramerateLimit(WINDOW(game), 60);
     return game;
 }

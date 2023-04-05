@@ -22,7 +22,7 @@ int my_rpg(void)
         update_game(game);
         display_game(game);
     }
-    destroy_engine(game->engine);
+    destroy_game(game);
     return 0;
 }
 
