@@ -112,6 +112,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+= ./engine/engine/
 SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_engine.c		\
+				update_engine.c		\
 				write_framerate.c	\
 				)
 

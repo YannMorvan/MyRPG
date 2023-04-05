@@ -23,6 +23,13 @@ engine_t *create_engine(ui_t width, ui_t height,
     const char *name, sfUint32 style);
 
 /**
+ * @brief Update the engine
+ *
+ * @param engine The engine
+ */
+void update_engine(engine_t *engine);
+
+/**
  * @brief Destroy the engine
  *
  * @param engine The engine
