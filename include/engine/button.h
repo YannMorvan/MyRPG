@@ -30,4 +30,11 @@ button_t *create_button(engine_t *engine, sfVector2f pos,
  */
 void update_buttons(engine_t *engine, void *component);
 
+/**
+ * @brief Destroy the button
+ *
+ * @param button The button
+ */
+void destroy_button(button_t *button);
+
 #endif /* !MY_RPG_BUTTON_H */

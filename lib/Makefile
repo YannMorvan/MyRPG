@@ -151,6 +151,7 @@ DIR			+= ./engine/button/
 SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_button.c			\
 				update_buttons.c		\
+				destroy_button.c		\
 				)
 
 DIR			+= ./engine/window/
