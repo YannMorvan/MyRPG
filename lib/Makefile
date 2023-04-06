@@ -115,6 +115,7 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				event_engine.c		\
 				update_engine.c		\
 				write_framerate.c	\
+				set_icon_engine.c	\
 				destroy_engine.c	\
 				)
 

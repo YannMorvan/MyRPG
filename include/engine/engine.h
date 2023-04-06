@@ -51,6 +51,15 @@ sfBool write_framerate(engine_t *engine);
  * @brief Destroy the engine
  *
  * @param engine The engine
+ * @param path The path of the icon
+ * @return sfBool False if an error occurred
+ */
+sfBool set_icon_engine(engine_t *engine, char *path);
+
+/**
+ * @brief Destroy the engine
+ *
+ * @param engine The engine
  */
 void destroy_engine(engine_t *engine);
 

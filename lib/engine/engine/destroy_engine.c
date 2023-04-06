@@ -24,6 +24,8 @@ void destroy_engine(engine_t *engine)
     sfRenderWindow_destroy(engine->window->window);
     sfView_destroy(engine->window->view);
     free(engine->window->name);
+    if (engine->window->icon)
+        sfImage_destroy(engine->window->icon);
     free(engine->window);
     free(engine);
 }

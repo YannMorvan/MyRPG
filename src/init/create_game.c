@@ -19,6 +19,8 @@ game_t *create_game(void)
     game->engine = create_engine(960, 540, "My Rpg", sfDefaultStyle);
     if (!game->engine)
         return NULL;
+    if (!set_icon_engine(game->engine, "./assets/icon/icon_my_rpg.png"))
+        return NULL;
     srand(time(NULL));
     game->player = create_player(game->engine);
     if (!game->player)
