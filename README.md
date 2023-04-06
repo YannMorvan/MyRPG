@@ -16,22 +16,22 @@
 - [ ] A collision system including moving and static elements with different shapes.
 - [ ] Camera movements (zoom, translation, rotation).
 - [ ] 3D effects (depth scaling, isometric projection. . . ).
-- [ ] Buttons must have at least 3 differents state
+- [X] Buttons must have at least 3 differents state
 - [ ] Saving system
 
 ### MUST
 
 #### General
 
-- [ ] The window may be closed using events,
-- [ ] The windows may have differents mode:
-    - [ ] Window mode
-    - [ ] Fullscreen
-- [ ] The windows may have differents resolutions, at least two (1920x1080, and an other)
-- [ ] The game manages inputs from the mouse click and keyboard,
-- [ ] The game contains animated sprites rendered thanks to sprite sheets,
+- [X] The window may be closed using events,
+- [X] The windows may have differents mode:
+    - [X] Window mode
+    - [X] Fullscreen
+- [X] The windows may have differents resolutions, at least two (1920x1080, and an other)
+- [X] The game manages inputs from the mouse click and keyboard,
+- [X] The game contains animated sprites rendered thanks to sprite sheets,
 - [ ] Animations in your program are frame rate independent,
-- [ ] Animations and movements in your program are timed by clocks.
+- [X] Animations and movements in your program are timed by clocks.
 
 #### Main menu
 
