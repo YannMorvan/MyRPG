@@ -10,13 +10,14 @@
 void update_button_texture(button_t *button)
 {
     ui_t offset = 0;
+    sfVector2u size = sfTexture_getSize(
+        button->character->sprite->texture->texture);
+    size.x /= 3;
 
     if (button->state == CLICK)
-        offset = sfTexture_getSize(
-            button->character->sprite->texture->texture).x / 3;
+        offset = size.x;
     else if (button->state == HOVER)
-        offset = sfTexture_getSize(
-            button->character->sprite->texture->texture).x / 3 * 2;
+        offset = size.x * 2;
     sfSprite_setTextureRect(button->character->sprite->sprite,
-        (sfIntRect){(int)offset, 0, 16, 16});
+        (sfIntRect){(int)offset, 0, (int)size.x, (int)size.y});
 }
