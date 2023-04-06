@@ -35,6 +35,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_game.c			\
 				update_player.c			\
 				update_monsters.c		\
+				update_button_texture.c	\
 				)
 
 DIR			+=	$(addprefix $(DIR_SRC), ./display/)

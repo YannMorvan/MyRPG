@@ -37,7 +37,7 @@ typedef struct texture_s {
 } texture_t;
 
 typedef struct sprite_t {
-    texture_t *textures;
+    texture_t *texture;
     sfSprite *sprite;
 } sprite_t;
 

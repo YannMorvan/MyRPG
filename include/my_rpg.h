@@ -120,6 +120,13 @@ void update_player(game_t *game);
  */
 void update_monsters(game_t *game);
 
+/**
+ * @brief Update the button texture
+ *
+ * @param button The button
+ */
+void update_button_texture(button_t *button);
+
 //
 // DISPLAY
 //

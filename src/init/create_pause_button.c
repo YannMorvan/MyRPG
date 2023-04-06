@@ -10,14 +10,7 @@
 
 static void update_pause_button(UNUSED void *component, button_t *button)
 {
-    int offset = 0;
-
-    if (button->state == CLICK)
-        offset = 16;
-    else if (button->state == HOVER)
-        offset = 32;
-    sfSprite_setTextureRect(button->character->sprite->sprite,
-        (sfIntRect){offset, 0, 16, 16});
+    update_button_texture(button);
 }
 
 button_t *create_pause_button(game_t *game)
