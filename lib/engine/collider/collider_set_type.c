@@ -9,5 +9,5 @@
 
 void collider_set_type(collider_t *collider, int type)
 {
-    collider->self_type = type;
+    collider->type = type;
 }

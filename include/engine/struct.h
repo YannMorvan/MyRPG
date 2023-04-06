@@ -26,7 +26,7 @@ typedef enum button_state_s {IDLE = 0, HOVER = 1, CLICK = 2} button_state_t;
 
 typedef struct collider_s {
     sfFloatRect rect;
-    int self_type;
+    int type;
     int collide;
     collider_static_t is_static;
 } collider_t;
