@@ -5,8 +5,8 @@
 ** struct.h
 */
 
-#ifndef MY_RPG_STRUCT_H
-    #define MY_RPG_STRUCT_H
+#ifndef ENGINE_STRUCT_H
+    #define ENGINE_STRUCT_H
 
     #include <SFML/Graphics.h>
 
@@ -29,6 +29,7 @@ typedef struct collider_s {
     int type;
     int collide;
     collider_static_t is_static;
+    list_node_t *node;
 } collider_t;
 
 typedef struct texture_s {
@@ -39,6 +40,7 @@ typedef struct texture_s {
 typedef struct sprite_t {
     texture_t *texture;
     sfSprite *sprite;
+    list_node_t *node;
 } sprite_t;
 
 typedef struct character_s {
@@ -82,6 +84,7 @@ typedef struct engine_s {
     list_t *colliders;
     list_t *buttons;
     mouse_t *mouse;
+    sfBool (*scene)(void *component);
 } engine_t;
 
-#endif /* !MY_RPG_STRUCT_H */
+#endif /* !ENGINE_STRUCT_H */

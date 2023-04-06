@@ -7,7 +7,7 @@
 
 #include <malloc.h>
 
-#include "my_rpg.h"
+#include "my_rpg/game.h"
 
 void destroy_player(player_t *player)
 {

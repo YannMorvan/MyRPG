@@ -5,8 +5,8 @@
 ** mouse.h
 */
 
-#ifndef MY_RPG_MOUSE_H
-    #define MY_RPG_MOUSE_H
+#ifndef ENGINE_MOUSE_H
+    #define ENGINE_MOUSE_H
 
     #include "engine/struct.h"
 
@@ -35,4 +35,4 @@ sfBool event_mouse(engine_t *engine, sfEvent event);
  */
 void update_mouse(engine_t *engine, mouse_t *mouse);
 
-#endif /* !MY_RPG_MOUSE_H */
+#endif /* !ENGINE_MOUSE_H */

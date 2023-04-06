@@ -5,9 +5,7 @@
 ** create_player.c
 */
 
-#include <stdlib.h>
-
-#include "my_rpg.h"
+#include "my_rpg/game.h"
 #include "ice/memory.h"
 
 player_t *create_player(engine_t *engine)
@@ -23,13 +21,7 @@ player_t *create_player(engine_t *engine)
         "player", "./assets/player.png");
     if (!player->character)
         return NULL;
-    sfSprite_setTextureRect(player->character->sprite->sprite,
-        (sfIntRect){0, 0, 16, 21});
-    sfSprite_setScale(player->character->sprite->sprite,
-        (sfVector2f){2, 2});
-    sfSprite_setOrigin(player->character->sprite->sprite,
-        (sfVector2f){8, 10});
-    sfSprite_setPosition(player->character->sprite->sprite, pos);
+    scale_character(player->character, (sfVector2f){2, 2});
     collider_set_type(player->character->collider, COLLIDER_PLAYER);
     return player;
 }

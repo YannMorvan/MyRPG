@@ -5,8 +5,8 @@
 ** engine.h
 */
 
-#ifndef MY_RPG_ENGINE_H
-    #define MY_RPG_ENGINE_H
+#ifndef ENGINE_ENGINE_H
+    #define ENGINE_ENGINE_H
 
     #include "engine/struct.h"
 
@@ -63,4 +63,4 @@ sfBool set_icon_engine(engine_t *engine, char *path);
  */
 void destroy_engine(engine_t *engine);
 
-#endif /* !MY_RPG_ENGINE_H */
+#endif /* !ENGINE_ENGINE_H */

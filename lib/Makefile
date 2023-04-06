@@ -139,6 +139,7 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_character.c		\
 				move_character.c		\
 				scale_character.c		\
+				destroy_character.c		\
 				)
 
 DIR			+= ./engine/collider/
@@ -165,6 +166,12 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_mouse.c		\
 				event_mouse.c		\
 				update_mouse.c		\
+				)
+
+DIR			+= ./engine/scene/
+SRC			+= $(addprefix $(lastword $(DIR)),\
+				scene_is_open.c		\
+				destroy_scene.c		\
 				)
 
 DIR_TEST	:=	../tests/

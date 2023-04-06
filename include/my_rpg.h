@@ -8,117 +8,49 @@
 #ifndef MY_RPG_MY_RPG_H
     #define MY_RPG_MY_RPG_H
 
-    #include "engine/window.h"
-    #include "engine/engine.h"
-    #include "engine/sprite.h"
-    #include "engine/texture.h"
-    #include "engine/character.h"
-    #include "engine/collider.h"
-    #include "engine/button.h"
-
-    #define EVENT(game) game->engine->event
-    #define WINDOW(game) game->engine->window->window
+    #include "my_rpg/struct.h"
 
 //
-// STRUCT
-//
-
-typedef struct monster_s {
-    character_t *character;
-    int speed;
-} monster_t;
-
-typedef struct player_s {
-    character_t *character;
-    int speed;
-    sfVector2f velocity;
-} player_t;
-
-typedef struct game_s {
-    engine_t *engine;
-    player_t *player;
-    list_t *monsters;
-} game_t;
-
-//
-// CREATE
+// Main functions
 //
 
 /**
- * @brief Create a game object
+ * @brief Create the rpg
  *
- * @return game_t* The game
+ * @return rpg_t* The rpg
  */
-game_t *create_game(void);
+rpg_t *create_rpg(void);
 
 /**
- * @brief Create a player object
+ * @brief Event of the rpg
  *
- * @param engine The engine
- * @return player_t* The player
+ * @param rpg The rpg
  */
-player_t *create_player(engine_t *engine);
-
-/**
- * @brief Create a pause button
- *
- * @param game The game
- * @return button_t* The button
- */
-button_t *create_pause_button(game_t *game);
-
-/**
- * @brief Create a monster object
- *
- * @param engine The engine
- * @return monster_t* The monster
- */
-sfBool add_monster(game_t *game);
-
+void destroy_rpg(rpg_t *rpg);
 
 //
-// EVENT
+// Scene
 //
 
 /**
- * @brief Handle the events of the game
+ * @brief Create the home scene
  *
- * @param game The game
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
  */
-void event_game(game_t *game);
+sfBool home(void *component);
 
 /**
- * @brief Handle the events of the player
+ * @brief Create the game scene
  *
- * @param game The game
- * @param event The event
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
  */
-void event_player(game_t *game, sfEvent event);
+sfBool game(void *component);
 
 //
-// UPDATE
+// Update
 //
-
-/**
- * @brief Update the game
- *
- * @param game The game
- */
-void update_game(game_t *game);
-
-/**
- * @brief Update the player
- *
- * @param game The game
- */
-void update_player(game_t *game);
-
-/**
- * @brief Update the monsters
- *
- * @param game The game
- */
-void update_monsters(game_t *game);
 
 /**
  * @brief Update the button texture
@@ -126,41 +58,5 @@ void update_monsters(game_t *game);
  * @param button The button
  */
 void update_button_texture(button_t *button);
-
-//
-// DISPLAY
-//
-
-/**
- * @brief Display the game
- *
- * @param game The game
- */
-void display_game(game_t *game);
-
-//
-// DESTROY
-//
-
-/**
- * @brief Destroy the game
- *
- * @param game The game
- */
-void destroy_game(game_t *game);
-
-/**
- * @brief Destroy the player
- *
- * @param player The player
- */
-void destroy_player(player_t *player);
-
-/**
- * @brief Destroy the monster
- *
- * @param monster The monster
- */
-void destroy_monster(monster_t *monster);
 
 #endif /* !MY_RPG_MY_RPG_H */

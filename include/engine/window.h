@@ -5,11 +5,16 @@
 ** window.h
 */
 
-#ifndef MY_RPG_WINDOW_H
-    #define MY_RPG_WINDOW_H
+#ifndef ENGINE_WINDOW_H
+    #define ENGINE_WINDOW_H
 
     #include "engine/struct.h"
 
+/**
+ * @brief Clear the window and update the responsive of the window
+ *
+ * @param engine The engine
+ */
 void clear_window(engine_t *engine);
 
-#endif /* !MY_RPG_WINDOW_H */
+#endif /* !ENGINE_WINDOW_H */

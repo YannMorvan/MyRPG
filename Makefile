@@ -10,44 +10,70 @@ NAME		:=	my_rpg
 LIB			:=	./lib/
 
 DIR_SRC		:=	./src/
+DIR_SCENES	:=	$(addprefix $(DIR_SRC), ./scenes/)
 
 DIR			:=	$(DIR_SRC)
 SRC			:=	$(addprefix $(DIR),\
 				main.c				\
 				)
 
-DIR			+=	$(addprefix $(DIR_SRC), ./init/)
+DIR			+=	$(addprefix $(DIR_SRC), ./rpg/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_game.c			\
-				create_player.c			\
-				create_pause_button.c	\
-				add_monster.c			\
-				)
-
-DIR			+=	$(addprefix $(DIR_SRC), ./event/)
-SRC			+=	$(addprefix $(lastword $(DIR)),\
-				event_game.c			\
-				event_player.c			\
+				create_rpg.c			\
+				destroy_rpg.c			\
 				)
 
 DIR			+=	$(addprefix $(DIR_SRC), ./update/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				update_game.c			\
-				update_player.c			\
-				update_monsters.c		\
-				update_button_texture.c	\
+				update_button_texture.c		\
 				)
 
-DIR			+=	$(addprefix $(DIR_SRC), ./display/)
+DIR			+=	$(addprefix $(DIR_SCENES), ./home/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				display_game.c			\
+				home.c				\
+				create_home.c		\
+				event_home.c		\
+				update_home.c		\
+				display_home.c		\
+				destroy_home.c		\
 				)
 
-DIR			+=	$(addprefix $(DIR_SRC), ./destroy/)
+DIR			+=	$(addprefix $(DIR_SCENES), ./home/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				destroy_game.c			\
-				destroy_player.c		\
-				destroy_monster.c		\
+				create_start_button.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				game.c				\
+				create_game.c		\
+				event_game.c		\
+				update_game.c		\
+				display_game.c		\
+				destroy_game.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/player/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_player.c		\
+				event_player.c		\
+				update_player.c		\
+				destroy_player.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/monsters/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				destroy_monster.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/monsters/slime/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_slime.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/menu/buttons/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_pause_button.c	\
 				)
 
 DIR_TEST	:=	./tests/

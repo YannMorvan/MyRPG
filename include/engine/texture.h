@@ -5,8 +5,8 @@
 ** textures.h
 */
 
-#ifndef MY_RPG_TEXTURE_H
-    #define MY_RPG_TEXTURE_H
+#ifndef ENGINE_TEXTURE_H
+    #define ENGINE_TEXTURE_H
 
     #include "engine/struct.h"
 
@@ -36,4 +36,4 @@ texture_t *get_texture(engine_t *engine, char *name);
  */
 void destroy_texture(texture_t *texture);
 
-#endif /* !MY_RPG_TEXTURE_H */
+#endif /* !ENGINE_TEXTURE_H */
