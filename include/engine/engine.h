@@ -27,8 +27,9 @@ engine_t *create_engine(ui_t width, ui_t height,
  *
  * @param engine The engine
  * @param event The event
+ * @return sfBool True if the event is handled
  */
-void event_engine(engine_t *engine, sfEvent event);
+sfBool event_engine(engine_t *engine, sfEvent event);
 
 /**
  * @brief Update the engine

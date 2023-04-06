@@ -23,8 +23,9 @@ mouse_t *create_mouse(engine_t *engine);
  *
  * @param engine The engine
  * @param event The event
+ * @return sfBool True if the event is handled
  */
-void event_mouse(engine_t *engine, sfEvent event);
+sfBool event_mouse(engine_t *engine, sfEvent event);
 
 /**
  * @brief Update the mouse
