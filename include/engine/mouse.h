@@ -19,6 +19,14 @@
 mouse_t *create_mouse(engine_t *engine);
 
 /**
+ * @brief Event of the mouse
+ *
+ * @param engine The engine
+ * @param event The event
+ */
+void event_mouse(engine_t *engine, sfEvent event);
+
+/**
  * @brief Update the mouse
  *
  * @param engine The engine

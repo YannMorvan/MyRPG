@@ -5,20 +5,9 @@
 ** event_engine.c
 */
 
-#include "engine/struct.h"
+#include "engine/mouse.h"
 
 void event_engine(engine_t *engine, sfEvent event)
 {
-    if (event.type == sfEvtMouseButtonPressed) {
-        if (event.mouseButton.button == sfMouseLeft)
-            engine->mouse->left = true;
-        if (event.mouseButton.button == sfMouseRight)
-            engine->mouse->right = true;
-    }
-    if (event.type == sfEvtMouseButtonReleased) {
-        if (event.mouseButton.button == sfMouseLeft)
-            engine->mouse->left = false;
-        if (event.mouseButton.button == sfMouseRight)
-            engine->mouse->right = false;
-    }
+    event_mouse(engine, event);
 }
