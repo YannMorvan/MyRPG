@@ -66,7 +66,6 @@ typedef struct button_s {
     character_t *character;
     button_state_t state;
     void (*update)(void *component, struct button_s *button);
-    char *name;
 } button_t;
 
 typedef struct buttons_s {

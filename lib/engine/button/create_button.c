@@ -16,9 +16,6 @@ button_t *create_button(engine_t *engine, sfVector2f pos,
 
     if (!button)
         return NULL;
-    button->name = name;
-    if (!button->name)
-        return NULL;
     button->character = create_character(engine, pos, name, path);
     if (!button->character)
         return NULL;
