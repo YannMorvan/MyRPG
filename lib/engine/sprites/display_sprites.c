@@ -10,9 +10,9 @@
 void display_sprites(engine_t *engine)
 {
     list_t *sprites = engine->sprites->sprites;
-    sprite_t *sprite = NULL;
+    sprite_t *sprite;
 
-    for (list_node_t *node = sprites->head; node != NULL; node = node->next) {
+    for (list_node_t *node = sprites->head; node; node = node->next) {
         sprite = node->value;
         sfRenderWindow_drawSprite(engine->window->window, sprite->sprite, NULL);
     }

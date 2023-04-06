@@ -27,7 +27,7 @@ sfBool is_collide(list_t *colliders, collider_t *collider)
 
 void update_collision(engine_t *engine)
 {
-    collider_t *collider = NULL;
+    collider_t *collider;
 
     for (list_node_t *node = engine->colliders->colliders->head; node;
         node = node->next) {
