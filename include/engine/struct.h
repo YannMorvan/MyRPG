@@ -27,10 +27,6 @@ typedef enum collider_collision_s {NO_COLLISION = 0, COLLISION = 1}
 
 typedef enum button_state_s {IDLE = 0, HOVER = 1, CLICK = 2} button_state_t;
 
-typedef struct colliders_s {
-    list_t *colliders;
-} colliders_t;
-
 typedef struct collider_s {
     sfFloatRect rect;
     int self_type;
@@ -44,18 +40,10 @@ typedef struct texture_s {
     sfTexture *texture;
 } texture_t;
 
-typedef struct textures_s {
-    list_t *textures;
-} textures_t;
-
 typedef struct sprite_t {
     texture_t *textures;
     sfSprite *sprite;
 } sprite_t;
-
-typedef struct sprites_s {
-    list_t *sprites;
-} sprites_t;
 
 typedef struct character_s {
     sprite_t *sprite;
@@ -67,10 +55,6 @@ typedef struct button_s {
     button_state_t state;
     void (*update)(void *component, struct button_s *button);
 } button_t;
-
-typedef struct buttons_s {
-    list_t *buttons;
-} buttons_t;
 
 typedef struct mouse_s {
     sfVector2i pos;
@@ -96,10 +80,10 @@ typedef struct engine_s {
     window_t *window;
     delta_time_t *time;
     sfEvent event;
-    textures_t *textures;
-    sprites_t *sprites;
-    colliders_t *colliders;
-    buttons_t *buttons;
+    list_t *textures;
+    list_t *sprites;
+    list_t *colliders;
+    list_t *buttons;
     mouse_t *mouse;
 } engine_t;
 

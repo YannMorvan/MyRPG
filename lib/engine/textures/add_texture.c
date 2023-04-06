@@ -12,7 +12,7 @@
 
 texture_t *add_texture(engine_t *engine, char *name, char *path)
 {
-    list_t *textures = engine->textures->textures;
+    list_t *textures = engine->textures;
     texture_t *texture = malloc(sizeof(texture_t));
 
     if (texture == NULL)

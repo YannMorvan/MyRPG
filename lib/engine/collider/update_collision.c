@@ -29,15 +29,15 @@ void update_collision(engine_t *engine)
 {
     collider_t *collider;
 
-    for (list_node_t *node = engine->colliders->colliders->head; node;
+    for (list_node_t *node = engine->colliders->head; node;
         node = node->next) {
         collider = node->value;
         collider->is_collide = NO_COLLISION;
         collider->collide_type = COLLIDER_NONE;
     }
-    for (list_node_t *node = engine->colliders->colliders->head; node;
+    for (list_node_t *node = engine->colliders->head; node;
         node = node->next) {
         collider = node->value;
-        is_collide(engine->colliders->colliders, collider);
+        is_collide(engine->colliders, collider);
     }
 }

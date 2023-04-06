@@ -14,14 +14,10 @@
 
 void destroy_engine(engine_t *engine)
 {
-    list_destroy_node(engine->textures->textures, (void *)destroy_texture);
-    list_destroy_node(engine->sprites->sprites, (void *)destroy_sprite);
-    list_destroy_node(engine->colliders->colliders, free);
-    list_destroy_node(engine->buttons->buttons, (void *)destroy_button);
-    free(engine->textures);
-    free(engine->sprites);
-    free(engine->colliders);
-    free(engine->buttons);
+    list_destroy_node(engine->textures, (void *)destroy_texture);
+    list_destroy_node(engine->sprites, (void *)destroy_sprite);
+    list_destroy_node(engine->colliders, free);
+    list_destroy_node(engine->buttons, (void *)destroy_button);
     sfClock_destroy(engine->time->clock);
     free(engine->time);
     free(engine->mouse);

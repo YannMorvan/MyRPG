@@ -9,7 +9,6 @@
 
 #include "ice/string.h"
 #include "engine/mouse.h"
-#include "engine/sprite.h"
 
 static window_t *create_window(ui_t width, ui_t height,
     const char *name, sfUint32 style)
@@ -31,25 +30,20 @@ static window_t *create_window(ui_t width, ui_t height,
 
 static sfBool engine_malloc(engine_t *engine)
 {
-    engine->textures = malloc(sizeof(textures_t));
-    engine->sprites = malloc(sizeof(sprites_t));
-    engine->colliders = malloc(sizeof(colliders_t));
-    engine->buttons = malloc(sizeof(buttons_t));
     engine->time = malloc(sizeof(delta_time_t));
-    return engine->textures && engine->sprites && engine->colliders
-        && engine->buttons && engine->time;
+    return engine->time != NULL;
 }
 
 static sfBool engine_create(engine_t *engine)
 {
-    engine->textures->textures = list_create();
-    engine->sprites->sprites = list_create();
-    engine->colliders->colliders = list_create();
-    engine->buttons->buttons = list_create();
+    engine->textures = list_create();
+    engine->sprites = list_create();
+    engine->colliders = list_create();
+    engine->buttons = list_create();
     engine->time->clock = sfClock_create();
     engine->mouse = create_mouse(engine);
-    return engine->textures->textures && engine->sprites->sprites
-        && engine->colliders->colliders && engine->buttons->buttons
+    return engine->textures && engine->sprites
+        && engine->colliders && engine->buttons
         && engine->time->clock && engine->mouse;
 }
 
@@ -69,5 +63,6 @@ engine_t *create_engine(ui_t width, ui_t height,
         (float)width, (float)height});
     if (!engine->window->view)
         return NULL;
+    sfRenderWindow_setView(engine->window->window, engine->window->view);
     return engine;
 }

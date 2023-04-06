@@ -14,6 +14,6 @@ collider_t *create_collider(engine_t *engine, sfFloatRect rect,
     collider_t *collider = ice_calloc(1, sizeof(collider_t));
 
     *collider = (collider_t){rect, type, COLLIDER_NONE, NO_COLLISION, state};
-    list_add(engine->colliders->colliders, collider);
+    list_add(engine->colliders, collider);
     return collider;
 }

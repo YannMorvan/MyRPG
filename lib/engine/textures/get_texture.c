@@ -10,7 +10,7 @@
 
 texture_t *get_texture(engine_t *engine, char *name)
 {
-    list_t *textures = engine->textures->textures;
+    list_t *textures = engine->textures;
     texture_t *texture = NULL;
 
     for (list_node_t *node = textures->head; node != NULL; node = node->next) {

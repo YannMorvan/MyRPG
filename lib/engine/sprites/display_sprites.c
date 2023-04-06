@@ -9,7 +9,7 @@
 
 void display_sprites(engine_t *engine)
 {
-    list_t *sprites = engine->sprites->sprites;
+    list_t *sprites = engine->sprites;
     sprite_t *sprite;
 
     for (list_node_t *node = sprites->head; node; node = node->next) {

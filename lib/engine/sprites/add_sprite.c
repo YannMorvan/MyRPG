@@ -20,7 +20,7 @@ sprite_t *add_sprite(engine_t *engine, char *name)
     if (!new_sprite->sprite)
         return NULL;
     sfSprite_setTexture(new_sprite->sprite, texture->texture, sfTrue);
-    if (list_add(engine->sprites->sprites, new_sprite))
+    if (list_add(engine->sprites, new_sprite))
         return NULL;
     return new_sprite;
 }
