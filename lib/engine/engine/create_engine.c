@@ -34,9 +34,10 @@ static sfBool engine_malloc(engine_t *engine)
     engine->textures = malloc(sizeof(textures_t));
     engine->sprites = malloc(sizeof(sprites_t));
     engine->colliders = malloc(sizeof(colliders_t));
+    engine->buttons = malloc(sizeof(buttons_t));
     engine->time = malloc(sizeof(delta_time_t));
     return engine->textures && engine->sprites && engine->colliders
-        && engine->time;
+        && engine->buttons && engine->time;
 }
 
 static sfBool engine_create(engine_t *engine)
@@ -44,10 +45,12 @@ static sfBool engine_create(engine_t *engine)
     engine->textures->textures = list_create();
     engine->sprites->sprites = list_create();
     engine->colliders->colliders = list_create();
+    engine->buttons->buttons = list_create();
     engine->time->clock = sfClock_create();
     engine->mouse = create_mouse(engine);
     return engine->textures->textures && engine->sprites->sprites
-        && engine->colliders->colliders && engine->time->clock && engine->mouse;
+        && engine->colliders->colliders && engine->buttons->buttons
+        && engine->time->clock && engine->mouse;
 }
 
 engine_t *create_engine(ui_t width, ui_t height,

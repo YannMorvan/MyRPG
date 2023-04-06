@@ -112,6 +112,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+= ./engine/engine/
 SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_engine.c		\
+				event_engine.c		\
 				update_engine.c		\
 				write_framerate.c	\
 				destroy_engine.c	\
@@ -136,6 +137,7 @@ DIR			+= ./engine/character/
 SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_character.c		\
 				move_character.c		\
+				scale_character.c		\
 				)
 
 DIR			+= ./engine/collider/
@@ -143,6 +145,12 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_collider.c		\
 				update_collision.c		\
 				collider_set_type.c		\
+				)
+
+DIR			+= ./engine/button/
+SRC			+= $(addprefix $(lastword $(DIR)),\
+				create_button.c			\
+				update_buttons.c		\
 				)
 
 DIR			+= ./engine/window/

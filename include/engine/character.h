@@ -31,4 +31,12 @@ character_t *create_character(engine_t *engine, sfVector2f pos,
 void move_character(engine_t *engine, character_t *character,
     sfVector2f offset);
 
+/**
+ * @brief Destroy a character object
+ *
+ * @param character The character
+ * @param scale The scale
+ */
+void scale_character(character_t *character, sfVector2f scale);
+
 #endif /* !MY_RPG_CHARACTER_H */

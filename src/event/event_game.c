@@ -16,6 +16,7 @@ static void event_key_pressed(game_t *game)
 void event_game(game_t *game)
 {
     while (sfRenderWindow_pollEvent(WINDOW(game), &EVENT(game))) {
+        event_engine(game->engine, EVENT(game));
         event_player(game, EVENT(game));
         switch (EVENT(game).type) {
             case sfEvtClosed: sfRenderWindow_close(WINDOW(game)); break;

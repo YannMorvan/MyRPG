@@ -18,11 +18,14 @@
     #define COLLIDER_MONSTER 0b00000100
     #define COLLIDER_WALL 0b00001000
     #define COLLIDER_SPELL 0b00010000
+    #define COLLIDER_BUTTON 0b00100000
 
 typedef enum collider_static_s {MOVING = 0, STATIC = 1} collider_static_t;
 
 typedef enum collider_collision_s {NO_COLLISION = 0, COLLISION = 1}
     collider_collision_t;
+
+typedef enum button_state_s {IDLE = 0, HOVER = 1, CLICK = 2} button_state_t;
 
 typedef struct colliders_s {
     list_t *colliders;
@@ -59,10 +62,23 @@ typedef struct character_s {
     collider_t *collider;
 } character_t;
 
+typedef struct button_s {
+    character_t *character;
+    button_state_t state;
+    void (*update)(void *component, struct button_s *button);
+    char *name;
+} button_t;
+
+typedef struct buttons_s {
+    list_t *buttons;
+} buttons_t;
+
 typedef struct mouse_s {
     sfVector2i pos;
     sfVector2f posf;
     collider_t *collider;
+    sfBool left;
+    sfBool right;
 } mouse_t;
 
 typedef struct delta_time_s {
@@ -84,6 +100,7 @@ typedef struct engine_s {
     textures_t *textures;
     sprites_t *sprites;
     colliders_t *colliders;
+    buttons_t *buttons;
     mouse_t *mouse;
 } engine_t;
 

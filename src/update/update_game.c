@@ -9,7 +9,7 @@
 
 void update_game(game_t *game)
 {
-    update_engine(game->engine);
+    update_engine(game->engine, game);
     update_player(game);
     update_monsters(game);
     update_collision(game->engine);

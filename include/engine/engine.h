@@ -23,11 +23,20 @@ engine_t *create_engine(ui_t width, ui_t height,
     const char *name, sfUint32 style);
 
 /**
+ * @brief Create the engine
+ *
+ * @param engine The engine
+ * @param event The event
+ */
+void event_engine(engine_t *engine, sfEvent event);
+
+/**
  * @brief Update the engine
  *
  * @param engine The engine
+ * @param component The component
  */
-void update_engine(engine_t *engine);
+void update_engine(engine_t *engine, void *component);
 
 /**
  * @brief Destroy the engine

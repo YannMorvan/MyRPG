@@ -14,6 +14,7 @@
     #include "engine/texture.h"
     #include "engine/character.h"
     #include "engine/collider.h"
+    #include "engine/button.h"
 
     #define EVENT(game) game->engine->event
     #define WINDOW(game) game->engine->window->window
@@ -57,6 +58,14 @@ game_t *create_game(void);
  * @return player_t* The player
  */
 player_t *create_player(engine_t *engine);
+
+/**
+ * @brief Create a pause button
+ *
+ * @param game The game
+ * @return button_t* The button
+ */
+button_t *create_pause_button(game_t *game);
 
 /**
  * @brief Create a monster object

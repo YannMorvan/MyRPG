@@ -27,5 +27,7 @@ game_t *create_game(void)
     if (!game->monsters)
         return NULL;
     sfRenderWindow_setFramerateLimit(WINDOW(game), 60);
+    if (!create_pause_button(game))
+        return NULL;
     return game;
 }
