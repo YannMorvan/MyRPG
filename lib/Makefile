@@ -164,7 +164,6 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_mouse.c		\
 				event_mouse.c		\
 				update_mouse.c		\
-				destroy_mouse.c		\
 				)
 
 DIR_TEST	:=	../tests/

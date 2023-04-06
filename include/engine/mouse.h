@@ -34,11 +34,4 @@ void event_mouse(engine_t *engine, sfEvent event);
  */
 void update_mouse(engine_t *engine, mouse_t *mouse);
 
-/**
- * @brief Destroy a mouse object
- *
- * @param mouse The mouse
- */
-void destroy_mouse(mouse_t *mouse);
-
 #endif /* !MY_RPG_MOUSE_H */
