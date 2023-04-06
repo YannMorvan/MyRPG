@@ -22,16 +22,12 @@
 
 typedef enum collider_static_s {MOVING = 0, STATIC = 1} collider_static_t;
 
-typedef enum collider_collision_s {NO_COLLISION = 0, COLLISION = 1}
-    collider_collision_t;
-
 typedef enum button_state_s {IDLE = 0, HOVER = 1, CLICK = 2} button_state_t;
 
 typedef struct collider_s {
     sfFloatRect rect;
     int self_type;
-    int collide_type;
-    collider_collision_t is_collide;
+    int collide;
     collider_static_t is_static;
 } collider_t;
 

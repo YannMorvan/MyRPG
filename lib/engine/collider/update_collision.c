@@ -15,10 +15,8 @@ sfBool is_collide(list_t *colliders, collider_t *collider)
             continue;
         if (sfFloatRect_intersects(&collider->rect, &collider2->rect,
             NULL)) {
-            collider->is_collide = COLLISION;
-            collider->collide_type |= collider2->self_type;
-            collider2->is_collide = COLLISION;
-            collider2->collide_type |= collider->self_type;
+            collider->collide |= collider2->self_type;
+            collider2->collide |= collider->self_type;
             return sfTrue;
         }
     }
@@ -27,15 +25,8 @@ sfBool is_collide(list_t *colliders, collider_t *collider)
 
 void update_collision(engine_t *engine)
 {
-    collider_t *collider;
-
-    for (list_node_t *node = engine->colliders->head; node; node = node->next) {
-        collider = node->value;
-        collider->is_collide = NO_COLLISION;
-        collider->collide_type = COLLIDER_NONE;
-    }
-    for (list_node_t *node = engine->colliders->head; node; node = node->next) {
-        collider = node->value;
-        is_collide(engine->colliders, collider);
-    }
+    for (list_node_t *node = engine->colliders->head; node; node = node->next)
+        ((collider_t *)node->value)->collide = COLLIDER_NONE;
+    for (list_node_t *node = engine->colliders->head; node; node = node->next)
+        is_collide(engine->colliders, node->value);
 }
