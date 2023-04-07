@@ -14,8 +14,8 @@
 ### TECHNICAL REQUIREMENTS
 
 - [ ] A collision system including moving and static elements with different shapes.
-- [ ] Camera movements (zoom, translation, rotation).
-- [ ] 3D effects (depth scaling, isometric projection. . . ).
+- [X] Camera movements (zoom, translation, rotation).
+- [X] 3D effects (depth scaling, isometric projection. . . ).
 - [X] Buttons must have at least 3 differents state
 - [ ] Saving system
 
@@ -59,7 +59,7 @@
 
 ### SHOULD
 
-- [ ] Splash screen at the beginning
+- [X] Splash screen at the beginning
 - [ ] Command edit into the in game menu
 - [ ] As much information as possible about the game should be stored in a configuration file.
 - [ ] The game should have an advanced collision system to manage complex fighting.
