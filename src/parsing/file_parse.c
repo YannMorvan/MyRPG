@@ -6,7 +6,6 @@
 */
 
 #include <malloc.h>
-#include <sys/stat.h>
 
 #include "my_rpg.h"
 #include "ice/int.h"
