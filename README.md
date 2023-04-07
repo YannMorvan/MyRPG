@@ -61,7 +61,7 @@
 
 - [X] Splash screen at the beginning
 - [ ] Command edit into the in game menu
-- [ ] As much information as possible about the game should be stored in a configuration file.
+- [X] As much information as possible about the game should be stored in a configuration file.
 - [ ] The game should have an advanced collision system to manage complex fighting.
 - [ ] The game should contain simple particle system:
     - [ ] with at least 2 types of particle,
