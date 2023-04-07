@@ -23,6 +23,13 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				destroy_rpg.c			\
 				)
 
+DIR			+=	$(addprefix $(DIR_SRC), ./parsing/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				file_parse.c			\
+				get_parse.c				\
+				destroy_parse.c			\
+				)
+
 DIR			+=	$(addprefix $(DIR_SRC), ./update/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_button_texture.c		\
