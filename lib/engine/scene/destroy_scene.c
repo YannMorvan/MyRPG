@@ -21,6 +21,7 @@ static sfBool engine_list_create(engine_t *engine)
 
 sfBool destroy_scene(engine_t *engine)
 {
+    display_splash_screen(engine);
     list_destroy_node(engine->textures, (void *)destroy_texture);
     list_destroy_node(engine->sprites, (void *)destroy_sprite);
     list_destroy_node(engine->colliders, free);

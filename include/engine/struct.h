@@ -67,12 +67,19 @@ typedef struct delta_time_s {
     float delta;
 } delta_time_t;
 
+typedef struct splash_screen_s {
+    sfColor color;
+    sfTexture *texture;
+    sfSprite *sprite;
+} splash_screen_t;
+
 typedef struct window_s {
     sfRenderWindow *window;
     sfVideoMode mode;
     char *name;
     sfView *view;
     sfImage *icon;
+    splash_screen_t *splash_screen;
 } window_t;
 
 typedef struct engine_s {

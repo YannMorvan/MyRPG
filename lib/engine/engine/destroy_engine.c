@@ -8,6 +8,7 @@
 #include <malloc.h>
 
 #include "engine/mouse.h"
+#include "engine/window.h"
 #include "engine/button.h"
 #include "engine/sprite.h"
 #include "engine/texture.h"
@@ -19,13 +20,8 @@ void destroy_engine(engine_t *engine)
     list_destroy_node(engine->colliders, free);
     list_destroy_node(engine->buttons, (void *)destroy_button);
     sfClock_destroy(engine->time->clock);
+    destroy_window(engine);
     free(engine->time);
     free(engine->mouse);
-    sfRenderWindow_destroy(engine->window->window);
-    sfView_destroy(engine->window->view);
-    free(engine->window->name);
-    if (engine->window->icon)
-        sfImage_destroy(engine->window->icon);
-    free(engine->window);
     free(engine);
 }

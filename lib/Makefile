@@ -158,7 +158,10 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 
 DIR			+= ./engine/window/
 SRC			+= $(addprefix $(lastword $(DIR)),\
-				clear_window.c		\
+				clear_window.c			\
+				set_splash_screen.c		\
+				display_splash_screen.c	\
+				destroy_window.c		\
 				)
 
 DIR			+= ./engine/mouse/

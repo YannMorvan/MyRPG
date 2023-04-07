@@ -20,6 +20,9 @@ rpg_t *create_rpg(void)
         return NULL;
     if (!set_icon_engine(rpg->engine, "./assets/icon/icon_my_rpg.png"))
         return NULL;
+    set_splash_screen(rpg->engine, 5, sfBlack,
+        "./assets/icon/icon_large_my_rpg.png");
+    display_splash_screen(rpg->engine);
     srand(time(NULL));
     sfRenderWindow_setFramerateLimit(WINDOW(rpg), 60);
     rpg->engine->scene = home;
