@@ -16,7 +16,7 @@
 
 static char *read_file(char *path)
 {
-    FILE *file = fopen( path, "r");
+    FILE *file = fopen(path, "r");
     struct stat st;
     char *buffer = NULL;
 
