@@ -43,6 +43,13 @@ void scale_character(character_t *character, sfVector2f scale);
  * @brief Destroy a character object
  *
  * @param character The character
+ */
+void center_character(character_t *character);
+
+/**
+ * @brief Destroy a character object
+ *
+ * @param character The character
  * @param rect The rect
  */
 void set_rect_character(character_t *character, sfIntRect rect);

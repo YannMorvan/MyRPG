@@ -37,6 +37,7 @@ sfBool create_slime(rpg_t *rpg, game_t *game)
         "slime", "./assets/slime.png");
     if (!monster->character)
         return sfFalse;
+    center_character(monster->character);
     monster->update = update_slime;
     monster->destroy = destroy_slime;
     collider_set_type(monster->character->collider, COLLIDER_MONSTER);

@@ -23,6 +23,7 @@ player_t *create_player(engine_t *engine)
         return NULL;
     scale_character(player->character, (sfVector2f){2, 2});
     set_rect_character(player->character, (sfIntRect){0, 0, 16, 21});
+    center_character(player->character);
     collider_set_type(player->character->collider, COLLIDER_PLAYER);
     return player;
 }
