@@ -12,7 +12,7 @@
 sfBool destroy_game(rpg_t *rpg)
 {
     destroy_player(GAME(rpg)->player);
-    list_destroy(GAME(rpg)->monsters);
+    destroy_monsters(rpg);
     free(GAME(rpg));
     return destroy_scene(rpg->engine);
 }

@@ -64,6 +64,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+=	$(addprefix $(DIR_SCENES), ./game/monsters/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_monsters.c	\
+				destroy_monsters.c	\
 				destroy_monster.c	\
 				)
 
