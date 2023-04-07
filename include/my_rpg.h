@@ -33,6 +33,14 @@ void destroy_rpg(rpg_t *rpg);
 //
 
 /**
+ * @brief Read a file
+ *
+ * @param path The path of the file
+ * @return char* The content of the file
+ */
+char *read_file(char *path);
+
+/**
  * @brief Parse a file
  *
  * @param path The path of the file

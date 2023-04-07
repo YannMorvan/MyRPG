@@ -25,6 +25,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_SRC), ./parsing/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
+				read_file.c				\
 				file_parse.c			\
 				get_parse.c				\
 				destroy_parse.c			\
