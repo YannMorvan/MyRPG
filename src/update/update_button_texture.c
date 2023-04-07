@@ -18,6 +18,6 @@ void update_button_texture(button_t *button)
         offset = size.x;
     else if (button->state == HOVER)
         offset = size.x * 2;
-    sfSprite_setTextureRect(button->character->sprite->sprite,
-        (sfIntRect){(int)offset, 0, (int)size.x, (int)size.y});
+    set_rect_character(button->character, (sfIntRect){(int)offset, 0,
+        (int)size.x, (int)size.y});
 }

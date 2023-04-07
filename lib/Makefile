@@ -139,6 +139,7 @@ SRC			+= $(addprefix $(lastword $(DIR)),\
 				create_character.c		\
 				move_character.c		\
 				scale_character.c		\
+				set_rect_character.c	\
 				destroy_character.c		\
 				)
 
