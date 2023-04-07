@@ -119,6 +119,13 @@ void destroy_player(player_t *player);
 //
 
 /**
+ * @brief Update the monsters
+ *
+ * @param rpg The rpg
+ */
+void update_monsters(rpg_t *rpg);
+
+/**
  * @brief Update the monster
  *
  * @param rpg The rpg

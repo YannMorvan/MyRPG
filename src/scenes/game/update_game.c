@@ -11,10 +11,6 @@ void update_game(rpg_t *rpg)
 {
     update_engine(rpg->engine, rpg);
     update_player(rpg);
-    list_node_t *next;
-    for (list_node_t *node = GAME(rpg)->monsters->head; node; node = next) {
-        next = node->next;
-        ((monster_t *)node->value)->update(rpg, node->value, node);
-    }
+    update_monsters(rpg);
     write_framerate(rpg->engine);
 }
