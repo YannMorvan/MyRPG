@@ -61,6 +61,13 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				destroy_game.c		\
 				)
 
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/map/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				load_map.c		\
+				set_wall.c		\
+				set_floor.c		\
+				)
+
 DIR			+=	$(addprefix $(DIR_SCENES), ./game/player/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_player.c		\
@@ -100,7 +107,7 @@ RM			:=	rm -rf
 MAKE		:=	make -sC$(LIB) -j
 
 CC			:=	gcc
-CFLAGS		:=	-I./include/ -Wall -Wextra
+CFLAGS		:=	-I./include/ -Wall -Wextra -g
 LDFLAGS		:=	-L$(LIB)
 LDLIBS		:=	-lice -lm -lcsfml-graphics -lcsfml-system
 

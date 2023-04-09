@@ -80,6 +80,39 @@ void display_game(rpg_t *rpg);
 sfBool destroy_game(rpg_t *rpg);
 
 //
+// Map
+//
+
+/**
+ * @brief Load the map
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool load_map(rpg_t *rpg);
+
+/**
+ * @brief Set the floor
+ *
+ * @param rpg The rpg
+ * @param x The x
+ * @param y The y
+ * @return sfBool False if an error occurred
+ */
+sfBool set_floor(rpg_t *rpg, int x, int y);
+
+/**
+ * @brief Set the wall
+ *
+ * @param rpg The rpg
+ * @param map The map
+ * @param x The x
+ * @param y The y
+ * @return sfBool False if an error occurred
+ */
+sfBool set_wall(rpg_t *rpg, char **map, int x, int y);
+
+//
 // Player
 //
 

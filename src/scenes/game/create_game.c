@@ -14,6 +14,8 @@ game_t *create_game(rpg_t *rpg)
 
     if (!game)
         return NULL;
+    if (!load_map(rpg))
+        return sfFalse;
     game->player = create_player(rpg->engine);
     if (!game->player)
         return NULL;
