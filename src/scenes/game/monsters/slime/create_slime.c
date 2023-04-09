@@ -15,7 +15,7 @@ static void update_slime(rpg_t *rpg, monster_t *monster, list_node_t *node)
     slime_t *slime = monster->component;
 
     move_character(rpg->engine, monster->character, slime->speed);
-    if (monster->character->collider->collide == COLLIDER_PLAYER)
+    if (monster->character->collider->collide & COLLIDER_PLAYER)
         destroy_monster(rpg, monster, node);
 }
 
