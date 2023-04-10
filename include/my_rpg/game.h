@@ -92,25 +92,24 @@ sfBool destroy_game(rpg_t *rpg);
 sfBool load_map(rpg_t *rpg);
 
 /**
- * @brief Set the floor
+ * @brief Get the tile position
  *
- * @param rpg The rpg
- * @param x The x
- * @param y The y
- * @return sfBool False if an error occurred
+ * @param pos The position
+ * @param offset The offset
+ * @return sfVector2f The tile position
  */
-sfBool set_floor(rpg_t *rpg, int x, int y);
+sfVector2f get_tile_pos(sfVector2i pos, sfVector2i offset);
 
 /**
  * @brief Set the wall
  *
  * @param rpg The rpg
  * @param map The map
- * @param x The x
- * @param y The y
+ * @param pos The position
+ * @param offset The offset
  * @return sfBool False if an error occurred
  */
-sfBool set_wall(rpg_t *rpg, char **map, int x, int y);
+sfBool set_wall(rpg_t *rpg, char **map, sfVector2i pos, sfVector2i offset);
 
 //
 // Player

@@ -10,40 +10,62 @@
 #include "ice/string.h"
 #include "my_rpg/game.h"
 
-sfBool create_roof(rpg_t *rpg, sfVector2f pos, sfIntRect rect)
+static sfBool set_upper_wall(rpg_t *rpg, sfVector2i pos, sfVector2i offset)
 {
-    sprite_t *sprite = add_sprite(rpg->engine, "wall");
+    sprite_t *wall = add_sprite_and_texture(rpg->engine,
+        "wall", "./assets/map/wall.png");
 
-    if (!sprite)
+    if (!wall)
         return sfFalse;
-    pos.y -= 32;
-    rect.top -= 16;
-    sfSprite_setPosition(sprite->sprite, pos);
-    sfSprite_setScale(sprite->sprite, (sfVector2f){2, 2});
-    sfSprite_setTextureRect(sprite->sprite, rect);
+    sfSprite_setPosition(wall->sprite, get_tile_pos(pos, offset));
+    sfSprite_setTextureRect(wall->sprite, (sfIntRect){16, 0, 16, 16});
+    sfSprite_setScale(wall->sprite, (sfVector2f){2, 2});
     return sfTrue;
 }
 
-sfBool create_wall(rpg_t *rpg, sfVector2f pos, sfIntRect rect, sfBool as_roof)
+static sfBool set_right_wall(rpg_t *rpg, sfVector2i pos, sfVector2i offset)
 {
-    character_t *character = create_character(rpg->engine, pos,
+    sprite_t *wall = add_sprite_and_texture(rpg->engine,
         "wall", "./assets/map/wall.png");
 
-    if (!character)
+    if (!wall)
         return sfFalse;
-    scale_character(character, (sfVector2f){2, 2});
-    set_rect_character(character, rect);
-    collider_set_type(character->collider, COLLIDER_WALL);
-    free(character);
-    return as_roof ? create_roof(rpg, pos, rect) : sfTrue;
+    sfSprite_setPosition(wall->sprite, get_tile_pos(pos, offset));
+    sfSprite_setTextureRect(wall->sprite, (sfIntRect){0, 112, 16, 16});
+    sfSprite_setScale(wall->sprite, (sfVector2f){2, 2});
+    return sfTrue;
 }
 
-sfBool set_wall(rpg_t *rpg, char **map, int x, int y)
+static sfBool set_left_wall(rpg_t *rpg, sfVector2i pos, sfVector2i offset)
 {
-    sfVector2f pos = (sfVector2f){(float)x * 32 + 32, (float)y * 32 + 32};
-    sfIntRect rect = (sfIntRect){16, 16, 16, 16};
-    sfBool as_roof = (y == 0 || ice_strlen(map[y - 1]) < (ull_t)x
-            || map[y - 1][x] != 'w');
+    sprite_t *wall = add_sprite_and_texture(rpg->engine,
+        "wall", "./assets/map/wall.png");
 
-    return create_wall(rpg, pos, rect, as_roof);
+    if (!wall)
+        return sfFalse;
+    sfSprite_setPosition(wall->sprite, get_tile_pos(pos, offset));
+    sfSprite_setTextureRect(wall->sprite, (sfIntRect){16, 112, 16, 16});
+    sfSprite_setScale(wall->sprite, (sfVector2f){2, 2});
+    return sfTrue;
+}
+
+sfBool set_wall(rpg_t *rpg, char **map, sfVector2i pos, sfVector2i offset)
+{
+    character_t *wall = create_character(rpg->engine,
+        get_tile_pos(pos, offset), "wall", "./assets/map/wall.png");
+
+    if (!wall)
+        return sfFalse;
+    scale_character(wall, (sfVector2f){2, 2});
+    set_rect_character(wall, (sfIntRect){16, 16, 16, 16});
+    collider_set_type(wall->collider, COLLIDER_WALL);
+    free(wall);
+    return !(((pos.y < 1 || (pos.x < (int)ice_strlen(map[pos.y - 1])
+        && map[pos.y - 1][pos.x] != 'w'))
+        && !set_upper_wall(rpg, (sfVector2i){pos.x, pos.y - 1}, offset))
+        || (pos.x > 1 && map[pos.y][pos.x - 1] == 'f'
+        && !set_left_wall(rpg, (sfVector2i){pos.x, pos.y}, offset))
+        || (pos.x < (int)ice_strlen(map[pos.y])
+        && map[pos.y][pos.x + 1] == 'f'
+        && !set_right_wall(rpg, (sfVector2i){pos.x, pos.y}, offset)));
 }

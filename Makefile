@@ -65,7 +65,7 @@ DIR			+=	$(addprefix $(DIR_SCENES), ./game/map/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				load_map.c		\
 				set_wall.c		\
-				set_floor.c		\
+				get_tile_pos.c	\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), ./game/player/)
