@@ -7,6 +7,13 @@
 
 #include "my_rpg/game.h"
 
+sfBool player_actions(rpg_t *rpg, sfEvent event)
+{
+    if (event.key.code == sfKeySpace)
+        return create_spell(rpg, GAME(rpg));
+    return false;
+}
+
 sfBool event_player(rpg_t *rpg, sfEvent event)
 {
     float speed = (float)GAME(rpg)->player->speed;
@@ -18,7 +25,7 @@ sfBool event_player(rpg_t *rpg, sfEvent event)
             case sfKeyRight: velocity->x = speed; return true;
             case sfKeyUp: velocity->y = -speed; return true;
             case sfKeyDown: velocity->y = speed; return true;
-            default: return false;
+            default: return player_actions(rpg, event);
         }
     if (event.type == sfEvtKeyReleased)
         switch (event.key.code) {
