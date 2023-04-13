@@ -68,7 +68,19 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				get_tile_pos.c	\
 				)
 
-DIR			+=	$(addprefix $(DIR_SCENES), game/player/)
+DIR			+= 	$(addprefix $(DIR_SCENES), ./game/attacks/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				update_attacks.c	\
+				destroy_attacks.c	\
+				destroy_attack.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/attacks/spell/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_spell.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/player/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_player.c		\
 				event_player.c		\

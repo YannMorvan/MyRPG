@@ -14,6 +14,18 @@
 // Struct
 //
 
+typedef struct spell_s {
+    sfVector2f speed;
+} spell_t;
+
+typedef struct attack_s {
+    character_t *character;
+    void (*update)(rpg_t *rpg, struct attack_s *attack, list_node_t *node);
+    void (*destroy)(struct attack_s *attack);
+    void *component;
+    sfBool is_attack;
+} attack_t;
+
 typedef struct slime_s {
     sfVector2f speed;
 } slime_t;
@@ -34,6 +46,7 @@ typedef struct player_s {
 typedef struct game_s {
     player_t *player;
     list_t *monsters;
+    list_t *attacks;
 } game_t;
 
     #define GAME(rpg) ((game_t *)rpg->scene)
@@ -181,6 +194,43 @@ void destroy_monster(rpg_t *rpg, monster_t *monster, list_node_t *node);
  * @return monster_t* The monster
  */
 sfBool create_slime(rpg_t *rpg, game_t *game);
+
+//
+// Attack
+//
+
+
+/**
+ * @brief Update the attacks
+ *
+ * @param rpg The rpg
+ */
+void update_attacks(rpg_t *rpg);
+
+/**
+ * @brief Destroy the attacks
+ *
+ * @param rpg The rpg
+ */
+void destroy_attacks(rpg_t *rpg);
+
+/**
+ * @brief Destroy the attack
+ *
+ * @param rpg The rpg
+ * @param attack The attack
+ * @param node The node
+ */
+void destroy_attack(rpg_t *rpg, attack_t *attack, list_node_t *node);
+
+/**
+ * @brief Create the attack
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return attack_t* The attack
+ */
+sfBool create_spell(rpg_t *rpg, game_t *game);
 
 //
 // Button
