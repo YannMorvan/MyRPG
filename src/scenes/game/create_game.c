@@ -26,5 +26,6 @@ game_t *create_game(rpg_t *rpg)
         return NULL;
     if (!create_slime(rpg, game))
         return NULL;
+    game->attacks = list_create();
     return game;
 }
