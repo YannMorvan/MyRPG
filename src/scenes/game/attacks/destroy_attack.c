@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** B-MUL-200-REN-2-1-myrpg-yann.morvan
 ** File description:
 ** destroy_attack.c

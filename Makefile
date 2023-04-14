@@ -73,6 +73,12 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_attacks.c	\
 				destroy_attacks.c	\
 				destroy_attack.c	\
+				create_attacks.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), ./game/attacks/melee/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_melee.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), ./game/attacks/spell/)

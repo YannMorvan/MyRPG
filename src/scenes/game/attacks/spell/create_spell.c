@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** B-MUL-200-REN-2-1-myrpg-yann.morvan
 ** File description:
 ** create_spell.c
@@ -26,7 +26,7 @@ static void destroy_spell(attack_t *attack)
     free(attack->component);
 }
 
-sfVector2f get_middle(sfSprite *sprite)
+static sfVector2f get_middle(sfSprite *sprite)
 {
     sfVector2f pos = sfSprite_getPosition(sprite);
     sfFloatRect rect = sfSprite_getGlobalBounds(sprite);
@@ -57,7 +57,6 @@ sfBool create_spell(rpg_t *rpg, game_t *game)
     if (!attack || !spell)
         return sfFalse;
     attack->component = spell;
-    attack->is_attack = sfTrue;
     set_spell_direction(rpg, spell);
     attack->character = create_character(rpg->engine,
     get_middle(GAME(rpg)->player->character->sprite->sprite),

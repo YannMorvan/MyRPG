@@ -19,12 +19,17 @@ typedef struct spell_s {
     float angle;
 } spell_t;
 
+typedef struct melee_s {
+    unsigned int damage;
+    sfVector2f speed;
+    float direction;
+} melee_t;
+
 typedef struct attack_s {
     character_t *character;
     void (*update)(rpg_t *rpg, struct attack_s *attack, list_node_t *node);
     void (*destroy)(struct attack_s *attack);
     void *component;
-    sfBool is_attack;
 } attack_t;
 
 typedef struct slime_s {
@@ -203,6 +208,15 @@ sfBool create_slime(rpg_t *rpg, game_t *game);
 // Attack
 //
 
+/**
+ * @brief Create the attacks
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return attack_t* The attack
+ */
+sfBool create_attacks(rpg_t *rpg, game_t *game);
+
 
 /**
  * @brief Update the attacks
@@ -226,6 +240,15 @@ void destroy_attacks(rpg_t *rpg);
  * @param node The node
  */
 void destroy_attack(rpg_t *rpg, attack_t *attack, list_node_t *node);
+
+/**
+ * @brief Create the attack
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return attack_t* The attack
+ */
+sfBool create_melee(rpg_t *rpg, game_t *game);
 
 /**
  * @brief Create the attack
