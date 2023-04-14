@@ -12,7 +12,7 @@
 static config_t *get_config(void)
 {
     config_t *config = malloc(sizeof(config_t));
-    list_t *list = parse_file("rpg.config");
+    list_t *list = parse_file("./assets/config/rpg.config");
 
     if (!config || !list)
         return NULL;
