@@ -43,7 +43,7 @@ static bool parser_add_variable(list_t *list, char *line)
     if (!parser_set_variable(parse, split[1]))
         return false;
     ice_free_array((void **)split);
-    return !list_add(list, parse);
+    return list_add(list, parse);
 }
 
 list_t *parse_file(char *path)

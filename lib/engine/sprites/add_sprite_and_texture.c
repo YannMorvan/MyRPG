@@ -21,7 +21,7 @@ sprite_t *add_sprite_and_texture(engine_t *engine, char *name, char *path)
         return NULL;
     sfSprite_setTexture(new_sprite->sprite, new_sprite->texture->texture,
         sfTrue);
-    if (list_add(engine->sprites, new_sprite))
+    if (!list_add(engine->sprites, new_sprite))
         return NULL;
     new_sprite->node = engine->sprites->tail;
     return new_sprite;

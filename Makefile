@@ -97,7 +97,8 @@ DIR_TEST	:=	./tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				)
 
-ROOT_OBJ	:=	./build/obj/
+
+ROOT_OBJ	:=	./build/
 DIR_OBJ		:=	$(addprefix $(ROOT_OBJ), $(DIR))
 OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
 
@@ -135,9 +136,6 @@ $(UNIT_TEST):
 tests_run:
 	@$(MAKE) $@
 
-tests_clean:
-	@$(MAKE) $@
-
 lib_all:
 	@$(MAKE) all
 
@@ -156,7 +154,7 @@ clean:
 	&& $(RM) $(ROOT_OBJ)\
 	&& printf "\033[31m[DELETED]\033[0m %s\n" $(ROOT_OBJ) || true
 
-fclean:				clean tests_clean
+fclean:				clean
 	@$(MAKE) $@
 	@[ -f $(NAME) ]\
 	&& $(RM) $(NAME)\
