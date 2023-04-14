@@ -7,6 +7,7 @@
 
 
 #include <malloc.h>
+#include <math.h>
 
 #include "ice/memory.h"
 #include "my_rpg/game.h"
@@ -35,6 +36,20 @@ sfVector2f get_middle(sfSprite *sprite)
     return pos;
 }
 
+void set_spell_direction(rpg_t *rpg, spell_t *spell)
+{
+    sfVector2i mouse =
+    sfMouse_getPositionRenderWindow(rpg->engine->window->window);
+    sfVector2f player =
+    sfSprite_getPosition(GAME(rpg)->player->character->sprite->sprite);
+    sfVector2f direction =
+    (sfVector2f) {mouse.x - player.x, mouse.y - player.y};
+    spell->angle = atan2(direction.y, direction.x) * 180 / 3.14;
+
+    spell->speed.x = cos(spell->angle * 3.14 / 180) * 200;
+    spell->speed.y = sin(spell->angle * 3.14 / 180) * 200;
+}
+
 sfBool create_spell(rpg_t *rpg, game_t *game)
 {
     attack_t *attack = ice_calloc(1, sizeof(attack_t));
@@ -44,7 +59,7 @@ sfBool create_spell(rpg_t *rpg, game_t *game)
         return sfFalse;
     attack->component = spell;
     attack->is_attack = sfTrue;
-    spell->speed = (sfVector2f) {-200, 0};
+    set_spell_direction(rpg, spell);
     attack->character = create_character(rpg->engine,
     get_middle(GAME(rpg)->player->character->sprite->sprite),
         "spell", "./assets/attacks/1.png");
