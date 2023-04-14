@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** create_button.c
@@ -20,7 +20,7 @@ button_t *create_button(engine_t *engine, sfVector2f pos,
     if (!button->character)
         return NULL;
     collider_set_type(button->character->collider, COLLIDER_BUTTON);
-    if (list_add(engine->buttons, button))
+    if (!list_add(engine->buttons, button))
         return NULL;
     return button;
 }

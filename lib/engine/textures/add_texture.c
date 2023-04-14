@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** add_textures.c
@@ -23,7 +23,7 @@ texture_t *add_texture(engine_t *engine, char *name, char *path)
     texture->texture = sfTexture_createFromFile(path, NULL);
     if (texture->texture == NULL)
         return NULL;
-    if (list_add(textures, texture))
+    if (!list_add(textures, texture))
         return NULL;
     return texture;
 }

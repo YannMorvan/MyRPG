@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** display_framerate.c
@@ -21,8 +21,7 @@ sfBool write_framerate(engine_t *engine)
     if (time < 1)
         return sfTrue;
     fps /= (float)frame;
-    if (ice_sprintf(str, "%s | FPS: %.2f", engine->window->name, fps)
-        == (ull_t)-1)
+    if (ice_sprintf(str, "%s | FPS: %.2f", engine->window->name, fps) < 0)
         return sfFalse;
     sfRenderWindow_setTitle(engine->window->window, str);
     time = 0;

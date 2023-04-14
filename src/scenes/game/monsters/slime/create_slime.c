@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** create_slime.c
@@ -41,5 +41,5 @@ sfBool create_slime(rpg_t *rpg, game_t *game)
     monster->update = update_slime;
     monster->destroy = destroy_slime;
     collider_set_type(monster->character->collider, COLLIDER_MONSTER);
-    return !list_add(game->monsters, monster);
+    return list_add(game->monsters, monster);
 }

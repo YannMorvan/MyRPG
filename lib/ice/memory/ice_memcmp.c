@@ -5,12 +5,14 @@
 ** ice_memcmp.c
 */
 
-#include "ice/assert.h"
+#include <stdlib.h>
+
+#include "ice/types.h"
 
 int ice_memcmp(const void *s1, const void *s2, ull_t n)
 {
-    ASSERT_RET(s1, 0);
-    ASSERT_RET(s2, 0);
+    if (!s1 || !s2)
+        return 0;
     for (ull_t i = 0; i < n; i++)
         if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
             return ((unsigned char *)s1)[i] - ((unsigned char *)s2)[i];

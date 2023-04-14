@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** load_map.c
@@ -52,7 +52,7 @@ static sfBool set_tile(rpg_t *rpg, char **map, int y, sfVector2i offset)
 
 sfBool load_map(rpg_t *rpg)
 {
-    char *file = read_file("./map.txt");
+    char *file = read_file("./assets/config/maps/map.txt");
     sfVector2i center;
     char **lines;
 

@@ -8,21 +8,22 @@
 #include <malloc.h>
 #include <unistd.h>
 
-#include "ice/assert.h"
 #include "ice/printf/private.h"
 
-ull_t ice_printf(const char *restrict format, ...)
+ssize_t ice_printf(const char *restrict format, ...)
 {
     va_list args;
     buffer_t buffer = {0};
-    ull_t len;
+    ssize_t len;
 
-    ASSERT_RET(format != NULL, (ull_t)(-1));
+    if (!format)
+        return -1;
     buffer.str = malloc(sizeof(char) * 1024);
     buffer.left = 1024;
     buffer.add = add_buffer;
     va_start(args, format);
-    ASSERT_RET(!handle_format(&buffer, format, args), (ull_t)(-1));
+    if (handle_format(&buffer, format, args))
+        return -1;
     va_end(args);
     len = write(1, buffer.str, buffer.len);
     free(buffer.str);
