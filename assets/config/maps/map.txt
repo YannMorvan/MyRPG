@@ -1,14 +1,14 @@
        wwwwwwwwww
-       wwfffffffw
-       wwfffffffw
-wwwwwwwwwfffffffw
+       wffffffffw
+       wffffffffw
+wwwwwwwwffffffffw
 wfffffffffffffffw
 wfffffffffffffffw
 wfffffffffffffffw
 wfffffffffffffffw
 wffffffwwwffffwww
 wffffffw wffffw
-wfwffffw wffffwwwwwww
-wfwffffw wfffffffffww
-wfwffffw wfffffffffww
-wwwwwwww wwwwwwwwwwww
+wfwffffw wffffwwwwww
+wfwffffwwwfffffffffw
+wfwffffffffffffffffw
+wwwwwwwwwwwwwwwwwwww
