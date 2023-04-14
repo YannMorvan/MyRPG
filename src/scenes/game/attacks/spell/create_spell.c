@@ -38,9 +38,11 @@ sfVector2f get_middle(sfSprite *sprite)
 
 void set_spell_direction(rpg_t *rpg, spell_t *spell)
 {
-    sfVector2f player = sfSprite_getPosition(GAME(rpg)->player->character->sprite->sprite);
+    sfVector2f player =
+    sfSprite_getPosition(GAME(rpg)->player->character->sprite->sprite);
     sfVector2f direction =
-    (sfVector2f) {rpg->engine->mouse->pos.x - player.x, rpg->engine->mouse->pos.y - player.y};
+    (sfVector2f) {rpg->engine->mouse->pos.x - player.x,
+    rpg->engine->mouse->pos.y - player.y};
     spell->angle = atan2(direction.y, direction.x) * 180 / 3.14;
 
     spell->speed.x = cos(spell->angle * 3.14 / 180) * 200;
