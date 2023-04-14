@@ -97,7 +97,7 @@ DIR_TEST	:=	./tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				)
 
-ROOT_OBJ	:=	./.obj/
+ROOT_OBJ	:=	./build/obj/
 DIR_OBJ		:=	$(addprefix $(ROOT_OBJ), $(DIR))
 OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
 
