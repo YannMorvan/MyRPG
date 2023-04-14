@@ -53,6 +53,7 @@ RM			:=	rm -rf
 CC			:=	gcc
 CLINKER		:=	ar rc
 CFLAGS		:=	-I../include/ -Wall -Wextra
+LDLIBS		:=	-lcsfml-graphics -lcsfml-system
 
 all:				$(DIR_OBJ) $(NAME)
 
@@ -74,7 +75,7 @@ $(NAME):			$(OBJ)
 $(UNIT_TEST):		CFLAGS += -lcriterion --coverage
 $(UNIT_TEST):		fclean
 	mkdir -p $(TEST_DIR)
-	@$(CC) $(CFLAGS) $(SRC) $(SRC_TEST) -o $(TEST_DIR)$@\
+	@$(CC) $(CFLAGS) $(LDLIBS) $(SRC) $(SRC_TEST) -o $(TEST_DIR)$@\
 	&& printf "\033[32m[SUCCES]\033[0m %s\n" $@\
 	|| printf "\033[31m[ERROR]\033[0m %s\n" $@
 
