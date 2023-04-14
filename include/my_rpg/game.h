@@ -16,6 +16,7 @@
 
 typedef struct spell_s {
     sfVector2f speed;
+    float angle;
 } spell_t;
 
 typedef struct attack_s {
@@ -40,6 +41,9 @@ typedef struct monster_s {
 typedef struct player_s {
     character_t *character;
     int speed;
+    int attack;
+    int intel;
+    int mana;
     sfVector2f velocity;
 } player_t;
 
