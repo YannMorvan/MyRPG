@@ -14,6 +14,7 @@ sfBool create_buttons(rpg_t *rpg)
         create_new_button,
         create_start_button,
         create_options_button,
+        create_exit_button,
         NULL
     };
     ssize_t size = sizeof(array) / sizeof(array[0]) - 2;
