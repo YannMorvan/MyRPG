@@ -62,6 +62,14 @@ sfBool destroy_home(rpg_t *rpg);
  */
 sfBool load_icon(rpg_t *rpg);
 
+/**
+ * @brief Load the background of the home scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool load_background(rpg_t *rpg);
+
 //
 // Button
 //

@@ -9,5 +9,5 @@
 
 sfBool create_home(rpg_t *rpg)
 {
-    return load_icon(rpg) && create_buttons(rpg);
+    return load_background(rpg) && load_icon(rpg) && create_buttons(rpg);
 }
