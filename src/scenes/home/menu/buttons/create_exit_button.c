@@ -13,7 +13,7 @@ static void update_exit_button(void *component, button_t *button)
 
     update_button_texture(button);
     if (button->state == CLICK)
-        rpg->engine->scene = game;
+        sfRenderWindow_close(rpg->engine->window->window);
 }
 
 button_t *create_exit_button(rpg_t *rpg, float index)
