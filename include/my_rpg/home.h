@@ -63,6 +63,16 @@ sfBool destroy_home(rpg_t *rpg);
 sfBool create_buttons(rpg_t *rpg);
 
 /**
+ * @brief Set the button
+ *
+ * @param rpg The rpg
+ * @param button The button
+ * @param index The index of the button
+ * @return sfBool False if an error occurred
+ */
+sfBool set_button(rpg_t *rpg, button_t *button, float index);
+
+/**
  * @brief Create the start button
  *
  * @param rpg The rpg

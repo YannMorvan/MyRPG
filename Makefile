@@ -49,8 +49,9 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_buttons.c			\
+				set_button.c				\
 				create_start_button.c		\
-				create_load_button.c			\
+				create_load_button.c		\
 				create_options_button.c		\
 				create_exit_button.c		\
 				)
