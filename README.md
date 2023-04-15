@@ -39,7 +39,7 @@
     - [ ] Start the game
     - [ ] Resume game (grayed out if not possible)
     - [ ] Settings
-    - [ ] Quit the game
+    - [X] Quit the game
 - [ ] The settings option must contain
     - [ ] Sound and music volume options
     - [ ] A window size and resolution options
@@ -73,3 +73,9 @@
 - [ ] Have a complete particle engine.
 - [ ] Use scripting to describe entities.
 - [ ] Have a map editor.
+
+## Credits
+
+- Main menu background: [AlbertoV](https://www.deviantart.com/albertov)
+- Dungeon tileset: [0x72](https://0x72.itch.io)
+- Button gui: [Mounir Tohami](https://mounirtohami.itch.io/)
