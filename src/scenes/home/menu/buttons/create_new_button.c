@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
-** create_start_button.c
+** create_new_button.c
 */
 
 #include "my_rpg.h"
 
-static void update_start_button(void *component, button_t *button)
+static void update_new_button(void *component, button_t *button)
 {
     rpg_t *rpg = (rpg_t *)component;
 
@@ -16,10 +16,10 @@ static void update_start_button(void *component, button_t *button)
         rpg->engine->scene = game;
 }
 
-button_t *create_start_button(rpg_t *rpg, float index)
+button_t *create_new_button(rpg_t *rpg, float index)
 {
     button_t *button = create_button(rpg->engine, (sfVector2f){0, 0},
-        "start", "./assets/buttons/start.png");
+        "new", "./assets/buttons/new.png");
     sfVector2u size;
 
     if (!button)
@@ -30,7 +30,7 @@ button_t *create_start_button(rpg_t *rpg, float index)
         (int)size.x / 3, (int)size.y});
     center_character(button->character);
     scale_character(button->character, (sfVector2f){4, 4});
-    button->update = &update_start_button;
+    button->update = &update_new_button;
     set_pos_character(button->character, (sfVector2f){
         (float)rpg->engine->window->mode.width / 2,
         (float)rpg->engine->window->mode.height / 2

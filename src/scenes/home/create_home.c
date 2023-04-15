@@ -9,5 +9,5 @@
 
 sfBool create_home(rpg_t *rpg)
 {
-    return create_start_button(rpg) != NULL;
+    return create_buttons(rpg);
 }
