@@ -46,6 +46,11 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				destroy_home.c		\
 				)
 
+DIR			+=	$(addprefix $(DIR_SCENES), home/menu/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				load_icon.c			\
+				)
+
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_buttons.c			\

@@ -51,6 +51,18 @@ void display_home(rpg_t *rpg);
 sfBool destroy_home(rpg_t *rpg);
 
 //
+// Menu
+//
+
+/**
+ * @brief Load the icon of the window
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool load_icon(rpg_t *rpg);
+
+//
 // Button
 //
 
