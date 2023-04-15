@@ -20,9 +20,19 @@ button_t *create_start_button(rpg_t *rpg)
 {
     button_t *button = create_button(rpg->engine, (sfVector2f){0, 0},
         "start", "./assets/buttons/start.png");
+    sfVector2u size;
+
     if (!button)
         return NULL;
-    scale_character(button->character, (sfVector2f){2, 2});
+    size = sfTexture_getSize(
+        button->character->sprite->texture->texture);
+    set_rect_character(button->character, (sfIntRect){0, 0,
+        (int)size.x / 3, (int)size.y});
+    center_character(button->character);
+    scale_character(button->character, (sfVector2f){4, 4});
     button->update = &update_start_button;
+    set_pos_character(button->character, (sfVector2f){
+        (float)rpg->engine->window->mode.width / 2,
+        (float)rpg->engine->window->mode.height / 2});
     return button;
 }
