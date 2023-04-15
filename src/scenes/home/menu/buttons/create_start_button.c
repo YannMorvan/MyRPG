@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
-** create_play_button.c
+** create_start_button.c
 */
 
 #include "my_rpg.h"
