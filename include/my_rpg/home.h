@@ -63,20 +63,20 @@ sfBool destroy_home(rpg_t *rpg);
 sfBool create_buttons(rpg_t *rpg);
 
 /**
- * @brief Create the new button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_new_button(rpg_t *rpg, float index);
-
-/**
  * @brief Create the start button
  *
  * @param rpg The rpg
  * @return button_t* The button
  */
 button_t *create_start_button(rpg_t *rpg, float index);
+
+/**
+ * @brief Create the load button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
+button_t *create_load_button(rpg_t *rpg, float index);
 
 /**
  * @brief Create the options button
