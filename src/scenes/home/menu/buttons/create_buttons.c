@@ -13,6 +13,7 @@ sfBool create_buttons(rpg_t *rpg)
     button_t *(*array[])(rpg_t *rpg, float index) = {
         create_new_button,
         create_start_button,
+        create_options_button,
         NULL
     };
     ssize_t size = sizeof(array) / sizeof(array[0]) - 2;

@@ -48,9 +48,10 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_buttons.c		\
-				create_new_button.c		\
-				create_start_button.c	\
+				create_buttons.c			\
+				create_new_button.c			\
+				create_start_button.c		\
+				create_options_button.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/)

@@ -78,4 +78,12 @@ button_t *create_new_button(rpg_t *rpg, float index);
  */
 button_t *create_start_button(rpg_t *rpg, float index);
 
+/**
+ * @brief Create the options button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
+button_t *create_options_button(rpg_t *rpg, float index);
+
 #endif /* !MY_RPG_HOME_H */
