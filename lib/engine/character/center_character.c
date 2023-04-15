@@ -11,7 +11,7 @@ void center_character(character_t *character)
 {
     sfFloatRect rect = sfSprite_getGlobalBounds(character->sprite->sprite);
     sfVector2f scale = sfSprite_getScale(character->sprite->sprite);
-    sfVector2f pos = {rect.width / 2, rect.height / 2};
+    sfVector2f pos = {rect.width / scale.x / 2, rect.height / scale.y / 2};
 
     sfSprite_setOrigin(character->sprite->sprite, pos);
     character->collider->rect.left -= pos.x * scale.x;
