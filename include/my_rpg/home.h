@@ -20,6 +20,7 @@ typedef enum home_scene_e {
 } home_scene_t;
 
 typedef struct home_s {
+    int size_index;
     home_scene_t scene;
     sfBool (*create_sub_scene)(rpg_t *rpg);
 } home_t;
@@ -105,6 +106,14 @@ sfBool create_buttons_home(rpg_t *rpg);
  * @return sfBool False if an error occurred
  */
 sfBool create_buttons_settings(rpg_t *rpg);
+
+/**
+ * @brief Create the size button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
+button_t *create_size_button(rpg_t *rpg, float index);
 
 /**
  * @brief Set the button

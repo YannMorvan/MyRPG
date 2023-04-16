@@ -60,6 +60,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_load_button.c		\
 				create_options_button.c		\
 				create_exit_button.c		\
+				create_size_button.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/)

@@ -11,7 +11,7 @@
 
 static void remove_buttons(rpg_t *rpg)
 {
-    list_node_t *node =  rpg->engine->buttons->head;
+    list_node_t *node = rpg->engine->buttons->head;
     list_node_t *next;
 
     for (; node; node = next) {
@@ -34,6 +34,5 @@ void update_home(rpg_t *rpg)
         remove_buttons(rpg);
         HOME(rpg)->create_sub_scene(rpg);
         HOME(rpg)->create_sub_scene = NULL;
-        rpg->engine->mouse->left = sfFalse;
     }
 }
