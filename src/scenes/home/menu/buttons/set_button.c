@@ -17,7 +17,7 @@ sfBool set_button(rpg_t *rpg, button_t *button, float index)
     center_character(button->character);
     set_pos_character(button->character, (sfVector2f){
         (float)rpg->engine->window->mode.width / 2,
-        (float)rpg->engine->window->mode.height / 1.65f
-            + (float)(index * 4 * (float)size.y)});
+        (float)rpg->engine->window->mode.height / 1.55f
+            + (float)(index * 4.5f * (float)size.y)});
     return sfTrue;
 }
