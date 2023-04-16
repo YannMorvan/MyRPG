@@ -5,9 +5,12 @@
 ** destroy_home.c
 */
 
-#include "my_rpg/struct.h"
+#include <malloc.h>
+
+#include "my_rpg/home.h"
 
 sfBool destroy_home(rpg_t *rpg)
 {
+    free(HOME(rpg));
     return destroy_scene(rpg->engine);
 }

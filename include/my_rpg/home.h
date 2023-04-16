@@ -11,6 +11,22 @@
     #include "my_rpg/struct.h"
 
 //
+// Struct
+//
+
+typedef enum home_scene_e {
+    HOME_MENU = 0,
+    HOME_SETTINGS = 1
+} home_scene_t;
+
+typedef struct home_s {
+    home_scene_t scene;
+    sfBool (*create_sub_scene)(rpg_t *rpg);
+} home_t;
+
+    #define HOME(rpg) ((home_t *)rpg->scene)
+
+//
 // Main functions
 //
 
@@ -80,7 +96,15 @@ sfBool load_background(rpg_t *rpg);
  * @param rpg The rpg
  * @return sfBool False if an error occurred
  */
-sfBool create_buttons(rpg_t *rpg);
+sfBool create_buttons_home(rpg_t *rpg);
+
+/**
+ * @brief Create the buttons of the settings scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool create_buttons_settings(rpg_t *rpg);
 
 /**
  * @brief Set the button
