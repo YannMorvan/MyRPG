@@ -42,7 +42,8 @@ typedef struct sprite_t {
 } sprite_t;
 
 typedef struct hud_s {
-    sprite_t *sprite;
+    sprite_t *life;
+    sprite_t *mana;
 } hud_t;
 
 typedef struct character_s {

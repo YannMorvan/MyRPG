@@ -9,5 +9,5 @@
 
 void update_hud(game_t *game)
 {
-    
+
 }

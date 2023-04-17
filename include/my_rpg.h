@@ -46,7 +46,7 @@ typedef struct game_s {
 //
 /**
  * @brief Create hud objects
- * 
+ *
  * @param engine The engine
  * @return hud_t* The hud
 */
