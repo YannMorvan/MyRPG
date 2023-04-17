@@ -77,6 +77,15 @@ void *list_remove_node(list_t *list, list_node_t *node);
 void *list_get(list_t *list, ull_t index);
 
 /**
+ * @brief Get the node at the index
+ *
+ * @param list The list
+ * @param index The index
+ * @return list_node_t* The node
+ */
+list_node_t *list_get_node(list_t *list, void *value);
+
+/**
  * @brief Pop the node at the index
  * @param list The list
  * @param index The index
