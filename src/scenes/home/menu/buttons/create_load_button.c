@@ -2,13 +2,13 @@
 ** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
-** create_start_button.c
+** create_load_button.c
 */
 
 #include "my_rpg.h"
 #include "my_rpg/home.h"
 
-static void update_start_button(void *component, button_t *button)
+static void update_load_button(void *component, button_t *button)
 {
     rpg_t *rpg = (rpg_t *)component;
 
@@ -17,13 +17,13 @@ static void update_start_button(void *component, button_t *button)
         rpg->engine->scene = game;
 }
 
-button_t *create_start_button(rpg_t *rpg, float index)
+button_t *create_load_button(rpg_t *rpg, float index)
 {
     button_t *button = create_button(rpg->engine, (sfVector2f){0, 0},
-        "start", "./assets/buttons/start.png");
+        "load", "./assets/buttons/load.png");
 
     if (!button || !set_button(rpg, button, index))
         return NULL;
-    button->update = &update_start_button;
+    button->update = &update_load_button;
     return button;
 }
