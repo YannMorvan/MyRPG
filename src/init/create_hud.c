@@ -15,7 +15,7 @@ hud_t *create_hud(engine_t *engine)
     hud_t *hud = ice_calloc(1, sizeof(hud_t));
     sfVector2f pos = {20, 20};
     sfVector2f size = {3, 3};
-    sfIntRect rect = {47, 13, 111, 8};
+    sfIntRect rect = {13, 47, 111, 8};
 
     if (!hud)
         return NULL;
