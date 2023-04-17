@@ -5,9 +5,15 @@
 ** create_home.c
 */
 
+#include "ice/memory.h"
 #include "my_rpg/home.h"
 
 sfBool create_home(rpg_t *rpg)
 {
-    return create_start_button(rpg) != NULL;
+    rpg->scene = ice_calloc(1, sizeof(home_t));
+
+    if (!rpg->scene)
+            return sfFalse;
+    HOME(rpg)->size_index = 1;
+    return load_background(rpg) && load_icon(rpg) && create_buttons_home(rpg);
 }

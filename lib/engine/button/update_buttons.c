@@ -20,4 +20,5 @@ void update_buttons(engine_t *engine, void *component)
         if (button->update)
             button->update(component, button);
     }
+    engine->mouse->left = sfFalse;
 }
