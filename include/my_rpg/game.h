@@ -14,8 +14,26 @@
 // Struct
 //
 
+typedef struct spell_s {
+    sfVector2f speed;
+    float angle;
+    unsigned int index;
+    unsigned int index_max;
+    float elapsed_time;
+    float wait_time;
+} spell_t;
+
+typedef struct attack_s {
+    character_t *character;
+    void (*update)(rpg_t *rpg, struct attack_s *attack, list_node_t *node);
+    void (*destroy)(struct attack_s *attack);
+    void *component;
+} attack_t;
+
 typedef struct slime_s {
     sfVector2f speed;
+    unsigned int health;
+    unsigned int damages;
 } slime_t;
 
 typedef struct monster_s {
@@ -27,13 +45,18 @@ typedef struct monster_s {
 
 typedef struct player_s {
     character_t *character;
-    int speed;
+    unsigned int exp;
+    unsigned int speed;
+    unsigned int attack;
+    unsigned int intel;
+    unsigned int mana;
     sfVector2f velocity;
 } player_t;
 
 typedef struct game_s {
     player_t *player;
     list_t *monsters;
+    list_t *attacks;
     hud_t *hud;
 } game_t;
 
@@ -194,6 +217,68 @@ void destroy_monster(rpg_t *rpg, monster_t *monster, list_node_t *node);
  * @return monster_t* The monster
  */
 sfBool create_slime(rpg_t *rpg, game_t *game);
+
+//
+// Attack
+//
+
+/**
+ * @brief Create the attacks
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return attack_t* The attack
+ */
+sfBool create_attacks(game_t *game);
+
+
+/**
+ * @brief Update the attacks
+ *
+ * @param rpg The rpg
+ */
+void update_attacks(rpg_t *rpg);
+
+/**
+ * @brief Destroy the attacks
+ *
+ * @param rpg The rpg
+ */
+void destroy_attacks(rpg_t *rpg);
+
+/**
+ * @brief Get the angle
+ *
+ * @param player_pos The Player pos
+ * @param target The Target pos
+ */
+double get_angle(sfVector2f player_pos, sfVector2f target);
+
+/**
+ * @brief Get the Middle of the Sprite
+ *
+ * @param sprite The Sprite
+ */
+sfVector2f get_middle(sfSprite *sprite);
+
+/**
+ * @brief Destroy the attack
+ *
+ * @param rpg The rpg
+ * @param attack The attack
+ * @param node The node
+ */
+void destroy_attack(rpg_t *rpg, attack_t *attack, list_node_t *node);
+
+/**
+ * @brief Create the attack
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return attack_t* The attack
+ */
+
+sfBool create_spell(rpg_t *rpg, game_t *game);
 
 //
 // Button

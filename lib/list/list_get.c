@@ -5,8 +5,6 @@
 ** list_get.c
 */
 
-#include <stdlib.h>
-
 #include "list.h"
 
 void *list_get(list_t *list, ull_t index)

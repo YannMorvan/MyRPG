@@ -37,7 +37,7 @@ static void destroy_config(config_t *config)
     free(config);
 }
 
-rpg_t *create_rpg(void)
+rpg_t *create_rpg(sfBool debug)
 {
     rpg_t *rpg = malloc(sizeof(rpg_t));
     config_t *config = get_config();
@@ -55,6 +55,7 @@ rpg_t *create_rpg(void)
     srand(time(NULL));
     sfRenderWindow_setFramerateLimit(WINDOW(rpg), config->fps);
     rpg->engine->scene = home;
+    rpg->engine->debug = debug;
     destroy_config(config);
     return rpg;
 }

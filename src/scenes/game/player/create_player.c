@@ -8,6 +8,12 @@
 #include "my_rpg/game.h"
 #include "ice/memory.h"
 
+static void player_stats(player_t *player)
+{
+    player->speed = 150;
+    player->intel = 1;
+}
+
 player_t *create_player(engine_t *engine)
 {
     player_t *player = ice_calloc(1, sizeof(player_t));
@@ -16,7 +22,7 @@ player_t *create_player(engine_t *engine)
 
     if (!player)
         return NULL;
-    player->speed = 150;
+    player_stats(player);
     player->character = create_character(engine, pos,
         "player", "./assets/player.png");
     if (!player->character)

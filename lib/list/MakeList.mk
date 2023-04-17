@@ -13,6 +13,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				list_destroy.c		\
 				list_destroy_node.c	\
 				list_get.c			\
+				list_get_node.c		\
 				list_pop.c			\
 				list_pop_node.c		\
 				list_remove.c		\
