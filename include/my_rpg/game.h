@@ -17,6 +17,10 @@
 typedef struct spell_s {
     sfVector2f speed;
     float angle;
+    unsigned int index;
+    unsigned int index_max;
+    float elapsed_time;
+    float wait_time;
 } spell_t;
 
 typedef struct attack_s {
@@ -41,10 +45,11 @@ typedef struct monster_s {
 
 typedef struct player_s {
     character_t *character;
-    int speed;
-    int attack;
-    int intel;
-    int mana;
+    unsigned int exp;
+    unsigned int speed;
+    unsigned int attack;
+    unsigned int intel;
+    unsigned int mana;
     sfVector2f velocity;
 } player_t;
 
