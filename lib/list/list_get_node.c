@@ -13,11 +13,8 @@ list_node_t *list_get_node(list_t *list, void *value)
 
     if (list == NULL)
         return NULL;
-    printf("Player node: %p\n", value);
-    for (node = list->head; node; node = node->next) {
-        printf("list_get_node: %p\n", node->value);
+    for (node = list->head; node; node = node->next)
         if (node->value == value)
             return node;
-    }
     return NULL;
 }
