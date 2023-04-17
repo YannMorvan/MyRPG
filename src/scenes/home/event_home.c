@@ -5,12 +5,16 @@
 ** event_home.c
 */
 
-#include "my_rpg.h"
+#include "my_rpg/home.h"
 
 static void event_key_pressed(rpg_t *rpg)
 {
-    if (EVENT(rpg).key.code == sfKeyEscape)
-        sfRenderWindow_close(WINDOW(rpg));
+    if (EVENT(rpg).key.code == sfKeyEscape) {
+        if (HOME(rpg)->scene == HOME_MENU)
+            sfRenderWindow_close(rpg->engine->window->window);
+        else
+            HOME(rpg)->create_sub_scene = create_buttons_home;
+    }
 }
 
 void event_home(rpg_t *rpg)

@@ -46,9 +46,22 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				destroy_home.c		\
 				)
 
+DIR			+=	$(addprefix $(DIR_SCENES), home/menu/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				load_icon.c			\
+				load_background.c	\
+				get_window_size.c	\
+				)
+
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_start_button.c	\
+				create_buttons.c			\
+				set_button.c				\
+				create_start_button.c		\
+				create_load_button.c		\
+				create_options_button.c		\
+				create_exit_button.c		\
+				create_size_button.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/)

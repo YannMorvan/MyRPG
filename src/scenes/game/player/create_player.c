@@ -21,8 +21,8 @@ player_t *create_player(engine_t *engine)
         "player", "./assets/player.png");
     if (!player->character)
         return NULL;
-    scale_character(player->character, (sfVector2f){2, 2});
     set_rect_character(player->character, (sfIntRect){0, 0, 16, 21});
+    scale_character(player->character, (sfVector2f){2, 2});
     center_character(player->character);
     collider_set_type(player->character->collider, COLLIDER_PLAYER);
     return player;

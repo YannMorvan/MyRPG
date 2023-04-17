@@ -47,6 +47,14 @@ void scale_character(character_t *character, sfVector2f scale);
 void center_character(character_t *character);
 
 /**
+ * @brief Set the pos character object
+ *
+ * @param character The character
+ * @param offset The offset
+ */
+void set_pos_character(character_t *character, sfVector2f offset);
+
+/**
  * @brief Destroy a character object
  *
  * @param character The character
