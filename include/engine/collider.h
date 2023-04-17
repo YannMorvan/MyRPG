@@ -1,12 +1,12 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** collider.h
 */
 
-#ifndef MY_RPG_COLLIDER_H
-    #define MY_RPG_COLLIDER_H
+#ifndef ENGINE_COLLIDER_H
+    #define ENGINE_COLLIDER_H
 
     #include "engine/struct.h"
 
@@ -37,4 +37,4 @@ void update_collision(engine_t *engine);
  */
 void collider_set_type(collider_t *collider, int type);
 
-#endif /* !MY_RPG_COLLIDER_H */
+#endif /* !ENGINE_COLLIDER_H */

@@ -9,52 +9,103 @@ NAME		:=	my_rpg
 
 LIB			:=	./lib/
 
-DIR_SRC		:=	./src/
+DIR_SRC		:=	src/
+DIR_SCENES	:=	$(addprefix $(DIR_SRC), scenes/)
 
 DIR			:=	$(DIR_SRC)
 SRC			:=	$(addprefix $(DIR),\
 				main.c				\
 				)
 
-DIR			+=	$(addprefix $(DIR_SRC), ./init/)
+DIR			+=	$(addprefix $(DIR_SRC), rpg/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_hud.c			\
-				create_game.c			\
-				create_player.c			\
+				create_rpg.c			\
+				destroy_rpg.c			\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), parsing/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				read_file.c				\
+				file_parse.c			\
+				get_parse.c				\
+				destroy_parse.c			\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), update/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				update_button_texture.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), home/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				home.c				\
+				create_home.c		\
+				event_home.c		\
+				update_home.c		\
+				display_home.c		\
+				destroy_home.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), home/menu/buttons/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_start_button.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), game/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				game.c				\
+				create_game.c		\
+				event_game.c		\
+				update_game.c		\
+				display_game.c		\
+				destroy_game.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), game/map/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				load_map.c		\
+				set_wall.c		\
+				get_tile_pos.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), game/player/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_player.c		\
+				event_player.c		\
+				update_player.c		\
+				destroy_player.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), game/monsters/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				update_monsters.c	\
+				destroy_monsters.c	\
+				destroy_monster.c	\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), game/monsters/slime/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_slime.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), game/menu/buttons/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_pause_button.c	\
-				add_monster.c			\
 				)
 
-DIR			+=	$(addprefix $(DIR_SRC), ./event/)
+DIR			+=	$(addprefix $(DIR_SCENES), game/hud/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				event_game.c			\
-				event_player.c			\
-				)
-
-DIR			+=	$(addprefix $(DIR_SRC), ./update/)
-SRC			+=	$(addprefix $(lastword $(DIR)),\
-				update_game.c			\
-				update_player.c			\
-				update_monsters.c		\
-				)
-
-DIR			+=	$(addprefix $(DIR_SRC), ./display/)
-SRC			+=	$(addprefix $(lastword $(DIR)),\
-				display_game.c			\
-				)
-
-DIR			+=	$(addprefix $(DIR_SRC), ./destroy/)
-SRC			+=	$(addprefix $(lastword $(DIR)),\
-				destroy_game.c			\
-				destroy_player.c		\
-				destroy_monster.c		\
+				create_hud.c	\
 				)
 
 DIR_TEST	:=	./tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				)
 
-ROOT_OBJ	:=	./.obj/
+
+DIR_BUILD	:=	./build/
+
+ROOT_OBJ	:=	$(addprefix $(DIR_BUILD), obj/)
 DIR_OBJ		:=	$(addprefix $(ROOT_OBJ), $(DIR))
 OBJ			:=	$(patsubst %.c, $(ROOT_OBJ)%.o, $(SRC))
 
@@ -92,9 +143,6 @@ $(UNIT_TEST):
 tests_run:
 	@$(MAKE) $@
 
-tests_clean:
-	@$(MAKE) $@
-
 lib_all:
 	@$(MAKE) all
 
@@ -109,11 +157,11 @@ debug:				lib_debug re
 
 clean:
 	@$(MAKE) $@
-	@[ -d $(ROOT_OBJ) ]\
-	&& $(RM) $(ROOT_OBJ)\
-	&& printf "\033[31m[DELETED]\033[0m %s\n" $(ROOT_OBJ) || true
+	@[ -d $(DIR_BUILD) ]\
+	&& $(RM) $(DIR_BUILD)\
+	&& printf "\033[31m[DELETED]\033[0m %s\n" $(DIR_BUILD) || true
 
-fclean:				clean tests_clean
+fclean:				clean
 	@$(MAKE) $@
 	@[ -f $(NAME) ]\
 	&& $(RM) $(NAME)\

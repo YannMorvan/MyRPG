@@ -1,12 +1,12 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** button.h
 */
 
-#ifndef MY_RPG_BUTTON_H
-    #define MY_RPG_BUTTON_H
+#ifndef ENGINE_BUTTON_H
+    #define ENGINE_BUTTON_H
 
     #include "engine/struct.h"
 
@@ -37,4 +37,4 @@ void update_buttons(engine_t *engine, void *component);
  */
 void destroy_button(button_t *button);
 
-#endif /* !MY_RPG_BUTTON_H */
+#endif /* !ENGINE_BUTTON_H */

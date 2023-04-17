@@ -1,12 +1,12 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** character.h
 */
 
-#ifndef MY_RPG_CHARACTER_H
-    #define MY_RPG_CHARACTER_H
+#ifndef ENGINE_CHARACTER_H
+    #define ENGINE_CHARACTER_H
 
     #include "engine/struct.h"
 
@@ -39,4 +39,27 @@ void move_character(engine_t *engine, character_t *character,
  */
 void scale_character(character_t *character, sfVector2f scale);
 
-#endif /* !MY_RPG_CHARACTER_H */
+/**
+ * @brief Destroy a character object
+ *
+ * @param character The character
+ */
+void center_character(character_t *character);
+
+/**
+ * @brief Destroy a character object
+ *
+ * @param character The character
+ * @param rect The rect
+ */
+void set_rect_character(character_t *character, sfIntRect rect);
+
+/**
+ * @brief Destroy a character object
+ *
+ * @param engine The engine
+ * @param character The character
+ */
+void destroy_character(engine_t *engine, character_t *character);
+
+#endif /* !ENGINE_CHARACTER_H */

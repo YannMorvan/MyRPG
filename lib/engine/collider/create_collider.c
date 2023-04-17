@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** create_collider.c
@@ -13,7 +13,9 @@ collider_t *create_collider(engine_t *engine, sfFloatRect rect,
 {
     collider_t *collider = ice_calloc(1, sizeof(collider_t));
 
-    *collider = (collider_t){rect, type, COLLIDER_NONE, state};
-    list_add(engine->colliders, collider);
+    *collider = (collider_t){rect, type, COLLIDER_NONE, state, NULL};
+    if (!list_add(engine->colliders, collider))
+        return NULL;
+    collider->node = engine->colliders->tail;
     return collider;
 }

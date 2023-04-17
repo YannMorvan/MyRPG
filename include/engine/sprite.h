@@ -1,12 +1,12 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** sprites.h
 */
 
-#ifndef MY_RPG_SPRITE_H
-    #define MY_RPG_SPRITE_H
+#ifndef ENGINE_SPRITE_H
+    #define ENGINE_SPRITE_H
 
     #include "engine/struct.h"
 
@@ -43,4 +43,4 @@ void display_sprites(engine_t *engine);
  */
 void destroy_sprite(sprite_t *sprite);
 
-#endif /* !MY_RPG_SPRITE_H */
+#endif /* !ENGINE_SPRITE_H */

@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** update_buttons.c
@@ -13,7 +13,7 @@ void update_buttons(engine_t *engine, void *component)
 
     for (list_node_t *node = engine->buttons->head; node; node = node->next) {
         button = (button_t *)node->value;
-        if (button->character->collider->collide == COLLIDER_CURSOR)
+        if (button->character->collider->collide &= COLLIDER_CURSOR)
             button->state = (engine->mouse->left) ? CLICK : HOVER;
         else
             button->state = IDLE;

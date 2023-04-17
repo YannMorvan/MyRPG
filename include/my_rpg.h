@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** my_rpg.h
@@ -8,41 +8,8 @@
 #ifndef MY_RPG_MY_RPG_H
     #define MY_RPG_MY_RPG_H
 
-    #include "engine/window.h"
-    #include "engine/engine.h"
-    #include "engine/sprite.h"
-    #include "engine/texture.h"
-    #include "engine/character.h"
-    #include "engine/collider.h"
-    #include "engine/button.h"
+    #include "my_rpg/struct.h"
 
-    #define EVENT(game) game->engine->event
-    #define WINDOW(game) game->engine->window->window
-
-//
-// STRUCT
-//
-
-typedef struct monster_s {
-    character_t *character;
-    int speed;
-} monster_t;
-
-typedef struct player_s {
-    character_t *character;
-    int speed;
-    sfVector2f velocity;
-} player_t;
-
-typedef struct game_s {
-    engine_t *engine;
-    player_t *player;
-    list_t *monsters;
-    hud_t *hud;
-} game_t;
-
-//
-// CREATE
 //
 /**
  * @brief Create hud objects
@@ -53,115 +20,93 @@ typedef struct game_s {
 hud_t *create_hud(engine_t *engine);
 
 /**
- * @brief Create a game object
+ * @brief Create the rpg
  *
- * @return game_t* The game
+ * @return rpg_t* The rpg
  */
-game_t *create_game(void);
+rpg_t *create_rpg(void);
 
 /**
- * @brief Create a player object
+ * @brief Event of the rpg
  *
- * @param engine The engine
- * @return player_t* The player
+ * @param rpg The rpg
  */
-player_t *create_player(engine_t *engine);
-
-/**
- * @brief Create a pause button
- *
- * @param game The game
- * @return button_t* The button
- */
-button_t *create_pause_button(game_t *game);
-
-/**
- * @brief Create a monster object
- *
- * @param engine The engine
- * @return monster_t* The monster
- */
-sfBool add_monster(game_t *game);
-
+void destroy_rpg(rpg_t *rpg);
 
 //
-// EVENT
+// Parsing
 //
 
 /**
- * @brief Handle the events of the game
+ * @brief Read a file
  *
- * @param game The game
+ * @param path The path of the file
+ * @return char* The content of the file
  */
-void event_game(game_t *game);
+char *read_file(char *path);
 
 /**
- * @brief Handle the events of the player
+ * @brief Parse a file
  *
- * @param game The game
- * @param event The event
+ * @param path The path of the file
+ * @return list_t* The list config
  */
-void event_player(game_t *game, sfEvent event);
-
-//
-// UPDATE
-//
+list_t  *parse_file(char *path);
 
 /**
- * @brief Update the game
+ * @brief Get the parse string
  *
- * @param game The game
+ * @param list The list
+ * @param name The name of the string
+ * @return char* The string
  */
-void update_game(game_t *game);
+char *get_parse_string(list_t *list, char *name);
 
 /**
- * @brief Update the player
+ * @brief Get the parse value
  *
- * @param game The game
+ * @param list The list
+ * @param name The name of the value
+ * @return long long The value
  */
-void update_player(game_t *game);
+long long get_parse_value(list_t *list, char *name);
 
 /**
- * @brief Update the monsters
+ * @brief Destroy the parse
  *
- * @param game The game
+ * @param parse The parse
  */
-void update_monsters(game_t *game);
+void destroy_parse(list_t *parse);
 
 //
-// DISPLAY
-//
-
-/**
- * @brief Display the game
- *
- * @param game The game
- */
-void display_game(game_t *game);
-
-//
-// DESTROY
+// Scene
 //
 
 /**
- * @brief Destroy the game
+ * @brief Create the home scene
  *
- * @param game The game
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
  */
-void destroy_game(game_t *game);
+sfBool home(void *component);
 
 /**
- * @brief Destroy the player
+ * @brief Create the game scene
  *
- * @param player The player
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
  */
-void destroy_player(player_t *player);
+sfBool game(void *component);
+
+//
+// Update
+//
 
 /**
- * @brief Destroy the monster
+ * @brief Update the button texture
  *
- * @param monster The monster
+ * @param button The button
  */
-void destroy_monster(monster_t *monster);
+void update_button_texture(button_t *button);
 
 #endif /* !MY_RPG_MY_RPG_H */

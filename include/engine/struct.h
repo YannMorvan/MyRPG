@@ -1,12 +1,12 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** struct.h
 */
 
-#ifndef MY_RPG_STRUCT_H
-    #define MY_RPG_STRUCT_H
+#ifndef ENGINE_STRUCT_H
+    #define ENGINE_STRUCT_H
 
     #include <SFML/Graphics.h>
 
@@ -26,9 +26,10 @@ typedef enum button_state_s {IDLE = 0, HOVER = 1, CLICK = 2} button_state_t;
 
 typedef struct collider_s {
     sfFloatRect rect;
-    int self_type;
+    int type;
     int collide;
     collider_static_t is_static;
+    list_node_t *node;
 } collider_t;
 
 typedef struct texture_s {
@@ -37,8 +38,9 @@ typedef struct texture_s {
 } texture_t;
 
 typedef struct sprite_t {
-    texture_t *textures;
+    texture_t *texture;
     sfSprite *sprite;
+    list_node_t *node;
 } sprite_t;
 
 typedef struct hud_s {
@@ -70,11 +72,19 @@ typedef struct delta_time_s {
     float delta;
 } delta_time_t;
 
+typedef struct splash_screen_s {
+    sfColor color;
+    sfTexture *texture;
+    sfSprite *sprite;
+} splash_screen_t;
+
 typedef struct window_s {
     sfRenderWindow *window;
     sfVideoMode mode;
     char *name;
     sfView *view;
+    sfImage *icon;
+    splash_screen_t *splash_screen;
 } window_t;
 
 typedef struct engine_s {
@@ -86,6 +96,7 @@ typedef struct engine_s {
     list_t *colliders;
     list_t *buttons;
     mouse_t *mouse;
+    sfBool (*scene)(void *component);
 } engine_t;
 
-#endif /* !MY_RPG_STRUCT_H */
+#endif /* !ENGINE_STRUCT_H */

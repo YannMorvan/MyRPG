@@ -1,12 +1,12 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** engine.h
 */
 
-#ifndef MY_RPG_ENGINE_H
-    #define MY_RPG_ENGINE_H
+#ifndef ENGINE_ENGINE_H
+    #define ENGINE_ENGINE_H
 
     #include "engine/struct.h"
 
@@ -27,8 +27,9 @@ engine_t *create_engine(ui_t width, ui_t height,
  *
  * @param engine The engine
  * @param event The event
+ * @return sfBool True if the event is handled
  */
-void event_engine(engine_t *engine, sfEvent event);
+sfBool event_engine(engine_t *engine, sfEvent event);
 
 /**
  * @brief Update the engine
@@ -50,7 +51,16 @@ sfBool write_framerate(engine_t *engine);
  * @brief Destroy the engine
  *
  * @param engine The engine
+ * @param path The path of the icon
+ * @return sfBool False if an error occurred
+ */
+sfBool set_icon_engine(engine_t *engine, char *path);
+
+/**
+ * @brief Destroy the engine
+ *
+ * @param engine The engine
  */
 void destroy_engine(engine_t *engine);
 
-#endif /* !MY_RPG_ENGINE_H */
+#endif /* !ENGINE_ENGINE_H */

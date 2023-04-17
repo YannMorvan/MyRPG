@@ -1,12 +1,12 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** mouse.h
 */
 
-#ifndef MY_RPG_MOUSE_H
-    #define MY_RPG_MOUSE_H
+#ifndef ENGINE_MOUSE_H
+    #define ENGINE_MOUSE_H
 
     #include "engine/struct.h"
 
@@ -23,8 +23,9 @@ mouse_t *create_mouse(engine_t *engine);
  *
  * @param engine The engine
  * @param event The event
+ * @return sfBool True if the event is handled
  */
-void event_mouse(engine_t *engine, sfEvent event);
+sfBool event_mouse(engine_t *engine, sfEvent event);
 
 /**
  * @brief Update the mouse
@@ -34,4 +35,4 @@ void event_mouse(engine_t *engine, sfEvent event);
  */
 void update_mouse(engine_t *engine, mouse_t *mouse);
 
-#endif /* !MY_RPG_MOUSE_H */
+#endif /* !ENGINE_MOUSE_H */

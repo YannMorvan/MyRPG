@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** collider_set_type.c
@@ -9,5 +9,5 @@
 
 void collider_set_type(collider_t *collider, int type)
 {
-    collider->self_type = type;
+    collider->type = type;
 }

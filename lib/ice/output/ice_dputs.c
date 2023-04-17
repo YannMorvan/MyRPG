@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** libice/output
 ** File description:
 ** ice_dputs.c
@@ -9,7 +9,7 @@
 
 #include "ice/string.h"
 
-ull_t ice_dputs(int fd, const char *str)
+ssize_t ice_dputs(int fd, const char *str)
 {
     return write(fd, str, ice_strlen(str));
 }

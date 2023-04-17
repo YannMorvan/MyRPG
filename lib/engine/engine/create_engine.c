@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
 ** create_engine.c
@@ -19,6 +19,10 @@ static window_t *create_window(ui_t width, ui_t height,
         return NULL;
     window->name = ice_strdup(name);
     if (!window->name)
+        return NULL;
+    window->view = sfView_createFromRect((sfFloatRect){0, 0,
+        (float)width, (float)height});
+    if (!window->view)
         return NULL;
     window->mode = (sfVideoMode){width, height, 32};
     window->window = sfRenderWindow_create(window->mode, window->name,
@@ -51,17 +55,10 @@ engine_t *create_engine(ui_t width, ui_t height,
 {
     engine_t *engine = malloc(sizeof(engine_t));
 
-    if (!engine)
+    if (!engine || !engine_malloc(engine) || !engine_create(engine))
         return NULL;
     engine->window = create_window(width, height, name, style);
     if (!engine->window)
         return NULL;
-    if (!engine->window || !engine_malloc(engine) || !engine_create(engine))
-        return NULL;
-    engine->window->view = sfView_createFromRect((sfFloatRect){0, 0,
-        (float)width, (float)height});
-    if (!engine->window->view)
-        return NULL;
-    sfRenderWindow_setView(engine->window->window, engine->window->view);
     return engine;
 }
