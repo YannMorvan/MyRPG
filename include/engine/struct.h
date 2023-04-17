@@ -45,7 +45,8 @@ typedef struct sprite_t {
 
 typedef struct hud_s {
     sprite_t *heart;
-    unsigned int life;
+    unsigned int m_life;
+    unsigned int c_life;
 } hud_t;
 
 typedef struct character_s {
