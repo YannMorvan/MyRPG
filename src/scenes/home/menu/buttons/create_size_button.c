@@ -11,20 +11,12 @@
 static void update_left_button(void *component, button_t *button)
 {
     rpg_t *rpg = (rpg_t *)component;
-    sfVector2u ratio[] = {
-        {640, 360},
-        {960, 540},
-        {1280, 720},
-        {1920, 1080},
-        {2560, 1440},
-        {3840, 2160}
-    };
 
     update_button_texture(button);
     if (button->state == CLICK && HOME(rpg)->size_index > 0) {
         HOME(rpg)->size_index--;
         sfRenderWindow_setSize(rpg->engine->window->window,
-            ratio[HOME(rpg)->size_index]);
+            get_window_size(rpg));
     }
 }
 
@@ -43,23 +35,12 @@ static button_t *create_left_button(rpg_t *rpg, float index)
 static void update_right_button(void *component, button_t *button)
 {
     rpg_t *rpg = (rpg_t *)component;
-    sfVector2u ratio[] = {
-        {640, 360},
-        {960, 540},
-        {1280, 720},
-        {1920, 1080},
-        {2560, 1440},
-        {3840, 2160}
-    };
-    int size = sizeof(ratio) / sizeof(ratio[0]);
 
     update_button_texture(button);
     if (button->state == CLICK) {
-        if (HOME(rpg)->size_index < size - 1) {
-            HOME(rpg)->size_index++;
-            sfRenderWindow_setSize(rpg->engine->window->window,
-                ratio[HOME(rpg)->size_index]);
-        }
+        HOME(rpg)->size_index++;
+        sfRenderWindow_setSize(rpg->engine->window->window,
+            get_window_size(rpg));
     }
 }
 

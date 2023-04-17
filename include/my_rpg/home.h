@@ -87,6 +87,14 @@ sfBool load_icon(rpg_t *rpg);
  */
 sfBool load_background(rpg_t *rpg);
 
+/**
+ * @brief Create the buttons of the home scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfVector2u get_window_size(rpg_t *rpg);
+
 //
 // Button
 //
