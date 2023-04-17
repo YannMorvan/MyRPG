@@ -22,7 +22,7 @@ typedef struct spell_s {
 typedef struct melee_s {
     unsigned int damage;
     sfVector2f speed;
-    float direction;
+    float angle;
 } melee_t;
 
 typedef struct attack_s {
@@ -34,6 +34,8 @@ typedef struct attack_s {
 
 typedef struct slime_s {
     sfVector2f speed;
+    unsigned int health;
+    unsigned int damages;
 } slime_t;
 
 typedef struct monster_s {
@@ -231,6 +233,21 @@ void update_attacks(rpg_t *rpg);
  * @param rpg The rpg
  */
 void destroy_attacks(rpg_t *rpg);
+
+/**
+ * @brief Get the angle
+ *
+ * @param player_pos The Player pos
+ * @param target The Target pos
+ */
+double get_angle(sfVector2f player_pos, sfVector2f target);
+
+/**
+ * @brief Get the Middle of the Sprite
+ *
+ * @param sprite The Sprite
+ */
+sfVector2f get_middle(sfSprite *sprite);
 
 /**
  * @brief Destroy the attack
