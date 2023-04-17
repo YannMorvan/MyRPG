@@ -34,6 +34,7 @@ typedef struct player_s {
 typedef struct game_s {
     player_t *player;
     list_t *monsters;
+    hud_t *hud;
 } game_t;
 
     #define GAME(rpg) ((game_t *)rpg->scene)
@@ -110,6 +111,18 @@ sfVector2f get_tile_pos(sfVector2i pos, sfVector2i offset);
  * @return sfBool False if an error occurred
  */
 sfBool set_wall(rpg_t *rpg, char **map, sfVector2i pos, sfVector2i offset);
+
+//
+// Hud
+//
+
+/**
+ * @brief Create the hud
+ *
+ * @param engine The engine
+ * @return hud_t* The hud
+*/
+hud_t *create_hud(engine_t *engine);
 
 //
 // Player

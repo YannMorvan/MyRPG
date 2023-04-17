@@ -16,6 +16,7 @@ game_t *create_game(rpg_t *rpg)
         return NULL;
     if (!load_map(rpg))
         return sfFalse;
+    game->hud = create_hud(rpg->engine);
     game->player = create_player(rpg->engine);
     if (!game->player)
         return NULL;
