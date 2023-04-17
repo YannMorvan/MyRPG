@@ -46,7 +46,7 @@ sfBool create_spell(rpg_t *rpg, game_t *game)
     attack->component = spell;
     set_spell_stats(rpg, spell);
     attack->character = create_character(rpg->engine,
-    get_middle(GAME(rpg)->player->character->sprite->sprite),
+        get_middle(GAME(rpg)->player->character->sprite->sprite),
         "spell", "./assets/attacks/1.png");
     if (!attack->character)
         return sfFalse;

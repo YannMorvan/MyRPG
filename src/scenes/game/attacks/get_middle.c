@@ -15,7 +15,7 @@ sfVector2f get_middle(sfSprite *sprite)
     sfVector2f pos = sfSprite_getPosition(sprite);
     sfFloatRect rect = sfSprite_getGlobalBounds(sprite);
 
-    pos.x -= rect.width / 2;
-    pos.y -= rect.height / 2;
+    pos.x -= rect.width / 2 - 20;
+    pos.y -= rect.height / 2 - 25;
     return pos;
 }
