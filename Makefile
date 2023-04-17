@@ -121,6 +121,11 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_pause_button.c	\
 				)
 
+DIR			+=	$(addprefix $(DIR_SCENES), game/hud/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_hud.c	\
+				)
+
 DIR_TEST	:=	./tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				)

@@ -11,8 +11,13 @@
     #include "my_rpg/struct.h"
 
 //
-// Main functions
-//
+/**
+ * @brief Create hud objects
+ *
+ * @param engine The engine
+ * @return hud_t* The hud
+*/
+hud_t *create_hud(engine_t *engine);
 
 /**
  * @brief Create the rpg
