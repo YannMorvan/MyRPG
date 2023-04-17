@@ -12,8 +12,8 @@
 
 static void update_melee(rpg_t *rpg, attack_t *attack, list_node_t *node)
 {
-    melee_t *melee = attack->component;
-
+    sfSprite_setPosition(attack->character->sprite->sprite, sfSprite_getPosition
+        (GAME(rpg)->player->character->sprite->sprite));
     if (attack->character->collider->collide & COLLIDER_MONSTER)
         destroy_attack(rpg, attack, node);
 }
@@ -31,10 +31,10 @@ sfBool create_melee(rpg_t *rpg, game_t *game)
     if (!attack || !melee)
         return sfFalse;
     attack->component = melee;
-    melee->speed = (sfVector2f){0, 0};
+    melee->speed = (sfVector2f) {0, 0};
     attack->character = create_character(rpg->engine,
     sfSprite_getPosition(game->player->character->sprite->sprite),
-    "melee", "./assets/attacks/sword.png");
+        "melee", "./assets/attacks/sword.png");
     if (!attack->character)
         return sfFalse;
     scale_character(attack->character, (sfVector2f){1.5, 1.5});

@@ -17,7 +17,8 @@ static void update_spell(rpg_t *rpg, attack_t *attack, list_node_t *node)
     spell_t *spell = attack->component;
 
     move_character(rpg->engine, attack->character, spell->speed);
-    if (attack->character->collider->collide & COLLIDER_WALL)
+    if (attack->character->collider->collide & COLLIDER_WALL ||
+        attack->character->collider->collide & COLLIDER_MONSTER)
         destroy_attack(rpg, attack, node);
 }
 
@@ -26,27 +27,13 @@ static void destroy_spell(attack_t *attack)
     free(attack->component);
 }
 
-static sfVector2f get_middle(sfSprite *sprite)
+static void set_spell_stats(rpg_t *rpg, spell_t *spell)
 {
-    sfVector2f pos = sfSprite_getPosition(sprite);
-    sfFloatRect rect = sfSprite_getGlobalBounds(sprite);
-
-    pos.x -= rect.width / 2;
-    pos.y -= rect.height / 2;
-    return pos;
-}
-
-void set_spell_direction(rpg_t *rpg, spell_t *spell)
-{
-    sfVector2f player =
-    sfSprite_getPosition(GAME(rpg)->player->character->sprite->sprite);
-    sfVector2f direction =
-    (sfVector2f) {rpg->engine->mouse->pos.x - player.x,
-    rpg->engine->mouse->pos.y - player.y};
-    spell->angle = atan2(direction.y, direction.x) * 180 / 3.14;
-
-    spell->speed.x = cos(spell->angle * 3.14 / 180) * 200;
-    spell->speed.y = sin(spell->angle * 3.14 / 180) * 200;
+    spell->angle = get_angle(sfSprite_getPosition
+    (GAME(rpg)->player->character->sprite->sprite),
+        rpg->engine->mouse->posf);
+    spell->speed =
+    (sfVector2f) {cos(spell->angle) * 200, sin(spell->angle) * 200};
 }
 
 sfBool create_spell(rpg_t *rpg, game_t *game)
@@ -57,7 +44,7 @@ sfBool create_spell(rpg_t *rpg, game_t *game)
     if (!attack || !spell)
         return sfFalse;
     attack->component = spell;
-    set_spell_direction(rpg, spell);
+    set_spell_stats(rpg, spell);
     attack->character = create_character(rpg->engine,
     get_middle(GAME(rpg)->player->character->sprite->sprite),
         "spell", "./assets/attacks/1.png");
