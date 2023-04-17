@@ -38,11 +38,19 @@ typedef struct game_s {
     engine_t *engine;
     player_t *player;
     list_t *monsters;
+    hud_t *hud;
 } game_t;
 
 //
 // CREATE
 //
+/**
+ * @brief Create hud objects
+ * 
+ * @param engine The engine
+ * @return hud_t* The hud
+*/
+hud_t *create_hud(engine_t *engine);
 
 /**
  * @brief Create a game object

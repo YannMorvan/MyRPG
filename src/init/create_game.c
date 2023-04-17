@@ -27,7 +27,8 @@ game_t *create_game(void)
     if (!game->monsters)
         return NULL;
     sfRenderWindow_setFramerateLimit(WINDOW(game), 60);
-    if (!create_pause_button(game))
+    game->hud = create_hud(game->engine);
+    if (!create_pause_button(game) || !game->hud)
         return NULL;
     return game;
 }

@@ -18,6 +18,7 @@ SRC			:=	$(addprefix $(DIR),\
 
 DIR			+=	$(addprefix $(DIR_SRC), ./init/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_hud.c			\
 				create_game.c			\
 				create_player.c			\
 				create_pause_button.c	\

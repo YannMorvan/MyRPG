@@ -41,6 +41,10 @@ typedef struct sprite_t {
     sfSprite *sprite;
 } sprite_t;
 
+typedef struct hud_s {
+    sprite_t *sprite;
+} hud_t;
+
 typedef struct character_s {
     sprite_t *sprite;
     collider_t *collider;
