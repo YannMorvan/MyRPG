@@ -125,7 +125,6 @@ DIR_TEST	:=	./tests/
 SRC_TEST	:=	$(addprefix $(DIR_TEST),\
 				)
 
-
 DIR_BUILD	:=	./build/
 
 ROOT_OBJ	:=	$(addprefix $(DIR_BUILD), obj/)

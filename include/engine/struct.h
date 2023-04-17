@@ -92,6 +92,7 @@ typedef struct engine_s {
     list_t *buttons;
     mouse_t *mouse;
     sfBool (*scene)(void *component);
+    sfBool debug;
 } engine_t;
 
 #endif /* !ENGINE_STRUCT_H */

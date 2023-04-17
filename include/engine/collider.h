@@ -37,4 +37,12 @@ void update_collision(engine_t *engine);
  */
 void collider_set_type(collider_t *collider, int type);
 
+/**
+ * @brief Destroy a collider object
+ *
+ * @param engine The engine
+ * @return sfBool sfFalse if an error occured
+ */
+sfBool debug_collider(engine_t *engine);
+
 #endif /* !ENGINE_COLLIDER_H */
