@@ -24,7 +24,6 @@ static void update_spell(rpg_t *rpg, attack_t *attack, list_node_t *node)
 
     spell->elapsed_time += rpg->engine->time->delta;
     if (spell->elapsed_time > spell->wait_time) {
-        printf("%i\n", spell->index);
         update_spell_texture(attack, spell);
         spell->index++;
         spell->elapsed_time -= spell->wait_time;
