@@ -124,6 +124,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+=	$(addprefix $(DIR_SCENES), game/hud/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_hud.c	\
+				update_life.c	\
 				)
 
 DIR_TEST	:=	./tests/

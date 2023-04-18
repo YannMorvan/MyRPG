@@ -147,6 +147,24 @@ sfBool set_wall(rpg_t *rpg, char **map, sfVector2i pos, sfVector2i offset);
 */
 hud_t *create_hud(engine_t *engine);
 
+/**
+ * @brief Create a new heart on the hud
+ *
+ * @param engine The engine
+ * @param hud The hud
+ * @return hud_t The hud
+*/
+hud_t *init_heart(engine_t *engine, hud_t *hud, unsigned int f);
+
+/**
+ * @brief Update life when taking damage or restore life
+ *
+ * @param engine The engine
+ * @param hud The hud
+ * @return hud_t* The hud
+*/
+hud_t *update_life(engine_t *engine, hud_t *hud);
+
 //
 // Player
 //
