@@ -45,6 +45,7 @@ typedef struct monster_s {
 
 typedef struct player_s {
     character_t *character;
+    unsigned int level;
     unsigned int exp;
     unsigned int speed;
     unsigned int attack;
