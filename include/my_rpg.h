@@ -14,9 +14,10 @@
 /**
  * @brief Create the rpg
  *
+ * @param debug The debug mode
  * @return rpg_t* The rpg
  */
-rpg_t *create_rpg(void);
+rpg_t *create_rpg(sfBool debug);
 
 /**
  * @brief Event of the rpg

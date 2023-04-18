@@ -17,7 +17,7 @@
     #define COLLIDER_PLAYER 0b00000010
     #define COLLIDER_MONSTER 0b00000100
     #define COLLIDER_WALL 0b00001000
-    #define COLLIDER_SPELL 0b00010000
+    #define COLLIDER_ATTACK 0b00010000
     #define COLLIDER_BUTTON 0b00100000
 
 typedef enum collider_static_s {MOVING = 0, STATIC = 1} collider_static_t;
@@ -98,6 +98,7 @@ typedef struct engine_s {
     list_t *buttons;
     mouse_t *mouse;
     sfBool (*scene)(void *component);
+    sfBool debug;
 } engine_t;
 
 #endif /* !ENGINE_STRUCT_H */

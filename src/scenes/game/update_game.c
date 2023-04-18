@@ -12,5 +12,6 @@ void update_game(rpg_t *rpg)
     update_engine(rpg->engine, rpg);
     update_player(rpg);
     update_monsters(rpg);
+    update_attacks(rpg);
     write_framerate(rpg->engine);
 }

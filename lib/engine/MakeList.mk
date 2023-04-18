@@ -46,6 +46,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_collider.c		\
 				update_collision.c		\
 				collider_set_type.c		\
+				debug_collider.c		\
 				)
 
 DIR			+=	engine/button/

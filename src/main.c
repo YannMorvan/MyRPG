@@ -7,10 +7,11 @@
 
 #include "my_rpg.h"
 #include "ice/macro.h"
+#include "ice/string.h"
 
-static int my_rpg(void)
+static int my_rpg(sfBool debug)
 {
-    rpg_t *rpg = create_rpg();
+    rpg_t *rpg = create_rpg(debug);
 
     if (!rpg)
         return 84;
@@ -23,7 +24,9 @@ static int my_rpg(void)
 
 int main(int ac, UNUSED char **av)
 {
+    if (ac == 2 && !ice_strcmp(av[1], "-d"))
+        return my_rpg(sfTrue);
     if (ac != 1)
         return 84;
-    return my_rpg();
+    return my_rpg(sfFalse);
 }

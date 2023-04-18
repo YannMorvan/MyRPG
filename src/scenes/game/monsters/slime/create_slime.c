@@ -15,7 +15,9 @@ static void update_slime(rpg_t *rpg, monster_t *monster, list_node_t *node)
     slime_t *slime = monster->component;
 
     move_character(rpg->engine, monster->character, slime->speed);
-    if (monster->character->collider->collide & COLLIDER_PLAYER)
+    if (monster->character->collider->collide & COLLIDER_ATTACK)
+        slime->health -= 25 * GAME(rpg)->player->intel;
+    if (slime->health <= 0)
         destroy_monster(rpg, monster, node);
 }
 
@@ -32,11 +34,12 @@ sfBool create_slime(rpg_t *rpg, game_t *game)
     if (!monster || !slime)
         return sfFalse;
     monster->component = slime;
-    slime->speed = (sfVector2f){100, 100};
-    monster->character = create_character(rpg->engine, (sfVector2f){0, 0},
+    slime->speed = (sfVector2f){0, 0};
+    monster->character = create_character(rpg->engine, (sfVector2f){500, 200},
         "slime", "./assets/slime.png");
     if (!monster->character)
         return sfFalse;
+    slime->health = 100;
     center_character(monster->character);
     monster->update = update_slime;
     monster->destroy = destroy_slime;

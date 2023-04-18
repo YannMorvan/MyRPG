@@ -7,6 +7,7 @@
 
 #include <malloc.h>
 
+#include "ice/memory.h"
 #include "ice/string.h"
 #include "engine/mouse.h"
 
@@ -53,7 +54,7 @@ static sfBool engine_create(engine_t *engine)
 engine_t *create_engine(ui_t width, ui_t height,
     const char *name, sfUint32 style)
 {
-    engine_t *engine = malloc(sizeof(engine_t));
+    engine_t *engine = ice_calloc(1, sizeof(engine_t));
 
     if (!engine || !engine_malloc(engine) || !engine_create(engine))
         return NULL;

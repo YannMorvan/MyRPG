@@ -6,6 +6,7 @@
 */
 
 #include "engine/struct.h"
+#include "engine/collider.h"
 
 void display_sprites(engine_t *engine)
 {
@@ -16,4 +17,6 @@ void display_sprites(engine_t *engine)
         sprite = node->value;
         sfRenderWindow_drawSprite(engine->window->window, sprite->sprite, NULL);
     }
+    if (engine->debug)
+        debug_collider(engine);
 }
