@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "my_rpg.h"
+#include "my_rpg/game.h"
 #include "ice/memory.h"
 
 hud_t *init_heart(engine_t *engine, hud_t *hud, unsigned int f)

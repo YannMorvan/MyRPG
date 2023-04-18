@@ -5,7 +5,7 @@
 ** update_life.c
 */
 
-#include "my_rpg.h"
+#include "my_rpg/game.h"
 
 hud_t *update_life(engine_t *engine, hud_t *hud)
 {
