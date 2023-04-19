@@ -12,6 +12,11 @@ static void player_stats(player_t *player)
 {
     player->speed = 150;
     player->intel = 1;
+    player->level = 1;
+    player->exp = 0;
+    player->mana = 100;
+    player->elapsed_time = 0;
+    player->wait_time = 3;
 }
 
 player_t *create_player(engine_t *engine)

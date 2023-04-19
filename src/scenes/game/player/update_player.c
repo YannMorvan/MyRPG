@@ -11,9 +11,13 @@ static void update_player_stats(player_t *player)
 {
     if (player->exp >= 100) {
         player->level += 1;
+        player->intel += 1;
         player->exp = 0;
     }
-    player->intel = player->level;
+    if (player->mana < 100 && player->elapsed_time >= player->wait_time)
+        player->mana += 10;
+    if (player->elapsed_time >= player->wait_time)
+        player->elapsed_time -= player->wait_time;
 }
 
 void update_player(rpg_t *rpg)
@@ -22,6 +26,7 @@ void update_player(rpg_t *rpg)
     list_node_t *node = list_get_node(rpg->engine->sprites,
         GAME(rpg)->player->character->sprite);
 
+    player->elapsed_time += rpg->engine->time->delta;
     update_player_stats(player);
     move_character(rpg->engine, player->character, player->velocity);
     if (node) {
