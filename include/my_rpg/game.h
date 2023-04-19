@@ -51,6 +51,8 @@ typedef struct player_s {
     unsigned int attack;
     unsigned int intel;
     unsigned int mana;
+    float elapsed_time;
+    float wait_time;
     sfVector2f velocity;
 } player_t;
 
