@@ -15,20 +15,9 @@ game_t *create_game(rpg_t *rpg)
 
     if (!game)
         return NULL;
-    if (!load_map(rpg))
-        return sfFalse;
     game->hud = create_hud(rpg->engine);
-//    game->player = create_player(rpg->engine);
-//    if (!game->player)
-//        return NULL;
     game->monsters = list_create();
-    if (!game->monsters)
-        return NULL;
-    if (!create_pause_button(rpg))
-        return NULL;
-    if (!create_slime(rpg, game))
-        return NULL;
-    if (!create_attacks(game))
-        return NULL;
-    return game;
+    return (!game->monsters || !game->hud || !load_map(rpg)
+        || !create_pause_button(rpg) || !create_attacks(game)) ?
+        NULL : game;
 }

@@ -23,5 +23,6 @@ sfBool debug_collider(engine_t *engine)
         sfRectangleShape_setFillColor(rect, (sfColor){255, 0, 0, 100});
         sfRenderWindow_drawRectangleShape(engine->window->window, rect, NULL);
     }
+    sfRectangleShape_destroy(rect);
     return sfTrue;
 }

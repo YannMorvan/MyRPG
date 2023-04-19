@@ -78,6 +78,8 @@ DIR			+=	$(addprefix $(DIR_SCENES), game/map/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				load_map.c		\
 				set_wall.c		\
+				set_floor.c		\
+				set_monster.c	\
 				get_tile_pos.c	\
 				)
 

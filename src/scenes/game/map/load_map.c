@@ -25,23 +25,6 @@ static sfVector2i get_offset(rpg_t *rpg, char **lines)
         (int)rpg->engine->window->mode.height / 64 - offset.y / 2};
 }
 
-static sfBool set_floor(rpg_t *rpg, sfVector2i pos, sfVector2i offset)
-{
-    sprite_t *floor = add_sprite_and_texture(rpg->engine,
-        "floor", "./assets/map/floor.png");
-    sfIntRect rect = {0, 0, 16, 16};
-    int r = rand() % 100;
-
-    if (!floor)
-        return sfFalse;
-    if (r > 70)
-        rect.left = (r > 85) ? 16 : 32;
-    sfSprite_setPosition(floor->sprite, get_tile_pos(pos, offset));
-    sfSprite_setTextureRect(floor->sprite, rect);
-    sfSprite_setScale(floor->sprite, (sfVector2f){2, 2});
-    return sfTrue;
-}
-
 static sfBool set_player(rpg_t *rpg, sfVector2i pos, sfVector2i offset)
 {
     sfVector2f fpos = get_tile_pos(pos, offset);
@@ -72,6 +55,8 @@ static sfBool set_tile(rpg_t *rpg, char **map, int y, sfVector2i offset)
                 ret = set_wall(rpg, map, (sfVector2i){x, y}, offset); break;
             case 'p':
                 ret = set_player(rpg, (sfVector2i){x, y}, offset); break;
+            case 'm':
+                ret = set_monster(rpg, (sfVector2i){x, y}, offset); break;
         }
         if (!ret)
             return sfFalse;

@@ -135,6 +135,26 @@ sfVector2f get_tile_pos(sfVector2i pos, sfVector2i offset);
  */
 sfBool set_wall(rpg_t *rpg, char **map, sfVector2i pos, sfVector2i offset);
 
+/**
+ * @brief Set the floor
+ *
+ * @param rpg The rpg
+ * @param pos The position
+ * @param offset The offset
+ * @return sfBool False if an error occurred
+ */
+sfBool set_floor(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
+
+/**
+ * @brief Set a monster on the map
+ *
+ * @param rpg The rpg
+ * @param pos The position
+ * @param offset The offset
+ * @return sfBool False if an error occurred
+ */
+sfBool set_monster(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
+
 //
 // Hud
 //
