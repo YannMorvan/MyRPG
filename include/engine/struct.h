@@ -43,8 +43,14 @@ typedef struct sprite_t {
     list_node_t *node;
 } sprite_t;
 
+typedef struct rect_t {
+    sfRectangleShape *rec;
+} rect_t;
+
 typedef struct hud_s {
     sprite_t *heart;
+    rect_t *inv;
+    sprite_t *spell;
     unsigned int m_life;
     unsigned int c_life;
 } hud_t;
