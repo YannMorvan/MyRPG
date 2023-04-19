@@ -7,9 +7,9 @@
 
 #include "engine/struct.h"
 
-void set_pos_character(character_t *character, sfVector2f offset)
+void set_pos_character(character_t *character, sfVector2f pos)
 {
-    sfSprite_move(character->sprite->sprite, offset);
-    character->collider->rect.left += offset.x;
-    character->collider->rect.top += offset.y;
+    sfSprite_setPosition(character->sprite->sprite, pos);
+    character->collider->rect.left += pos.x;
+    character->collider->rect.top += pos.y;
 }

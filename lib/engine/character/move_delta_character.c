@@ -2,13 +2,16 @@
 ** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
-** move_character.c
+** move_delta_character.c
 */
 
 #include "engine/struct.h"
 
-void move_character(character_t *character, sfVector2f offset)
+void move_delta_character(engine_t *engine, character_t *character,
+    sfVector2f offset)
 {
+    offset.x *= engine->time->delta;
+    offset.y *= engine->time->delta;
     sfSprite_move(character->sprite->sprite, offset);
     character->collider->rect.left += offset.x;
     character->collider->rect.top += offset.y;

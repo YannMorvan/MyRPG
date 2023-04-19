@@ -56,7 +56,7 @@ sfBool set_wall(rpg_t *rpg, char **map, sfVector2i pos, sfVector2i offset)
 
     if (!wall)
         return sfFalse;
-    scale_character(wall, (sfVector2f){2, 2});
+    set_scale_character(wall, (sfVector2f){2, 2});
     set_rect_character(wall, (sfIntRect){16, 16, 16, 16});
     collider_set_type(wall->collider, COLLIDER_WALL);
     free(wall);
