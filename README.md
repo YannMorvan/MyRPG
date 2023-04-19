@@ -2,8 +2,8 @@
 
 ### MANDATORY
 
-- [ ] The player needs to have characteristics
-- [ ] The player can fight enemies AND the characteristics impact the fights results 
+- [X] The player needs to have characteristics
+- [X] The player can fight enemies AND the characteristics impact the fights results 
 - [ ] The player have an inventory which can contain a limited set of items
 - [ ] The player can earn experience by winning fights and/or accomplishing specific actions
 - [ ] The player can level up thanks to experience AND upgrading its characteristics
