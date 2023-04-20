@@ -21,6 +21,8 @@ typedef struct spell_s {
     unsigned int index_max;
     float elapsed_time;
     float wait_time;
+    float duration;
+    float count;
 } spell_t;
 
 typedef struct attack_s {
@@ -52,7 +54,7 @@ typedef struct stats_s {
     unsigned int mana;
     float elapsed_time;
     float wait_time;
-    float cd[2];
+    float cd[3];
 } stats_t;
 
 typedef struct player_s {
@@ -285,7 +287,15 @@ void destroy_attack(rpg_t *rpg, attack_t *attack, list_node_t *node);
  * @param game The game
  * @return attack_t* The attack
  */
+sfBool create_heal(rpg_t *rpg, game_t *game);
 
+/**
+ * @brief Create the attack
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return attack_t* The attack
+ */
 sfBool create_spell(rpg_t *rpg, game_t *game);
 
 /**

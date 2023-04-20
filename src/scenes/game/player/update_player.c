@@ -23,6 +23,8 @@ static void update_player_stats(player_t *player, rpg_t *rpg)
         player->stats->cd[0] -= rpg->engine->time->delta;
     if (player->stats->cd[1] > 0)
         player->stats->cd[1] -= rpg->engine->time->delta;
+    if (player->stats->cd[2] > 0)
+        player->stats->cd[2] -= rpg->engine->time->delta;
 }
 
 void update_player(rpg_t *rpg)
