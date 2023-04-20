@@ -13,6 +13,20 @@
 #include "ice/string.h"
 #include "my_rpg/game.h"
 
+static char *get_map(void)
+{
+    char maps[][100] = {
+        "./assets/config/maps/map1.txt",
+        "./assets/config/maps/map2.txt",
+        "./assets/config/maps/map3.txt",
+        "./assets/config/maps/map4.txt",
+        "./assets/config/maps/map5.txt",
+    };
+    int index = rand() % (sizeof(maps) / sizeof(maps[0]));
+
+    return read_file(maps[index]);
+}
+
 static sfVector2i get_offset(rpg_t *rpg, char **lines)
 {
     sfVector2i offset = {0, 0};
@@ -21,7 +35,7 @@ static sfVector2i get_offset(rpg_t *rpg, char **lines)
         offset.x = MAX(offset.x, (int)ice_strlen(lines[offset.y]));
     return (sfVector2i){
         (int)rpg->engine->window->mode.width / 64 - offset.x / 2,
-        (int)rpg->engine->window->mode.height / 64 - offset.y / 2};
+        (int)rpg->engine->window->mode.height / 64 - offset.y / 2 + 1};
 }
 
 static sfBool set_tile(rpg_t *rpg, char **map, int y, sfVector2i offset)
@@ -49,7 +63,7 @@ static sfBool set_tile(rpg_t *rpg, char **map, int y, sfVector2i offset)
 
 sfBool load_map(rpg_t *rpg)
 {
-    char *file = read_file("./assets/config/maps/map.txt");
+    char *file = get_map();
     sfVector2i center;
     char **lines;
 
