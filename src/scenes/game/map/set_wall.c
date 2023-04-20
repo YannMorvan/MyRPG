@@ -5,8 +5,6 @@
 ** set_wall.c
 */
 
-#include <malloc.h>
-
 #include "ice/string.h"
 #include "my_rpg/game.h"
 
