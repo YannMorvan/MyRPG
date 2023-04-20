@@ -15,5 +15,7 @@ sfBool create_attacks(game_t *game)
     game->attacks = list_create();
     if (!game->attacks)
         return sfFalse;
+    game->player->stats->cd[0] = 0;
+    game->player->stats->cd[1] = 0;
     return sfTrue;
 }

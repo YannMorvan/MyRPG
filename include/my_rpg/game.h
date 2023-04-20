@@ -28,7 +28,6 @@ typedef struct attack_s {
     void (*update)(rpg_t *rpg, struct attack_s *attack, list_node_t *node);
     void (*destroy)(struct attack_s *attack);
     void *component;
-    float spell_cd;
 } attack_t;
 
 typedef struct slime_s {
@@ -53,6 +52,7 @@ typedef struct stats_s {
     unsigned int mana;
     float elapsed_time;
     float wait_time;
+    float cd[2];
 } stats_t;
 
 typedef struct player_s {
