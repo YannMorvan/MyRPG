@@ -165,6 +165,24 @@ hud_t *init_heart(engine_t *engine, hud_t *hud, unsigned int f);
 */
 hud_t *update_life(engine_t *engine, hud_t *hud);
 
+/**
+ * @brief Add spell to the inventory
+ *
+ * @param engine The engine
+ * @param hud The hud
+ * @param path Path to the spell icon
+ * @return hud_t* The hud
+*/
+hud_t *add_spell(engine_t *engine, hud_t *hud, char *path);
+
+/**
+ * @brief Grey the using spell icon
+ *
+ * @param spell The sprite to grey
+ * @return sprite_t* The grey sprite
+*/
+sprite_t *use_spell(sprite_t *spell);
+
 //
 // Player
 //

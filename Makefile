@@ -125,6 +125,7 @@ DIR			+=	$(addprefix $(DIR_SCENES), game/hud/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_hud.c	\
 				update_life.c	\
+				display_spell.c	\
 				)
 
 DIR_TEST	:=	./tests/
