@@ -283,6 +283,15 @@ void destroy_attack(rpg_t *rpg, attack_t *attack, list_node_t *node);
 
 sfBool create_spell(rpg_t *rpg, game_t *game);
 
+/**
+ * @brief Create the attack
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return attack_t* The attack
+ */
+sfBool create_sword_spell(rpg_t *rpg, game_t *game);
+
 //
 // Button
 //

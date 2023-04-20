@@ -94,6 +94,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+=	$(addprefix $(DIR_SCENES), ./game/attacks/spell/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_spell.c		\
+				create_sword_spell.c	\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), ./game/player/)

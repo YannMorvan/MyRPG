@@ -9,8 +9,10 @@
 
 static sfBool player_actions(rpg_t *rpg, sfEvent event)
 {
-    if (event.key.code == sfKeySpace && GAME(rpg)->player->mana >= 10)
+    if (event.key.code == sfKeyNum2 && GAME(rpg)->player->mana >= 10)
         return create_spell(rpg, GAME(rpg));
+    if (event.key.code == sfKeyNum1)
+        return create_sword_spell(rpg, GAME(rpg));
     return false;
 }
 
