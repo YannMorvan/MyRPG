@@ -12,19 +12,14 @@
 #include "ice/memory.h"
 #include "my_rpg/game.h"
 
-static void update_spell_texture(attack_t *attack, spell_t *spell)
-{
-    set_rect_character(attack->character, (sfIntRect){
-        64 * (int)spell->index, 0, 64, 45});
-}
-
 static void update_spell(rpg_t *rpg, attack_t *attack, list_node_t *node)
 {
     spell_t *spell = attack->component;
 
     spell->elapsed_time += rpg->engine->time->delta;
     if (spell->elapsed_time > spell->wait_time) {
-        update_spell_texture(attack, spell);
+        set_rect_character(attack->character, (sfIntRect){
+            64 * (int)spell->index, 0, 64, 45});
         spell->index++;
         spell->elapsed_time -= spell->wait_time;
         if (spell->index > spell->index_max)
@@ -54,6 +49,14 @@ static void set_spell_stats(rpg_t *rpg, spell_t *spell)
     spell->wait_time = 0.001f;
 }
 
+static void modify_sprite(attack_t *attack, spell_t *spell)
+{
+    set_rect_character(attack->character, (sfIntRect){0, 0, 64, 45});
+    center_character(attack->character);
+    sfSprite_setRotation(attack->character->sprite->sprite,
+        spell->angle * 180 / M_PI);
+}
+
 sfBool create_spell(rpg_t *rpg, game_t *game)
 {
     attack_t *attack = ice_calloc(1, sizeof(attack_t));
@@ -69,8 +72,7 @@ sfBool create_spell(rpg_t *rpg, game_t *game)
         "spell", "./assets/attacks/fireball.png");
     if (!attack->character)
         return sfFalse;
-    set_rect_character(attack->character, (sfIntRect){0, 0, 64, 45});
-    center_character(attack->character);
+    modify_sprite(attack, spell);
     attack->update = update_spell;
     attack->destroy = destroy_spell;
     collider_set_type(attack->character->collider, COLLIDER_ATTACK);

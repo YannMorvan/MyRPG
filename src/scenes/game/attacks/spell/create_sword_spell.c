@@ -12,19 +12,14 @@
 #include "ice/memory.h"
 #include "my_rpg/game.h"
 
-static void update_spell_texture(attack_t *attack, spell_t *spell)
-{
-    set_rect_character(attack->character, (sfIntRect){
-        33 * (int)spell->index, 0, 33, 15});
-}
-
 static void update_spell(rpg_t *rpg, attack_t *attack, list_node_t *node)
 {
     spell_t *spell = attack->component;
 
     spell->elapsed_time += rpg->engine->time->delta;
     if (spell->elapsed_time > spell->wait_time) {
-        update_spell_texture(attack, spell);
+        set_rect_character(attack->character, (sfIntRect){
+            33 * (int)spell->index, 0, 33, 15});
         spell->index++;
         spell->elapsed_time -= spell->wait_time;
         if (spell->index > spell->index_max)
@@ -52,6 +47,16 @@ static void set_spell_stats(rpg_t *rpg, spell_t *spell)
     spell->index = 1;
     spell->index_max = 3;
     spell->wait_time = 0.09f;
+    GAME(rpg)->player->stats->mana -= 10;
+}
+
+static void modify_sprite(attack_t *attack, spell_t *spell)
+{
+    scale_character(attack->character, (sfVector2f){1.5, 1.5});
+    set_rect_character(attack->character, (sfIntRect){0, 0, 33, 15});
+    center_character(attack->character);
+    sfSprite_setRotation(attack->character->sprite->sprite,
+        spell->angle * 180 / M_PI - 180);
 }
 
 sfBool create_sword_spell(rpg_t *rpg, game_t *game)
@@ -61,7 +66,6 @@ sfBool create_sword_spell(rpg_t *rpg, game_t *game)
 
     if (!attack || !spell || GAME(rpg)->player->stats->mana < 10)
         return sfFalse;
-    GAME(rpg)->player->stats->mana -= 10;
     attack->component = spell;
     set_spell_stats(rpg, spell);
     attack->character = create_character(rpg->engine,
@@ -69,9 +73,7 @@ sfBool create_sword_spell(rpg_t *rpg, game_t *game)
         "sword", "./assets/attacks/sword_spell.png");
     if (!attack->character)
         return sfFalse;
-    scale_character(attack->character, (sfVector2f){2, 2});
-    set_rect_character(attack->character, (sfIntRect){0, 0, 33, 15});
-    center_character(attack->character);
+    modify_sprite(attack, spell);
     attack->update = update_spell;
     attack->destroy = destroy_spell;
     collider_set_type(attack->character->collider, COLLIDER_ATTACK);
