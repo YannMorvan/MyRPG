@@ -9,13 +9,13 @@
 
 #include "my_rpg/game.h"
 
-static void destroy_monster_struct(monster_t *monster)
-{
-    monster->destroy(monster);
-    free(monster);
-}
-
 void destroy_monsters(rpg_t *rpg)
 {
-    list_destroy_node(GAME(rpg)->monsters, (void *)destroy_monster_struct);
+    list_node_t *next;
+
+    for (list_node_t *node = GAME(rpg)->monsters->head; node; node = next) {
+        next = node->next;
+        destroy_monster(rpg, node->value, node);
+    }
+    free(GAME(rpg)->monsters);
 }

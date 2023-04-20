@@ -5,15 +5,10 @@
 ** create_attacks.c
 */
 
-#include <malloc.h>
-
 #include "my_rpg/game.h"
-#include "ice/memory.h"
 
 sfBool create_attacks(game_t *game)
 {
     game->attacks = list_create();
-    if (!game->attacks)
-        return sfFalse;
-    return sfTrue;
+    return game->attacks ? sfTrue : sfFalse;
 }

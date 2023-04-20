@@ -23,5 +23,5 @@ sfBool set_floor(rpg_t *rpg, sfVector2i pos, sfVector2i offset)
     sfSprite_setPosition(floor->sprite, get_tile_pos(pos, offset));
     sfSprite_setTextureRect(floor->sprite, rect);
     sfSprite_setScale(floor->sprite, (sfVector2f){2, 2});
-    return sfTrue;
+    return list_add(GAME(rpg)->map->floors, floor);
 }
