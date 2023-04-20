@@ -49,7 +49,7 @@ static void set_spell_stats(spell_t *spell)
 
 static void modify_sprite(attack_t *attack)
 {
-    scale_character(attack->character, (sfVector2f){3, 3});
+    set_scale_character(attack->character, (sfVector2f){3, 3});
     set_rect_character(attack->character, (sfIntRect){22, 20, 20, 15});
     center_character(attack->character);
 }
@@ -61,7 +61,7 @@ sfBool create_heal(rpg_t *rpg, game_t *game)
 
     if (!attack || !heal || GAME(rpg)->player->stats->mana < 10)
         return sfFalse;
-    GAME(rpg)->player->stats->mana -= 10;
+    GAME(rpg)->player->stats->mana -= 25;
     attack->component = heal;
     set_spell_stats(heal);
     attack->character = create_character(rpg->engine,
