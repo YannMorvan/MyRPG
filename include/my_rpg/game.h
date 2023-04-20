@@ -63,11 +63,17 @@ typedef struct player_s {
     sfVector2f velocity;
 } player_t;
 
+typedef struct map_s {
+    list_t *floors;
+    list_t *walls;
+} map_t;
+
 typedef struct game_s {
     player_t *player;
     list_t *monsters;
     list_t *attacks;
     hud_t *hud;
+    map_t *map;
 } game_t;
 
     #define GAME(rpg) ((game_t *)rpg->scene)
@@ -96,7 +102,7 @@ void event_game(rpg_t *rpg);
  *
  * @param rpg The rpg
  */
-void update_game(rpg_t *rpg);
+sfBool update_game(rpg_t *rpg);
 
 /**
  * @brief Display the game scene
@@ -118,12 +124,34 @@ sfBool destroy_game(rpg_t *rpg);
 //
 
 /**
+ * @brief Create the map
+ *
+ * @param rpg The rpg
+ * @return map_t* The map
+ */
+map_t *create_map(rpg_t *rpg);
+
+/**
  * @brief Load the map
  *
  * @param rpg The rpg
  * @return sfBool False if an error occurred
  */
 sfBool load_map(rpg_t *rpg);
+
+/**
+ * @brief Clear the map
+ *
+ * @param rpg The rpg
+ */
+void clear_map(rpg_t *rpg);
+
+/**
+ * @brief Destroy the map
+ *
+ * @param rpg The rpg
+ */
+void destroy_map(rpg_t *rpg);
 
 /**
  * @brief Get the tile position
@@ -144,6 +172,56 @@ sfVector2f get_tile_pos(sfVector2i pos, sfVector2i offset);
  * @return sfBool False if an error occurred
  */
 sfBool set_wall(rpg_t *rpg, char **map, sfVector2i pos, sfVector2i offset);
+
+/**
+ * @brief Set the floor
+ *
+ * @param rpg The rpg
+ * @param pos The position
+ * @param offset The offset
+ * @return sfBool False if an error occurred
+ */
+sfBool set_floor(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
+
+/**
+ * @brief Set the ladder
+ *
+ * @param rpg The rpg
+ * @param pos The position
+ * @param offset The offset
+ * @return sfBool False if an error occurred
+ */
+sfBool set_ladder(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
+
+/**
+ * @brief Set the player on the map
+ *
+ * @param rpg The rpg
+ * @param pos The position
+ * @param offset The offset
+ * @return sfBool False if an error occurred
+ */
+sfBool set_player(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
+
+/**
+ * @brief Set a monster on the map
+ *
+ * @param rpg The rpg
+ * @param pos The position
+ * @param offset The offset
+ * @return sfBool False if an error occurred
+ */
+sfBool set_monster(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
+
+/**
+ * @brief Set a npc on the map
+ *
+ * @param rpg The rpg
+ * @param pos The position
+ * @param offset The offset
+ * @return sfBool False if an error occurred
+ */
+sfBool set_npc(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
 
 //
 // Hud

@@ -76,12 +76,20 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/map/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_map.c	\
 				load_map.c		\
+				clear_map.c		\
+				destroy_map.c	\
 				set_wall.c		\
+				set_floor.c		\
+				set_ladder.c	\
+				set_player.c	\
+				set_monster.c	\
+				set_npc.c		\
 				get_tile_pos.c	\
 				)
 
-DIR			+= 	$(addprefix $(DIR_SCENES), ./game/attacks/)
+DIR			+= 	$(addprefix $(DIR_SCENES), game/attacks/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_attacks.c	\
 				destroy_attacks.c	\
@@ -91,14 +99,14 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				get_middle.c 		\
 				)
 
-DIR			+=	$(addprefix $(DIR_SCENES), ./game/attacks/spell/)
+DIR			+=	$(addprefix $(DIR_SCENES), game/attacks/spell/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_spell.c		\
 				create_sword_spell.c	\
 				create_heal.c 		\
 				)
 
-DIR			+=	$(addprefix $(DIR_SCENES), ./game/player/)
+DIR			+=	$(addprefix $(DIR_SCENES), game/player/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_player.c		\
 				event_player.c		\
