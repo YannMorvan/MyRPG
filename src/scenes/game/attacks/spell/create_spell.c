@@ -59,9 +59,9 @@ sfBool create_spell(rpg_t *rpg, game_t *game)
     attack_t *attack = ice_calloc(1, sizeof(attack_t));
     spell_t *spell = ice_calloc(1, sizeof(spell_t));
 
-    if (!attack || !spell || GAME(rpg)->player->mana < 10)
+    if (!attack || !spell || GAME(rpg)->player->stats->mana < 10)
         return sfFalse;
-    GAME(rpg)->player->mana -= 10;
+    GAME(rpg)->player->stats->mana -= 10;
     attack->component = spell;
     set_spell_stats(rpg, spell);
     attack->character = create_character(rpg->engine,

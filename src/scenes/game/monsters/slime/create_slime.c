@@ -16,10 +16,10 @@ static void update_slime(rpg_t *rpg, monster_t *monster, list_node_t *node)
 
     move_character(rpg->engine, monster->character, slime->speed);
     if (monster->character->collider->collide & COLLIDER_ATTACK)
-        slime->health -= 25 * GAME(rpg)->player->intel;
+        slime->health -= 25 * GAME(rpg)->player->stats->intel;
     if (slime->health <= 0) {
         destroy_monster(rpg, monster, node);
-        GAME(rpg)->player->exp += 10;
+        GAME(rpg)->player->stats->exp += 10;
     }
 }
 

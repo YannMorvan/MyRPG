@@ -28,6 +28,7 @@ typedef struct attack_s {
     void (*update)(rpg_t *rpg, struct attack_s *attack, list_node_t *node);
     void (*destroy)(struct attack_s *attack);
     void *component;
+    float spell_cd;
 } attack_t;
 
 typedef struct slime_s {
@@ -43,8 +44,7 @@ typedef struct monster_s {
     void *component;
 } monster_t;
 
-typedef struct player_s {
-    character_t *character;
+typedef struct stats_s {
     unsigned int level;
     unsigned int exp;
     unsigned int speed;
@@ -53,6 +53,11 @@ typedef struct player_s {
     unsigned int mana;
     float elapsed_time;
     float wait_time;
+} stats_t;
+
+typedef struct player_s {
+    character_t *character;
+    stats_t *stats;
     sfVector2f velocity;
 } player_t;
 
