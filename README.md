@@ -30,7 +30,7 @@
 - [X] The windows may have differents resolutions, at least two (1920x1080, and an other)
 - [X] The game manages inputs from the mouse click and keyboard,
 - [X] The game contains animated sprites rendered thanks to sprite sheets,
-- [ ] Animations in your program are frame rate independent,
+- [X] Animations in your program are frame rate independent,
 - [X] Animations and movements in your program are timed by clocks.
 
 #### Main menu
