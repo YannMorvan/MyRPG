@@ -28,7 +28,7 @@ static button_t *create_left_button(rpg_t *rpg, float index)
     if (!button || !set_button(rpg, button, index))
         return NULL;
     button->update = update_left_button;
-    set_pos_character(button->character, (sfVector2f){-150, 0});
+    move_character(button->character, (sfVector2f){-150, 0});
     return button;
 }
 
@@ -52,7 +52,7 @@ static button_t *create_right_button(rpg_t *rpg, float index)
     if (!button || !set_button(rpg, button, index))
         return NULL;
     button->update = update_right_button;
-    set_pos_character(button->character, (sfVector2f){150, 0});
+    move_character(button->character, (sfVector2f){150, 0});
     return button;
 }
 

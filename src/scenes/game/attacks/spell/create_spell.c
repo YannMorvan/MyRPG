@@ -30,7 +30,7 @@ static void update_spell(rpg_t *rpg, attack_t *attack, list_node_t *node)
         if (spell->index > spell->index_max)
             spell->index = 1;
     }
-    move_character(rpg->engine, attack->character, spell->speed);
+    move_delta_character(rpg->engine, attack->character, spell->speed);
     if (attack->character->collider->collide & COLLIDER_WALL ||
         attack->character->collider->collide & COLLIDER_MONSTER)
         destroy_attack(rpg, attack, node);

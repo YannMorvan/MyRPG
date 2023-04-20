@@ -24,12 +24,21 @@ character_t *create_character(engine_t *engine, sfVector2f pos,
 /**
  * @brief Destroy a character object
  *
+ * @param character The character
+ * @param offset The offset
+ */
+void move_character(character_t *character,  sfVector2f offset);
+
+/**
+ * @brief Destroy a character object
+ *
  * @param engine The engine
  * @param character The character
  * @param offset The offset
  */
-void move_character(engine_t *engine, character_t *character,
+void move_delta_character(engine_t *engine, character_t *character,
     sfVector2f offset);
+
 
 /**
  * @brief Destroy a character object
@@ -37,7 +46,7 @@ void move_character(engine_t *engine, character_t *character,
  * @param character The character
  * @param scale The scale
  */
-void scale_character(character_t *character, sfVector2f scale);
+void set_scale_character(character_t *character, sfVector2f scale);
 
 /**
  * @brief Destroy a character object
@@ -50,9 +59,9 @@ void center_character(character_t *character);
  * @brief Set the pos character object
  *
  * @param character The character
- * @param offset The offset
+ * @param pos The position
  */
-void set_pos_character(character_t *character, sfVector2f offset);
+void set_pos_character(character_t *character, sfVector2f pos);
 
 /**
  * @brief Destroy a character object

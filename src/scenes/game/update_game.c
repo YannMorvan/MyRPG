@@ -7,11 +7,18 @@
 
 #include "my_rpg/game.h"
 
-void update_game(rpg_t *rpg)
+sfBool update_game(rpg_t *rpg)
 {
     update_engine(rpg->engine, rpg);
     update_player(rpg);
     update_monsters(rpg);
     update_attacks(rpg);
     write_framerate(rpg->engine);
+
+    if (GAME(rpg)->player->character->collider->collide & COLLIDER_LADDER
+        && GAME(rpg)->monsters->size == 0) {
+        clear_map(rpg);
+        return load_map(rpg);
+    }
+    return sfTrue;
 }

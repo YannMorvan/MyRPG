@@ -5,13 +5,27 @@
 ** load_map.c
 */
 
-#include <malloc.h>
+#include <stdlib.h>
 
 #include "my_rpg.h"
 #include "ice/array.h"
 #include "ice/macro.h"
 #include "ice/string.h"
 #include "my_rpg/game.h"
+
+static char *get_map(void)
+{
+    char maps[][100] = {
+        "./assets/config/maps/map1.txt",
+        "./assets/config/maps/map2.txt",
+        "./assets/config/maps/map3.txt",
+        "./assets/config/maps/map4.txt",
+        "./assets/config/maps/map5.txt",
+    };
+    int index = rand() % (sizeof(maps) / sizeof(maps[0]));
+
+    return read_file(maps[index]);
+}
 
 static sfVector2i get_offset(rpg_t *rpg, char **lines)
 {
@@ -21,38 +35,35 @@ static sfVector2i get_offset(rpg_t *rpg, char **lines)
         offset.x = MAX(offset.x, (int)ice_strlen(lines[offset.y]));
     return (sfVector2i){
         (int)rpg->engine->window->mode.width / 64 - offset.x / 2,
-        (int)rpg->engine->window->mode.height / 64 - offset.y / 2};
-}
-
-static sfBool set_floor(rpg_t *rpg,sfVector2i pos, sfVector2i offset)
-{
-    sprite_t *floor = add_sprite_and_texture(rpg->engine,
-        "floor", "./assets/map/floor.png");
-
-    if (!floor)
-        return sfFalse;
-    sfSprite_setPosition(floor->sprite, get_tile_pos(pos, offset));
-    sfSprite_setTextureRect(floor->sprite, (sfIntRect){0, 0, 16, 16});
-    sfSprite_setScale(floor->sprite, (sfVector2f){2, 2});
-    return sfTrue;
+        (int)rpg->engine->window->mode.height / 64 - offset.y / 2 + 1};
 }
 
 static sfBool set_tile(rpg_t *rpg, char **map, int y, sfVector2i offset)
 {
+    sfBool ret = sfTrue;
 
-    for (int x = 0; map[y][x]; x++) {
-        if ((map[y][x] == 'f'
-            && !set_floor(rpg, (sfVector2i){x, y}, offset))
-            || (map[y][x] == 'w'
-            && !set_wall(rpg, map, (sfVector2i){x, y}, offset)))
-            return sfFalse;
+    for (int x = 0; map[y][x] && ret; x++) {
+        switch (map[y][x]) {
+            case 'f':
+                ret = set_floor(rpg, (sfVector2i){x, y}, offset); break;
+            case 'w':
+                ret = set_wall(rpg, map, (sfVector2i){x, y}, offset); break;
+            case 'p':
+                ret = set_player(rpg, (sfVector2i){x, y}, offset); break;
+            case 'm':
+                ret = set_monster(rpg, (sfVector2i){x, y}, offset); break;
+            case 'l':
+                ret = set_ladder(rpg, (sfVector2i){x, y}, offset); break;
+            case 'n':
+                ret = set_npc(rpg, (sfVector2i){x, y}, offset); break;
+        }
     }
-    return sfTrue;
+    return ret;
 }
 
 sfBool load_map(rpg_t *rpg)
 {
-    char *file = read_file("./assets/config/maps/map.txt");
+    char *file = get_map();
     sfVector2i center;
     char **lines;
 
