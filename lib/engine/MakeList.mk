@@ -34,10 +34,11 @@ DIR			+=	engine/character/
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_character.c		\
 				move_character.c		\
-				scale_character.c		\
+				move_delta_character.c	\
 				center_character.c		\
 				set_pos_character.c		\
 				set_rect_character.c	\
+				set_scale_character.c	\
 				destroy_character.c		\
 				)
 

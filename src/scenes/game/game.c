@@ -16,7 +16,8 @@ sfBool game(void *component)
         return sfFalse;
     while (scene_is_open(rpg->engine, game)) {
         event_game(rpg);
-        update_game(rpg);
+        if (!update_game(rpg))
+            return sfFalse;
         display_game(rpg);
     }
     return destroy_game(rpg);

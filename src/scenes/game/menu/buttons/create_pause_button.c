@@ -20,7 +20,7 @@ button_t *create_pause_button(rpg_t *rpg)
 
     if (!button)
         return NULL;
-    scale_character(button->character, (sfVector2f){2, 2});
+    set_scale_character(button->character, (sfVector2f){2, 2});
     button->update = &update_pause_button;
     return button;
 }
