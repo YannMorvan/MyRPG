@@ -54,6 +54,8 @@ static sfBool set_tile(rpg_t *rpg, char **map, int y, sfVector2i offset)
                 ret = set_monster(rpg, (sfVector2i){x, y}, offset); break;
             case 'l':
                 ret = set_ladder(rpg, (sfVector2i){x, y}, offset); break;
+            case 'n':
+                ret = set_npc(rpg, (sfVector2i){x, y}, offset); break;
         }
         if (!ret)
             return sfFalse;

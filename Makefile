@@ -85,6 +85,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				set_ladder.c	\
 				set_player.c	\
 				set_monster.c	\
+				set_npc.c		\
 				get_tile_pos.c	\
 				)
 

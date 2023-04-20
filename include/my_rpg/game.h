@@ -203,6 +203,16 @@ sfBool set_player(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
  */
 sfBool set_monster(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
 
+/**
+ * @brief Set a npc on the map
+ *
+ * @param rpg The rpg
+ * @param pos The position
+ * @param offset The offset
+ * @return sfBool False if an error occurred
+ */
+sfBool set_npc(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
+
 //
 // Hud
 //
