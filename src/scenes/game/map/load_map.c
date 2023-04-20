@@ -42,7 +42,7 @@ static sfBool set_tile(rpg_t *rpg, char **map, int y, sfVector2i offset)
 {
     sfBool ret = sfTrue;
 
-    for (int x = 0; map[y][x]; x++) {
+    for (int x = 0; map[y][x] && ret; x++) {
         switch (map[y][x]) {
             case 'f':
                 ret = set_floor(rpg, (sfVector2i){x, y}, offset); break;
@@ -57,8 +57,6 @@ static sfBool set_tile(rpg_t *rpg, char **map, int y, sfVector2i offset)
             case 'n':
                 ret = set_npc(rpg, (sfVector2i){x, y}, offset); break;
         }
-        if (!ret)
-            return sfFalse;
     }
     return ret;
 }
