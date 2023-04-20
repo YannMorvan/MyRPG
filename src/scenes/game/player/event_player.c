@@ -10,13 +10,13 @@
 static sfBool player_actions(rpg_t *rpg, sfEvent event)
 {
     if (event.key.code == sfKeyNum2 && GAME(rpg)->player->stats->mana >= 10 &&
-        GAME(rpg)->player->stats->cd[0] <= 0) {
-        GAME(rpg)->player->stats->cd[0] = 1;
+        GAME(rpg)->player->stats->cd[1] <= 0) {
+        GAME(rpg)->player->stats->cd[1] = 1;
         return create_spell(rpg, GAME(rpg));
     }
     if (event.key.code == sfKeyNum1 && GAME(rpg)->player->stats->mana >= 10 &&
-        GAME(rpg)->player->stats->cd[1] <= 0) {
-        GAME(rpg)->player->stats->cd[1] = 0.5;
+        GAME(rpg)->player->stats->cd[0] <= 0) {
+        GAME(rpg)->player->stats->cd[0] = 0.5;
         return create_sword_spell(rpg, GAME(rpg));
     }
     return false;

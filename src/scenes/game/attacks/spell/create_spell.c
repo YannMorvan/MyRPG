@@ -64,7 +64,7 @@ sfBool create_spell(rpg_t *rpg, game_t *game)
 
     if (!attack || !spell || GAME(rpg)->player->stats->mana < 10)
         return sfFalse;
-    GAME(rpg)->player->stats->mana -= 10;
+    GAME(rpg)->player->stats->mana -= 25;
     attack->component = spell;
     set_spell_stats(rpg, spell);
     attack->character = create_character(rpg->engine,
