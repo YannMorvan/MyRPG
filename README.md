@@ -36,7 +36,7 @@
 #### Main menu
 
 - [ ] Must contain at least these options
-    - [ ] Start the game
+    - [X] Start the game
     - [ ] Resume game (grayed out if not possible)
     - [X] Settings
     - [X] Quit the game
