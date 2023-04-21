@@ -58,5 +58,5 @@ rpg_t *create_rpg(sfBool debug)
     rpg->engine->debug = debug;
     destroy_config(config);
     return (create_music(rpg->engine, "./assets/music/only_the_braves.ogg")) ?
-        NULL : rpg;
+        rpg : NULL;
 }
