@@ -77,6 +77,7 @@
 ## Credits
 
 - Main menu background: [AlbertoV](https://www.deviantart.com/albertov)
+- Game background: [Kruggsmash](https://www.deviantart.com/kruggsmash)
 - Dungeon tileset: [0x72](https://0x72.itch.io)
 - Button gui: [Mounir Tohami](https://mounirtohami.itch.io/)
 - Fireball: [Xyezwar](https://xyezawr.itch.io/)
