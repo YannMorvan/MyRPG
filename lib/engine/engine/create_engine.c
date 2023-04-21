@@ -45,10 +45,13 @@ static sfBool engine_create(engine_t *engine)
     engine->sprites = list_create();
     engine->colliders = list_create();
     engine->buttons = list_create();
+    engine->fonts = list_create();
+    engine->texts = list_create();
     engine->time->clock = sfClock_create();
     engine->mouse = create_mouse(engine);
     return engine->textures && engine->sprites && engine->colliders
-        && engine->buttons && engine->time->clock && engine->mouse;
+        && engine->buttons && engine->fonts && engine->texts
+        && engine->time->clock && engine->mouse;
 }
 
 engine_t *create_engine(ui_t width, ui_t height,

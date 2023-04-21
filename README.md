@@ -80,3 +80,4 @@
 - Dungeon tileset: [0x72](https://0x72.itch.io)
 - Button gui: [Mounir Tohami](https://mounirtohami.itch.io/)
 - Fireball: [Xyezwar](https://xyezawr.itch.io/)
+- Font: [Natanael Gama](https://fonts.google.com/specimen/Cinzel)

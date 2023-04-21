@@ -25,6 +25,21 @@ static void remove_buttons(rpg_t *rpg)
     rpg->engine->buttons->size = 0;
 }
 
+static void remove_texts(rpg_t *rpg)
+{
+    list_node_t *node = rpg->engine->texts->head;
+    list_node_t *next;
+
+    for (; node; node = next) {
+        next = node->next;
+        destroy_text(node->value);
+        free(node);
+    }
+    rpg->engine->texts->head = NULL;
+    rpg->engine->texts->tail = NULL;
+    rpg->engine->texts->size = 0;
+}
+
 void update_home(rpg_t *rpg)
 {
     update_engine(rpg->engine, rpg);
@@ -32,6 +47,7 @@ void update_home(rpg_t *rpg)
 
     if (HOME(rpg)->create_sub_scene) {
         remove_buttons(rpg);
+        remove_texts(rpg);
         HOME(rpg)->create_sub_scene(rpg);
         HOME(rpg)->create_sub_scene = NULL;
     }

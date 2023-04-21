@@ -64,6 +64,12 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_size_button.c		\
 				)
 
+DIR			+=	$(addprefix $(DIR_SCENES), home/menu/texts/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_size_text.c		\
+				update_size_text.c		\
+				)
+
 DIR			+=	$(addprefix $(DIR_SCENES), game/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				game.c				\

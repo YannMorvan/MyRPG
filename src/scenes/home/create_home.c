@@ -15,5 +15,6 @@ sfBool create_home(rpg_t *rpg)
     if (!rpg->scene)
             return sfFalse;
     HOME(rpg)->size_index = 1;
-    return load_background(rpg) && load_icon(rpg) && create_buttons_home(rpg);
+    return create_font(rpg->engine, "./assets/fonts/Cinzel.ttf")
+        && load_background(rpg) && load_icon(rpg) && create_buttons_home(rpg);
 }

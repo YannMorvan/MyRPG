@@ -88,6 +88,15 @@ typedef struct window_s {
     splash_screen_t *splash_screen;
 } window_t;
 
+typedef struct text_s {
+    sfText *text;
+    char *name;
+} text_t;
+
+typedef struct font_s {
+    sfFont *font;
+} font_t;
+
 typedef struct engine_s {
     window_t *window;
     delta_time_t *time;
@@ -96,6 +105,8 @@ typedef struct engine_s {
     list_t *sprites;
     list_t *colliders;
     list_t *buttons;
+    list_t *fonts;
+    list_t *texts;
     mouse_t *mouse;
     sfBool (*scene)(void *component);
     sfBool debug;

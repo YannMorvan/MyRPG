@@ -14,12 +14,13 @@
 // Struct
 //
 
-typedef enum home_scene_e {
+typedef enum home_scene_s {
     HOME_MENU = 0,
     HOME_SETTINGS = 1
 } home_scene_t;
 
 typedef struct home_s {
+    sfText *text;
     int size_index;
     home_scene_t scene;
     sfBool (*create_sub_scene)(rpg_t *rpg);
@@ -164,5 +165,25 @@ button_t *create_options_button(rpg_t *rpg, float index);
  * @return button_t* The button
  */
 button_t *create_exit_button(rpg_t *rpg, float index);
+
+//
+// Text
+//
+
+/**
+ * @brief Create the text of the home scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool create_size_text(rpg_t *rpg);
+
+/**
+ * @brief Update the size text
+ *
+ * @param rpg The rpg
+ * @param button The button
+ */
+void update_size_text(rpg_t *rpg, button_t *button);
 
 #endif /* !MY_RPG_HOME_H */
