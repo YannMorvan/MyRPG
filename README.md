@@ -38,11 +38,11 @@
 - [ ] Must contain at least these options
     - [ ] Start the game
     - [ ] Resume game (grayed out if not possible)
-    - [ ] Settings
+    - [X] Settings
     - [X] Quit the game
-- [ ] The settings option must contain
-    - [ ] Sound and music volume options
-    - [ ] A window size and resolution options
+- [X] The settings option must contain
+    - [X] Sound and music volume options
+    - [X] A window size and resolution options
 
 #### In game menu
 
