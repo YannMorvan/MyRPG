@@ -125,6 +125,14 @@ sfBool create_buttons_settings(rpg_t *rpg);
 button_t *create_size_button(rpg_t *rpg, float index);
 
 /**
+ * @brief Create the music button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
+button_t *create_music_button(rpg_t *rpg, float index);
+
+/**
  * @brief Set the button
  *
  * @param rpg The rpg
@@ -185,5 +193,21 @@ sfBool create_size_text(rpg_t *rpg);
  * @param button The button
  */
 void update_size_text(rpg_t *rpg, button_t *button);
+
+/**
+ * @brief Create the text of the home scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool create_music_text(rpg_t *rpg);
+
+/**
+ * @brief Update the music text
+ *
+ * @param rpg The rpg
+ * @param button The button
+ */
+void update_music_text(rpg_t *rpg, button_t *button);
 
 #endif /* !MY_RPG_HOME_H */

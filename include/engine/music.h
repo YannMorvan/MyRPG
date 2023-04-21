@@ -20,6 +20,14 @@
 music_t *create_music(engine_t *engine, char *path);
 
 /**
+ * @brief Set the volume of the music
+ *
+ * @param engine the engine
+ * @param volume the volume
+ */
+void set_volume_music(engine_t *engine, float volume);
+
+/**
  * @brief Destroy the music object
  *
  * @param engine the engine
