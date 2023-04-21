@@ -5,7 +5,6 @@
 ** create_heal.c
 */
 
-#include <math.h>
 #include <stdlib.h>
 
 #include "ice/memory.h"
@@ -19,7 +18,7 @@ static void update_spell(rpg_t *rpg, attack_t *attack, list_node_t *node)
     spell->elapsed_time += rpg->engine->time->delta;
     if (spell->elapsed_time > spell->wait_time) {
         set_rect_character(attack->character, (sfIntRect){
-            10 * (int)spell->index, 20, 20, 15});
+            32 * (int)spell->index, 0, 32, 32});
         spell->index++;
         spell->elapsed_time -= spell->wait_time;
         if (spell->index > spell->index_max)
@@ -27,6 +26,7 @@ static void update_spell(rpg_t *rpg, attack_t *attack, list_node_t *node)
     }
     sfSprite_setPosition(attack->character->sprite->sprite,
         sfSprite_getPosition(GAME(rpg)->player->character->sprite->sprite));
+    move_character(attack->character, (sfVector2f){0, -32});
     if (spell->count > spell->duration) {
         destroy_attack(rpg, attack, node);
     }
@@ -50,7 +50,7 @@ static void set_spell_stats(spell_t *spell)
 static void modify_sprite(attack_t *attack)
 {
     set_scale_character(attack->character, (sfVector2f){3, 3});
-    set_rect_character(attack->character, (sfIntRect){22, 20, 20, 15});
+    set_rect_character(attack->character, (sfIntRect){0, 0, 32, 32});
     center_character(attack->character);
 }
 
