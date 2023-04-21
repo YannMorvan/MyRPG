@@ -81,3 +81,4 @@
 - Button gui: [Mounir Tohami](https://mounirtohami.itch.io/)
 - Fireball: [Xyezwar](https://xyezawr.itch.io/)
 - Font: [Natanael Gama](https://fonts.google.com/specimen/Cinzel)
+- Music (Only the Braves): [Fitfysounds](https://www.fiftysounds.com)

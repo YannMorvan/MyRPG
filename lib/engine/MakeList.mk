@@ -91,3 +91,9 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				display_texts.c		\
 				destroy_text.c		\
 				)
+
+DIR			+=	engine/music/
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_music.c		\
+				destroy_music.c		\
+				)

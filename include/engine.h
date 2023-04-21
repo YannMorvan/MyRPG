@@ -10,6 +10,7 @@
 
     #include "engine/font.h"
     #include "engine/text.h"
+    #include "engine/music.h"
     #include "engine/scene.h"
     #include "engine/button.h"
     #include "engine/window.h"

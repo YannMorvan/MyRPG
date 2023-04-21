@@ -158,7 +158,7 @@ MAKE		:=	make -sC$(LIB) -j
 CC			:=	gcc
 CFLAGS		:=	-I./include/ -Wall -Wextra
 LDFLAGS		:=	-L$(LIB)
-LDLIBS		:=	-lice -lm -lcsfml-graphics -lcsfml-system
+LDLIBS		:=	-lice -lm -lcsfml-graphics -lcsfml-system -lcsfml-audio
 
 all:				$(DIR_OBJ) $(NAME)
 

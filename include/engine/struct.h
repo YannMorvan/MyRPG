@@ -9,6 +9,7 @@
     #define ENGINE_STRUCT_H
 
     #include <SFML/Graphics.h>
+    #include <SFML/Audio.h>
 
     #include "list.h"
 
@@ -97,6 +98,11 @@ typedef struct font_s {
     sfFont *font;
 } font_t;
 
+typedef struct music_s {
+    sfMusic *music;
+    float volume;
+} music_t;
+
 typedef struct engine_s {
     window_t *window;
     delta_time_t *time;
@@ -108,6 +114,7 @@ typedef struct engine_s {
     list_t *fonts;
     list_t *texts;
     mouse_t *mouse;
+    music_t *music;
     sfBool (*scene)(void *component);
     sfBool debug;
 } engine_t;
