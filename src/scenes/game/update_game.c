@@ -17,6 +17,7 @@ sfBool update_game(rpg_t *rpg)
 
     if (GAME(rpg)->player->character->collider->collide & COLLIDER_LADDER
         && GAME(rpg)->monsters->size == 0) {
+        play_sound(rpg->engine, "ladder");
         clear_map(rpg);
         return load_map(rpg);
     }

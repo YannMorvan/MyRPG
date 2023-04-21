@@ -9,8 +9,10 @@
 
 void display_texts(engine_t *engine)
 {
+    text_t *text;
+
     for (list_node_t *node = engine->texts->head; node; node = node->next) {
-        text_t *text = node->value;
+        text = node->value;
         sfRenderWindow_drawText(engine->window->window, text->text, NULL);
     }
 }

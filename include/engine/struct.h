@@ -103,6 +103,17 @@ typedef struct music_s {
     float volume;
 } music_t;
 
+typedef struct sound_s {
+    sfSound *sound;
+    sfSoundBuffer *buffer;
+    char *name;
+} sound_t;
+
+typedef struct sounds_s {
+    list_t *sounds;
+    float volume;
+} sounds_t;
+
 typedef struct engine_s {
     window_t *window;
     delta_time_t *time;
@@ -115,6 +126,7 @@ typedef struct engine_s {
     list_t *texts;
     mouse_t *mouse;
     music_t *music;
+    sounds_t *sounds;
     sfBool (*scene)(void *component);
     sfBool debug;
 } engine_t;

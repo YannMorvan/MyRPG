@@ -15,7 +15,7 @@ music_t *create_music(engine_t *engine, char *path)
     if (!engine->music)
         return NULL;
     engine->music->music = sfMusic_createFromFile(path);
-    engine->music->volume = 100;
+    engine->music->volume = 50;
     if (!engine->music->music)
         return NULL;
     sfMusic_setVolume(engine->music->music, engine->music->volume);

@@ -98,3 +98,14 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				set_volume_music.c	\
 				destroy_music.c		\
 				)
+
+DIR			+=	engine/sound/
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_sound.c		\
+				create_sounds.c		\
+				get_sound.c			\
+				play_sound.c		\
+				set_volume_sounds.c	\
+				destroy_sound.c		\
+				destroy_sounds.c	\
+				)

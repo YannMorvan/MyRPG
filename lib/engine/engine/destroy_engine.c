@@ -10,6 +10,7 @@
 #include "engine/font.h"
 #include "engine/text.h"
 #include "engine/music.h"
+#include "engine/sound.h"
 #include "engine/window.h"
 #include "engine/button.h"
 #include "engine/sprite.h"
@@ -29,5 +30,6 @@ void destroy_engine(engine_t *engine)
     free(engine->mouse);
     if (engine->music)
         destroy_music(engine);
+    destroy_sounds(engine);
     free(engine);
 }
