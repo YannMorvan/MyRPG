@@ -13,6 +13,7 @@ sfBool update_game(rpg_t *rpg)
     update_player(rpg);
     update_monsters(rpg);
     update_attacks(rpg);
+    update_npcs(rpg);
     write_framerate(rpg->engine);
 
     if (GAME(rpg)->player->character->collider->collide & COLLIDER_LADDER

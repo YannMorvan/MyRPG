@@ -11,6 +11,8 @@ static sfBool player_actions(rpg_t *rpg, sfEvent event)
 {
     if (event.key.code == sfKeySpace)
         return create_spell(rpg, GAME(rpg));
+    if (event.key.code == sfKeyE)
+        GAME(rpg)->player->interact = sfTrue;
     return false;
 }
 
@@ -40,6 +42,8 @@ static sfBool key_unpressed(rpg_t *rpg, sfEvent event)
     if (event.key.code == sfKeyUp || event.key.code == sfKeyZ
         || event.key.code == sfKeyDown || event.key.code == sfKeyS)
         velocity->y = 0;
+    if (event.key.code == sfKeyE)
+        GAME(rpg)->player->interact = sfFalse;
     return false;
 }
 

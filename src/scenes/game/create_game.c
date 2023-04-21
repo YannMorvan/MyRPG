@@ -17,6 +17,7 @@ game_t *create_game(rpg_t *rpg)
         return NULL;
     game->hud = create_hud(rpg->engine);
     game->monsters = list_create();
+    game->npcs = list_create();
     game->player = create_player(rpg->engine);
     game->map = create_map(rpg);
     return (!game->monsters || !game->hud

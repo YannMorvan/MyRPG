@@ -43,6 +43,13 @@ typedef struct monster_s {
     void *component;
 } monster_t;
 
+typedef struct npc_s {
+    character_t *character;
+    void (*update)(rpg_t *rpg, struct npc_s *npc);
+    void (*destroy)(struct npc_s *npc);
+    void *component;
+} npc_t;
+
 typedef struct player_s {
     character_t *character;
     unsigned int exp;
@@ -51,6 +58,7 @@ typedef struct player_s {
     unsigned int intel;
     unsigned int mana;
     sfVector2f velocity;
+    sfBool interact;
 } player_t;
 
 typedef struct map_s {
@@ -62,6 +70,7 @@ typedef struct game_s {
     player_t *player;
     list_t *monsters;
     list_t *attacks;
+    list_t *npcs;
     hud_t *hud;
     map_t *map;
 } game_t;
@@ -259,6 +268,42 @@ void update_player(rpg_t *rpg);
  * @param rpg The rpg
  */
 void destroy_player(player_t *player);
+
+//
+// Npc
+//
+
+/**
+ * @brief Update the npcs
+ *
+ * @param rpg The rpg
+ */
+void update_npcs(rpg_t *rpg);
+
+/**
+ * @brief Destroy the npcs
+ *
+ * @param rpg The rpg
+ */
+void destroy_npcs(rpg_t *rpg);
+
+/**
+ * @brief Destroy the npc
+ *
+ * @param rpg The rpg
+ * @param npc The npc
+ * @param node The node
+ */
+void destroy_npc(rpg_t *rpg, npc_t *npc, list_node_t *node);
+
+/**
+ * @brief Create the npc
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return npc_t* The npc
+ */
+sfBool create_devil(rpg_t *rpg, game_t *game);
 
 //
 // Monster
