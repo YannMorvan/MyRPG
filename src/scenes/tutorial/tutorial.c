@@ -7,16 +7,34 @@
 
 #include "my_rpg.h"
 
+static sfBool create_background(rpg_t *rpg)
+{
+    sprite_t *background = add_sprite_and_texture(rpg->engine,
+        "background", "./assets/background/dungeon.jpg");
+    sfFloatRect rect;
+
+    if (!background)
+        return sfFalse;
+    rect = sfSprite_getGlobalBounds(background->sprite);
+    sfSprite_setScale(background->sprite, (sfVector2f){
+        (float)rpg->engine->window->mode.width / rect.width,
+        (float)rpg->engine->window->mode.height / rect.height
+    });
+    return sfTrue;
+}
+
 static sfBool create_tutorial(rpg_t *rpg)
 {
     sprite_t *sprite = add_sprite_and_texture(rpg->engine,
         "tutorial", "./assets/tutorial.png");
+    sfFloatRect rect;
+    sfVector2u size;
 
     if (!sprite)
         return sfFalse;
     sfSprite_setScale(sprite->sprite, (sfVector2f){3.25f, 3.25f});
-    sfFloatRect rect = sfSprite_getGlobalBounds(sprite->sprite);
-    sfVector2u size = sfRenderWindow_getSize(WINDOW(rpg));
+    rect = sfSprite_getGlobalBounds(sprite->sprite);
+    size = sfRenderWindow_getSize(WINDOW(rpg));
     sfSprite_setPosition(sprite->sprite, (sfVector2f){
         (float)size.x / 2 - rect.width / 2,
         (float)size.y / 2 - rect.height / 2
@@ -48,7 +66,7 @@ sfBool tutorial(void *component)
 {
     rpg_t *rpg = (rpg_t *)component;
 
-    if (!create_tutorial(rpg))
+    if (!create_background(rpg) || !create_tutorial(rpg))
         return sfFalse;
     while (scene_is_open(rpg->engine, tutorial)) {
         event_tutorial(rpg);
