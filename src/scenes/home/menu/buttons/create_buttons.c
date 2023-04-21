@@ -12,6 +12,7 @@ sfBool create_buttons_settings(rpg_t *rpg)
 {
     button_t *(*array[])(rpg_t *rpg, float index) = {
         create_music_button,
+        create_sound_button,
         create_size_button,
         create_exit_button,
         NULL
