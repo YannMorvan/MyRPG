@@ -20,7 +20,6 @@ game_t *create_game(rpg_t *rpg)
     game->npcs = list_create();
     game->player = create_player(rpg->engine);
     game->map = create_map(rpg);
-    return (!game->monsters || !game->hud
-        || !create_pause_button(rpg) || !create_attacks(game)) ?
-        NULL : game;
+    return (!game->monsters || !game->hud || !game->player || !game->map
+        || !create_pause_button(rpg) || !create_attacks(game)) ? NULL : game;
 }
