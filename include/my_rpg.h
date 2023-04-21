@@ -52,7 +52,7 @@ char *read_file(char *path);
  * @param path The path of the file
  * @return list_t* The list config
  */
-list_t  *parse_file(char *path);
+list_t *parse_file(char *path);
 
 /**
  * @brief Get the parse string
@@ -90,6 +90,14 @@ void destroy_parse(list_t *parse);
  * @return sfBool False if an error occurred
  */
 sfBool home(void *component);
+
+/**
+ * @brief Create the tutorial scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool tutorial(void *component);
 
 /**
  * @brief Create the game scene

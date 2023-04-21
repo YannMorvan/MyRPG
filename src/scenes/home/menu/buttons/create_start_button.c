@@ -14,7 +14,7 @@ static void update_start_button(void *component, button_t *button)
 
     update_button_texture(button);
     if (button->state == CLICK)
-        rpg->engine->scene = game;
+        rpg->engine->scene = tutorial;
 }
 
 button_t *create_start_button(rpg_t *rpg, float index)

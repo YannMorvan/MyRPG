@@ -76,6 +76,11 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_sound_text.c		\
 				)
 
+DIR			+=	$(addprefix $(DIR_SCENES), tutorial/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				tutorial.c		\
+				)
+
 DIR			+=	$(addprefix $(DIR_SCENES), game/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				game.c				\
