@@ -17,6 +17,7 @@ sfBool game(void *component)
         return sfFalse;
     while (scene_is_open(rpg->engine, game)) {
         event_game(rpg);
+        rpg->engine->hud = use_spell(rpg);
         if (!update_game(rpg))
             return sfFalse;
         display_game(rpg);

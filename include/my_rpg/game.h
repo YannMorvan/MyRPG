@@ -272,12 +272,12 @@ hud_t *update_mana(hud_t *hud);
 hud_t *add_spell(engine_t *engine, hud_t *hud, char *path);
 
 /**
- * @brief Grey the using spell icon
+ * @brief Grey the using spell icon and update mana
  *
- * @param spell The sprite to grey
- * @return sprite_t* The grey sprite
+ * @param rpg The rpg
+ * @return hud_t* The grey sprite
 */
-sprite_t *use_spell(sprite_t *spell);
+hud_t *use_spell(rpg_t *rpg);
 
 /**
  * @brief Update the hud display

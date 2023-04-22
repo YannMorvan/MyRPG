@@ -7,12 +7,18 @@
 
 #include "my_rpg/game.h"
 
-sprite_t *use_spell(sprite_t *spell)
+hud_t *use_spell(rpg_t *rpg)
 {
     sfColor sfGrey = sfColor_fromRGB(128, 128, 128);
+    unsigned int i = 0;
 
-    sfSprite_setColor(spell->sprite, sfGrey);
-    return spell;
+    for (;i < 3; i++)
+        if (GAME(rpg)->player->stats->cd[i] <= 0.0) {
+            rpg->engine->hud->c_mana = GAME(rpg)->player->stats->mana;
+            rpg->engine->hud = update_mana(rpg->engine->hud);
+            sfSprite_setColor(rpg->engine->hud->spell[i]->sprite, sfGrey);
+        }
+    return rpg->engine->hud;
 }
 
 hud_t *add_spell(engine_t *engine, hud_t *hud, char *path)
