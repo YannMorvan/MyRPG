@@ -19,15 +19,16 @@ static void get_quest(rpg_t *rpg)
         GAME(rpg)->quest->name = "Kill";
         GAME(rpg)->quest->description = "Kill 10 enemies";
         GAME(rpg)->quest->progress = 0;
-        GAME(rpg)->quest->reward = 100;
+        GAME(rpg)->quest->reward = 50;
         GAME(rpg)->quest->objective = 10;
     } else {
         GAME(rpg)->quest->name = "Survive";
         GAME(rpg)->quest->description = "Survive The next 2 stages";
         GAME(rpg)->quest->progress = 0;
-        GAME(rpg)->quest->reward = 100;
+        GAME(rpg)->quest->reward = 50;
         GAME(rpg)->quest->objective = 3;
     }
+    printf("quest: %s\n", GAME(rpg)->quest->name);
 }
 
 static void update_devil(rpg_t *rpg, npc_t *npc)

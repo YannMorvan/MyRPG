@@ -70,6 +70,7 @@ typedef struct stats_s {
     float elapsed_time;
     float wait_time;
     float cd[3];
+    sfBool acces[3];
 } stats_t;
 
 typedef struct player_s {

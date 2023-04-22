@@ -8,6 +8,17 @@
 #include "my_rpg/game.h"
 #include "ice/memory.h"
 
+static void update_spell_acces(rpg_t *rpg)
+{
+    for (int i = 0; i < 3; i++) {
+        if (GAME(rpg)->player->stats->acces[i] == sfFalse) {
+            GAME(rpg)->player->stats->acces[i] = sfTrue;
+            return;
+        }
+    }
+    GAME(rpg)->player->stats->exp += GAME(rpg)->quest->reward;
+}
+
 void update_quest(rpg_t *rpg)
 {
     if (GAME(rpg)->quest->name == NULL)
@@ -18,5 +29,6 @@ void update_quest(rpg_t *rpg)
         GAME(rpg)->quest->reward = 0;
         GAME(rpg)->quest->progress = 0;
         GAME(rpg)->quest->objective = 0;
+        update_spell_acces(rpg);
     }
 }

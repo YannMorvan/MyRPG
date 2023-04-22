@@ -18,6 +18,9 @@ static void player_stats(player_t *player)
     player->stats->mana = 100;
     player->stats->elapsed_time = 0;
     player->stats->wait_time = 1;
+    player->stats->acces[0] = sfTrue;
+    player->stats->acces[1] = sfFalse;
+    player->stats->acces[2] = sfFalse;
 }
 
 player_t *create_player(engine_t *engine)
