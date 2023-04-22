@@ -4,12 +4,12 @@
 
 - [X] The player needs to have characteristics
 - [X] The player can fight enemies AND the characteristics impact the fights results 
-- [ ] The player have an inventory which can contain a limited set of items
-- [ ] The player can earn experience by winning fights and/or accomplishing specific actions
-- [ ] The player can level up thanks to experience AND upgrading its characteristics
+- [X] The player have an inventory which can contain a limited set of items
+- [X] The player can earn experience by winning fights and/or accomplishing specific actions
+- [X] The player can level up thanks to experience AND upgrading its characteristics
 - [ ] The game contains NPC
 - [ ] The game contains at least one quest
-- [ ] The game contains a how to play system at the very beginning
+- [X] The game contains a how to play system at the very beginning
 
 ### TECHNICAL REQUIREMENTS
 
@@ -47,14 +47,14 @@
 #### In game menu
 
 - [ ] Must be accessible by pressing the Escape key
-    - [ ] Must contain at least these options
+    - Must contain at least these options
     - [ ] Character options
       - [ ] equipment and inventory management
       - [ ] characteristics management
     - [ ] Saving
     - [ ] Loading
-    - [ ] Settings
-      - [ ] the same that main menu
+    - [X] Settings
+      - [X] the same that main menu
       - [ ] commands list
 
 ### SHOULD
