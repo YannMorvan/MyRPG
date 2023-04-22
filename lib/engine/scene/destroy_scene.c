@@ -15,8 +15,9 @@ static sfBool engine_list_create(engine_t *engine)
     engine->sprites = list_create();
     engine->colliders = list_create();
     engine->buttons = list_create();
+    engine->sounds->sounds = list_create();
     return engine->textures && engine->sprites && engine->colliders
-        && engine->buttons;
+        && engine->buttons && engine->sounds->sounds;
 }
 
 sfBool destroy_scene(engine_t *engine)
@@ -26,6 +27,7 @@ sfBool destroy_scene(engine_t *engine)
     list_destroy_node(engine->sprites, (void *)destroy_sprite);
     list_destroy_node(engine->colliders, free);
     list_destroy_node(engine->buttons, (void *)destroy_button);
+    list_destroy_node(engine->sounds->sounds, (void *)destroy_sound);
     if (!engine_list_create(engine))
         return sfFalse;
     engine->mouse->collider = create_collider(engine,

@@ -7,7 +7,7 @@
 
 #include "my_rpg.h"
 
-sfBool load_icon(rpg_t *rpg)
+sprite_t *load_icon(rpg_t *rpg)
 {
     sprite_t *sprite = add_sprite_and_texture(rpg->engine, "home",
         "./assets/icon/icon_large_my_rpg.png");
@@ -15,7 +15,7 @@ sfBool load_icon(rpg_t *rpg)
     sfIntRect rect;
 
     if (!sprite)
-        return sfFalse;
+        return NULL;
     sfSprite_setScale(sprite->sprite, scale);
     rect = sfSprite_getTextureRect(sprite->sprite);
     sfSprite_setPosition(sprite->sprite, (sfVector2f){
@@ -23,5 +23,5 @@ sfBool load_icon(rpg_t *rpg)
         - (float)rect.width * scale.y / 2,
         (float)rpg->engine->window->mode.height / 3.45f
         - (float)rect.width * scale.y / 2});
-    return sfTrue;
+    return sprite;
 }

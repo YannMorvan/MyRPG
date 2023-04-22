@@ -14,6 +14,12 @@
 // Struct
 //
 
+typedef enum game_scene_s {
+    GAME_MAP = 0,
+    GAME_MENU = 1,
+    GAME_SETTINGS = 2
+} game_scene_t;
+
 typedef struct spell_s {
     sfVector2f speed;
     float angle;
@@ -74,6 +80,10 @@ typedef struct game_s {
     list_t *attacks;
     hud_t *hud;
     map_t *map;
+    sprite_t *icon;
+    int size_index;
+    game_scene_t scene;
+    sfBool (*create_sub_scene)(rpg_t *rpg);
 } game_t;
 
     #define GAME(rpg) ((game_t *)rpg->scene)
@@ -390,12 +400,45 @@ sfBool create_sword_spell(rpg_t *rpg, game_t *game);
 //
 
 /**
- * @brief Create the start button
+ * @brief Create the button
  *
  * @param rpg The rpg
  * @return sfBool False if an error occurred
  */
+sfBool create_buttons_map_game(rpg_t *rpg);
+
+/**
+ * @brief Create the game scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool create_buttons_menu_game(rpg_t *rpg);
+
+/**
+ * @brief Create the settings scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool create_buttons_settings_game(rpg_t *rpg);
+
+/**
+ * @brief Create the pause button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
 button_t *create_pause_button(rpg_t *rpg);
 
+/**
+ * @brief Create the save button
+ *
+ * @param rpg The rpg
+ * @param index The index
+ * @param scene The scene
+ * @return button_t* The button
+ */
+button_t *create_save_button(rpg_t *rpg , float index, int scene);
 
 #endif /* !MY_RPG_GAME_H */

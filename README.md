@@ -4,12 +4,12 @@
 
 - [X] The player needs to have characteristics
 - [X] The player can fight enemies AND the characteristics impact the fights results 
-- [ ] The player have an inventory which can contain a limited set of items
-- [ ] The player can earn experience by winning fights and/or accomplishing specific actions
-- [ ] The player can level up thanks to experience AND upgrading its characteristics
+- [X] The player have an inventory which can contain a limited set of items
+- [X] The player can earn experience by winning fights and/or accomplishing specific actions
+- [X] The player can level up thanks to experience AND upgrading its characteristics
 - [ ] The game contains NPC
 - [ ] The game contains at least one quest
-- [ ] The game contains a how to play system at the very beginning
+- [X] The game contains a how to play system at the very beginning
 
 ### TECHNICAL REQUIREMENTS
 
@@ -36,25 +36,25 @@
 #### Main menu
 
 - [ ] Must contain at least these options
-    - [ ] Start the game
+    - [X] Start the game
     - [ ] Resume game (grayed out if not possible)
-    - [ ] Settings
+    - [X] Settings
     - [X] Quit the game
-- [ ] The settings option must contain
-    - [ ] Sound and music volume options
-    - [ ] A window size and resolution options
+- [X] The settings option must contain
+    - [X] Sound and music volume options
+    - [X] A window size and resolution options
 
 #### In game menu
 
 - [ ] Must be accessible by pressing the Escape key
-    - [ ] Must contain at least these options
+    - Must contain at least these options
     - [ ] Character options
       - [ ] equipment and inventory management
       - [ ] characteristics management
     - [ ] Saving
     - [ ] Loading
-    - [ ] Settings
-      - [ ] the same that main menu
+    - [X] Settings
+      - [X] the same that main menu
       - [ ] commands list
 
 ### SHOULD
@@ -77,6 +77,11 @@
 ## Credits
 
 - Main menu background: [AlbertoV](https://www.deviantart.com/albertov)
+- Game background: [Kruggsmash](https://www.deviantart.com/kruggsmash)
 - Dungeon tileset: [0x72](https://0x72.itch.io)
 - Button gui: [Mounir Tohami](https://mounirtohami.itch.io/)
 - Fireball: [Xyezwar](https://xyezawr.itch.io/)
+- Font: [Natanael Gama](https://fonts.google.com/specimen/Cinzel)
+- Music (Only the Braves): [Fitfysounds](https://www.fiftysounds.com)
+- Ladder Sound: [Joseph SARDIN](https://bigsoundbank.com/)
+- Computer Button: [Greatdocbrown](https://greatdocbrown.itch.io/)

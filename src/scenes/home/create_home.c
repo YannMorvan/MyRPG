@@ -6,6 +6,7 @@
 */
 
 #include "ice/memory.h"
+#include "my_rpg/menu.h"
 #include "my_rpg/home.h"
 
 sfBool create_home(rpg_t *rpg)
@@ -13,7 +14,8 @@ sfBool create_home(rpg_t *rpg)
     rpg->scene = ice_calloc(1, sizeof(home_t));
 
     if (!rpg->scene)
-            return sfFalse;
+        return sfFalse;
     HOME(rpg)->size_index = 1;
-    return load_background(rpg) && load_icon(rpg) && create_buttons_home(rpg);
+    return create_font(rpg->engine, "./assets/fonts/Cinzel.ttf")
+        && load_background(rpg) && load_icon(rpg) && create_buttons_home(rpg);
 }

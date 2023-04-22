@@ -77,3 +77,35 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				scene_is_open.c		\
 				destroy_scene.c		\
 				)
+
+DIR			+=	engine/font/
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_font.c		\
+				destroy_font.c		\
+				)
+
+DIR			+=	engine/text/
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_text.c		\
+				get_text.c			\
+				display_texts.c		\
+				destroy_text.c		\
+				)
+
+DIR			+=	engine/music/
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_music.c		\
+				set_volume_music.c	\
+				destroy_music.c		\
+				)
+
+DIR			+=	engine/sound/
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_sound.c		\
+				create_sounds.c		\
+				get_sound.c			\
+				play_sound.c		\
+				set_volume_sounds.c	\
+				destroy_sound.c		\
+				destroy_sounds.c	\
+				)
