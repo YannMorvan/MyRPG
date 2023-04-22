@@ -9,14 +9,27 @@
 
 static sfBool player_actions(rpg_t *rpg, sfEvent event)
 {
-    if (event.key.code == sfKeySpace)
+    if (event.key.code == sfKeyNum1 && GAME(rpg)->player->stats->mana >= 10 &&
+        GAME(rpg)->player->stats->cd[0] <= 0) {
+        GAME(rpg)->player->stats->cd[0] = 0.5;
+        return create_sword_spell(rpg, GAME(rpg));
+    }
+    if (event.key.code == sfKeyNum2 && GAME(rpg)->player->stats->mana >= 25 &&
+        GAME(rpg)->player->stats->cd[1] <= 0) {
+        GAME(rpg)->player->stats->cd[1] = 1;
         return create_spell(rpg, GAME(rpg));
+    }
+    if (event.key.code == sfKeyNum3 && GAME(rpg)->player->stats->mana >= 25 &&
+        GAME(rpg)->player->stats->cd[2] <= 0) {
+        GAME(rpg)->player->stats->cd[2] = 0.5;
+        return create_heal(rpg, GAME(rpg));
+    }
     return false;
 }
 
 static sfBool key_pressed(rpg_t *rpg, sfEvent event)
 {
-    float speed = (float)GAME(rpg)->player->speed;
+    float speed = (float)GAME(rpg)->player->stats->speed;
     sfVector2f *velocity = &GAME(rpg)->player->velocity;
 
     if (event.key.code == sfKeyLeft || event.key.code == sfKeyQ)
