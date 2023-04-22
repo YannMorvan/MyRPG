@@ -2,10 +2,10 @@
 ** EPITECH PROJECT, 2022
 ** my_rpg
 ** File description:
-** create_size_button.c
+** create_sound_button.c
 */
 
-#include "my_rpg/home.h"
+#include "ice/macro.h"
 #include "my_rpg/menu.h"
 
 static void update_left_button(void *component, button_t *button)
@@ -13,12 +13,9 @@ static void update_left_button(void *component, button_t *button)
     rpg_t *rpg = (rpg_t *)component;
 
     update_button_texture(button);
-    if (button->state == CLICK && HOME(rpg)->size_index > 0) {
-        HOME(rpg)->size_index--;
-        sfRenderWindow_setSize(rpg->engine->window->window,
-            get_window_size(rpg));
-    }
-    update_size_text(rpg, button);
+    if (button->state == CLICK)
+        set_volume_sounds(rpg->engine, rpg->engine->sounds->volume - 5);
+    update_sound_text(rpg, button);
 }
 
 static button_t *create_left_button(rpg_t *rpg, float index)
@@ -38,11 +35,8 @@ static void update_right_button(void *component, button_t *button)
     rpg_t *rpg = (rpg_t *)component;
 
     update_button_texture(button);
-    if (button->state == CLICK) {
-        HOME(rpg)->size_index++;
-        sfRenderWindow_setSize(rpg->engine->window->window,
-            get_window_size(rpg));
-    }
+    if (button->state == CLICK)
+        set_volume_sounds(rpg->engine, rpg->engine->sounds->volume + 5);
 }
 
 static button_t *create_right_button(rpg_t *rpg, float index)
@@ -57,9 +51,10 @@ static button_t *create_right_button(rpg_t *rpg, float index)
     return button;
 }
 
-button_t *create_size_button(rpg_t *rpg, float index)
+button_t *create_sound_button(rpg_t *rpg, float index, UNUSED int scene)
 {
-    if (!create_left_button(rpg, index) || !create_right_button(rpg, index))
+    if (!create_left_button(rpg, index)
+        || !create_right_button(rpg, index))
         return NULL;
-    return (create_size_text(rpg)) ? rpg->engine->buttons->tail->value : NULL;
+    return (create_sound_text(rpg)) ? rpg->engine->buttons->tail->value : NULL;
 }

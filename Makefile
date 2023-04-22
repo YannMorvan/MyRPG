@@ -40,8 +40,18 @@ DIR			+=	$(addprefix $(DIR_SRC), menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				set_button.c				\
 				update_button_texture.c		\
+				update_window_size.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), menu/buttons/create/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_load_button.c		\
+				create_options_button.c		\
+				create_exit_button.c		\
 				create_music_button.c		\
 				create_sound_button.c		\
+				create_size_button.c		\
+				update_size_button.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SRC), menu/texts/)
@@ -68,17 +78,12 @@ DIR			+=	$(addprefix $(DIR_SCENES), home/menu/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				load_icon.c			\
 				load_background.c	\
-				get_window_size.c	\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_buttons_home.c		\
 				create_start_button.c		\
-				create_load_button.c		\
-				create_options_button.c		\
-				create_exit_button.c		\
-				create_size_button.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), tutorial/)
@@ -146,18 +151,11 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_slime.c		\
 				)
 
-DIR			+=	$(addprefix $(DIR_SCENES), game/menu/)
-SRC			+=	$(addprefix $(lastword $(DIR)),\
-				get_window_size_game.c	\
-				)
-
 DIR			+=	$(addprefix $(DIR_SCENES), game/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_buttons_game.c			\
 				create_pause_button.c			\
-				create_options_button_game.c	\
-				create_size_button_game.c		\
-				create_exit_button_game.c		\
+				create_save_button.c			\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/hud/)

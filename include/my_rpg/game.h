@@ -16,7 +16,7 @@
 
 typedef enum game_scene_s {
     GAME_MAP = 0,
-    GAME_MENU= 1,
+    GAME_MENU = 1,
     GAME_SETTINGS = 2
 } game_scene_t;
 
@@ -368,18 +368,6 @@ void destroy_attack(rpg_t *rpg, attack_t *attack, list_node_t *node);
 sfBool create_spell(rpg_t *rpg, game_t *game);
 
 //
-// Menu
-//
-
-/**
- * @brief Get the window size
- *
- * @param rpg The rpg
- * @return sfVector2u The window size
- */
-sfVector2u get_window_size_game(rpg_t *rpg);
-
-//
 // Button
 //
 
@@ -416,28 +404,13 @@ sfBool create_buttons_settings_game(rpg_t *rpg);
 button_t *create_pause_button(rpg_t *rpg);
 
 /**
- * @brief Create the resume button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_options_button_game(rpg_t *rpg, float index);
-
-/**
- * @brief Create the size button
+ * @brief Create the save button
  *
  * @param rpg The rpg
  * @param index The index
+ * @param scene The scene
  * @return button_t* The button
  */
-button_t *create_size_button_game(rpg_t *rpg, float index);
-
-/**
- * @brief Create the exit button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_exit_button_game(rpg_t *rpg, float index);
+button_t *create_save_button(rpg_t *rpg , float index, int scene);
 
 #endif /* !MY_RPG_GAME_H */

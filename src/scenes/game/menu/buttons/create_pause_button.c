@@ -5,8 +5,8 @@
 ** create_pause_button.c
 */
 
-#include "my_rpg/game.h"
 #include "my_rpg/menu.h"
+#include "my_rpg/game.h"
 
 static void update_pause_button(void *component, button_t *button)
 {

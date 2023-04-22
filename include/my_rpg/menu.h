@@ -46,20 +46,82 @@ sfBool set_button(rpg_t *rpg, button_t *button, float index);
 void update_button_texture(button_t *button);
 
 /**
+ * @brief Update the window size
+ *
+ * @param rpg The rpg
+ * @param scene The id of the scene
+ */
+void update_window_size(rpg_t *rpg, int scene);
+
+//
+// Create
+//
+
+/**
+ * @brief Create the load button
+ *
+ * @param rpg The rpg
+ * @param scene The id of the scene
+ * @return button_t* The button
+ */
+button_t *create_load_button(rpg_t *rpg, float index, int scene);
+
+/**
+ * @brief Create the options button
+ *
+ * @param rpg The rpg
+ * @param scene The id of the scene
+ * @return button_t* The button
+ */
+button_t *create_options_button(rpg_t *rpg, float index, int scene);
+
+/**
+ * @brief Create the exit button
+ *
+ * @param rpg The rpg
+ * @param scene The id of the scene
+ * @return button_t* The button
+ */
+button_t *create_exit_button(rpg_t *rpg, float index, int scene);
+
+/**
  * @brief Create the music button
  *
  * @param rpg The rpg
+ * @param scene The id of the scene
  * @return button_t* The button
  */
-button_t *create_music_button(rpg_t *rpg, float index);
+button_t *create_music_button(rpg_t *rpg, float index, int scene);
 
 /**
  * @brief Create the sound button
  *
  * @param rpg The rpg
+ * @param scene The id of the scene
  * @return button_t* The button
  */
-button_t *create_sound_button(rpg_t *rpg, float index);
+button_t *create_sound_button(rpg_t *rpg, float index, int scene);
+
+/**
+ * @brief Create the size button
+ *
+ * @param rpg The rpg
+ * @param scene The id of the scene
+ * @return button_t* The button
+ */
+button_t *create_size_button(rpg_t *rpg, float index, int scene);
+
+//
+// Update size
+//
+
+void update_right_button_home(void *component, button_t *button);
+
+void update_left_button_home(void *component, button_t *button);
+
+void update_left_button_game(void *component, button_t *button);
+
+void update_right_button_game(void *component, button_t *button);
 
 //
 // Text

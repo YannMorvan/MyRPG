@@ -116,43 +116,12 @@ sfBool create_buttons_home(rpg_t *rpg);
 sfBool create_buttons_settings(rpg_t *rpg);
 
 /**
- * @brief Create the size button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_size_button(rpg_t *rpg, float index);
-
-/**
  * @brief Create the start button
  *
  * @param rpg The rpg
+ * @param scene The id of the scene
  * @return button_t* The button
  */
-button_t *create_start_button(rpg_t *rpg, float index);
-
-/**
- * @brief Create the load button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_load_button(rpg_t *rpg, float index);
-
-/**
- * @brief Create the options button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_options_button(rpg_t *rpg, float index);
-
-/**
- * @brief Create the exit button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_exit_button(rpg_t *rpg, float index);
+button_t *create_start_button(rpg_t *rpg, float index, int scene);
 
 #endif /* !MY_RPG_HOME_H */
