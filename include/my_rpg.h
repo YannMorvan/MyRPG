@@ -10,7 +10,6 @@
 
     #include "my_rpg/struct.h"
 
-//
 /**
  * @brief Create hud objects
  *
@@ -106,16 +105,5 @@ sfBool tutorial(void *component);
  * @return sfBool False if an error occurred
  */
 sfBool game(void *component);
-
-//
-// Update
-//
-
-/**
- * @brief Update the button texture
- *
- * @param button The button
- */
-void update_button_texture(button_t *button);
 
 #endif /* !MY_RPG_MY_RPG_H */

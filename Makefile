@@ -31,9 +31,27 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				destroy_parse.c			\
 				)
 
-DIR			+=	$(addprefix $(DIR_SRC), update/)
+DIR			+=	$(addprefix $(DIR_SRC), menu/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
+				clear_sub_scene.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), menu/buttons/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				set_button.c				\
 				update_button_texture.c		\
+				create_music_button.c		\
+				create_sound_button.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), menu/texts/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_size_text.c		\
+				update_size_text.c		\
+				create_music_text.c		\
+				update_music_text.c		\
+				create_sound_text.c		\
+				update_sound_text.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), home/)
@@ -55,25 +73,12 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_buttons.c			\
-				set_button.c				\
+				create_buttons_home.c		\
 				create_start_button.c		\
 				create_load_button.c		\
 				create_options_button.c		\
 				create_exit_button.c		\
-				create_music_button.c		\
-				create_sound_button.c		\
 				create_size_button.c		\
-				)
-
-DIR			+=	$(addprefix $(DIR_SCENES), home/menu/texts/)
-SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_size_text.c		\
-				update_size_text.c		\
-				create_music_text.c		\
-				update_music_text.c		\
-				create_sound_text.c		\
-				update_sound_text.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), tutorial/)
@@ -141,9 +146,18 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_slime.c		\
 				)
 
+DIR			+=	$(addprefix $(DIR_SCENES), game/menu/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				get_window_size_game.c	\
+				)
+
 DIR			+=	$(addprefix $(DIR_SCENES), game/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_pause_button.c	\
+				create_buttons_game.c			\
+				create_pause_button.c			\
+				create_options_button_game.c	\
+				create_size_button_game.c		\
+				create_exit_button_game.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/hud/)

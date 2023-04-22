@@ -14,6 +14,12 @@
 // Struct
 //
 
+typedef enum game_scene_s {
+    GAME_MAP = 0,
+    GAME_MENU= 1,
+    GAME_SETTINGS = 2
+} game_scene_t;
+
 typedef struct spell_s {
     sfVector2f speed;
     float angle;
@@ -64,6 +70,9 @@ typedef struct game_s {
     list_t *attacks;
     hud_t *hud;
     map_t *map;
+    int size_index;
+    game_scene_t scene;
+    sfBool (*create_sub_scene)(rpg_t *rpg);
 } game_t;
 
     #define GAME(rpg) ((game_t *)rpg->scene)
@@ -359,16 +368,76 @@ void destroy_attack(rpg_t *rpg, attack_t *attack, list_node_t *node);
 sfBool create_spell(rpg_t *rpg, game_t *game);
 
 //
+// Menu
+//
+
+/**
+ * @brief Get the window size
+ *
+ * @param rpg The rpg
+ * @return sfVector2u The window size
+ */
+sfVector2u get_window_size_game(rpg_t *rpg);
+
+//
 // Button
 //
 
 /**
- * @brief Create the start button
+ * @brief Create the button
  *
  * @param rpg The rpg
  * @return sfBool False if an error occurred
  */
+sfBool create_buttons_map_game(rpg_t *rpg);
+
+/**
+ * @brief Create the game scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool create_buttons_menu_game(rpg_t *rpg);
+
+/**
+ * @brief Create the settings scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool create_buttons_settings_game(rpg_t *rpg);
+
+/**
+ * @brief Create the pause button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
 button_t *create_pause_button(rpg_t *rpg);
 
+/**
+ * @brief Create the resume button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
+button_t *create_options_button_game(rpg_t *rpg, float index);
+
+/**
+ * @brief Create the size button
+ *
+ * @param rpg The rpg
+ * @param index The index
+ * @return button_t* The button
+ */
+button_t *create_size_button_game(rpg_t *rpg, float index);
+
+/**
+ * @brief Create the exit button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
+button_t *create_exit_button_game(rpg_t *rpg, float index);
 
 #endif /* !MY_RPG_GAME_H */

@@ -7,6 +7,7 @@
 
 #include "ice/macro.h"
 #include "my_rpg/home.h"
+#include "my_rpg/menu.h"
 
 sfBool create_buttons_settings(rpg_t *rpg)
 {

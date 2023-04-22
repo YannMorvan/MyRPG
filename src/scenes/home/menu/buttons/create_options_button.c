@@ -5,7 +5,7 @@
 ** create_options_button.c
 */
 
-#include "my_rpg.h"
+#include "my_rpg/menu.h"
 #include "my_rpg/home.h"
 
 static void update_options_button(void *component, button_t *button)
@@ -14,7 +14,7 @@ static void update_options_button(void *component, button_t *button)
 
     update_button_texture(button);
     if (button->state == CLICK)
-        HOME(rpg)->create_sub_scene = &create_buttons_settings;
+        HOME(rpg)->create_sub_scene = create_buttons_settings;
 }
 
 button_t *create_options_button(rpg_t *rpg, float index)
@@ -24,6 +24,6 @@ button_t *create_options_button(rpg_t *rpg, float index)
 
     if (!button || !set_button(rpg, button, index))
         return NULL;
-    button->update = &update_options_button;
+    button->update = update_options_button;
     return button;
 }

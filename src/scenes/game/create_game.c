@@ -36,7 +36,7 @@ game_t *create_game(rpg_t *rpg)
     game->player = create_player(rpg->engine);
     game->map = create_map(rpg);
     return (!game->monsters || !game->hud
-        || !create_pause_button(rpg) || !create_attacks(game)
+        || !create_buttons_map_game(rpg) || !create_attacks(game)
         || !create_sound(rpg->engine, "ladder",
         "./assets/sounds/ladder.ogg")) ? NULL : game;
 }

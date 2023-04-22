@@ -5,12 +5,16 @@
 ** create_pause_button.c
 */
 
-#include "my_rpg.h"
-#include "ice/macro.h"
+#include "my_rpg/game.h"
+#include "my_rpg/menu.h"
 
-static void update_pause_button(UNUSED void *component, button_t *button)
+static void update_pause_button(void *component, button_t *button)
 {
+    rpg_t *rpg = (rpg_t *)component;
+
     update_button_texture(button);
+    if (button->state == CLICK)
+        GAME(rpg)->create_sub_scene = create_buttons_menu_game;
 }
 
 button_t *create_pause_button(rpg_t *rpg)
@@ -21,6 +25,6 @@ button_t *create_pause_button(rpg_t *rpg)
     if (!button)
         return NULL;
     set_scale_character(button->character, (sfVector2f){2, 2});
-    button->update = &update_pause_button;
+    button->update = update_pause_button;
     return button;
 }

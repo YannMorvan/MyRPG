@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg.h"
+#include "my_rpg/menu.h"
 #include "my_rpg/home.h"
 
 static void update_load_button(void *component, button_t *button)
@@ -24,6 +25,6 @@ button_t *create_load_button(rpg_t *rpg, float index)
 
     if (!button || !set_button(rpg, button, index))
         return NULL;
-    button->update = &update_load_button;
+    button->update = update_load_button;
     return button;
 }

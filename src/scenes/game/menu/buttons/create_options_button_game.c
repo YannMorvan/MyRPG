@@ -2,29 +2,29 @@
 ** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
-** create_start_button.c
+** create_options_button_game.c
 */
 
 #include "my_rpg.h"
 #include "my_rpg/menu.h"
-#include "my_rpg/home.h"
+#include "my_rpg/game.h"
 
-static void update_start_button(void *component, button_t *button)
+static void update_options_button(void *component, button_t *button)
 {
     rpg_t *rpg = (rpg_t *)component;
 
     update_button_texture(button);
     if (button->state == CLICK)
-        rpg->engine->scene = tutorial;
+        GAME(rpg)->create_sub_scene = create_buttons_settings_game;
 }
 
-button_t *create_start_button(rpg_t *rpg, float index)
+button_t *create_options_button_game(rpg_t *rpg, float index)
 {
     button_t *button = create_button(rpg->engine, (sfVector2f){0, 0},
-        "start", "./assets/buttons/start.png");
+        "options", "./assets/buttons/options.png");
 
     if (!button || !set_button(rpg, button, index))
         return NULL;
-    button->update = update_start_button;
+    button->update = update_options_button;
     return button;
 }

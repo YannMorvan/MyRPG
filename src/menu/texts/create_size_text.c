@@ -5,7 +5,7 @@
 ** create_size_text.c
 */
 
-#include "my_rpg/home.h"
+#include "my_rpg/menu.h"
 
 sfBool create_size_text(rpg_t *rpg)
 {
