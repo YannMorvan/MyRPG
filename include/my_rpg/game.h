@@ -80,6 +80,7 @@ typedef struct game_s {
     list_t *attacks;
     hud_t *hud;
     map_t *map;
+    sprite_t *icon;
     int size_index;
     game_scene_t scene;
     sfBool (*create_sub_scene)(rpg_t *rpg);

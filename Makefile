@@ -34,6 +34,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+=	$(addprefix $(DIR_SRC), menu/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				clear_sub_scene.c		\
+				load_icon.c				\
 				)
 
 DIR			+=	$(addprefix $(DIR_SRC), menu/buttons/)
@@ -76,7 +77,6 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				load_icon.c			\
 				load_background.c	\
 				)
 

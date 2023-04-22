@@ -41,11 +41,18 @@ sfBool create_buttons_menu_game(rpg_t *rpg)
     for (int i = 0; array[i]; i++)
         if (!array[i](rpg, (float)i - (float)size / 2, GAME_ID))
             return sfFalse;
-    return sfTrue;
+    if (!GAME(rpg)->icon)
+        GAME(rpg)->icon = load_icon(rpg);
+    return GAME(rpg)->icon ? sfTrue : sfFalse;
 }
 
 sfBool create_buttons_map_game(rpg_t *rpg)
 {
     GAME(rpg)->scene = GAME_MAP;
-    return !create_pause_button(rpg) ? sfFalse : sfTrue;
+    if (GAME(rpg)->icon) {
+        list_remove_node(rpg->engine->sprites, GAME(rpg)->icon->node);
+        destroy_sprite(GAME(rpg)->icon);
+        GAME(rpg)->icon = NULL;
+    }
+    return (!create_pause_button(rpg)) ? sfFalse : sfTrue;
 }

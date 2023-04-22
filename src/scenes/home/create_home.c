@@ -6,6 +6,7 @@
 */
 
 #include "ice/memory.h"
+#include "my_rpg/menu.h"
 #include "my_rpg/home.h"
 
 sfBool create_home(rpg_t *rpg)

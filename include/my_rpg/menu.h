@@ -24,6 +24,14 @@
  */
 void clear_sub_scene(rpg_t *rpg);
 
+/**
+ * @brief Load the icon of the window
+ *
+ * @param rpg The rpg
+ * @return sprite_t* The icon
+ */
+sprite_t *load_icon(rpg_t *rpg);
+
 //
 // Buttons
 //
