@@ -12,5 +12,6 @@
 void destroy_player(player_t *player)
 {
     free(player->character);
+    free(player->stats);
     free(player);
 }
