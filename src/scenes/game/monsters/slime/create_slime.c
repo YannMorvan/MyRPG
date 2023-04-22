@@ -9,6 +9,7 @@
 
 #include "ice/memory.h"
 #include "my_rpg/game.h"
+#include "ice/string.h"
 
 static void update_slime(rpg_t *rpg, monster_t *monster, list_node_t *node)
 {
@@ -17,8 +18,12 @@ static void update_slime(rpg_t *rpg, monster_t *monster, list_node_t *node)
     move_delta_character(rpg->engine, monster->character, slime->speed);
     if (monster->character->collider->collide & COLLIDER_ATTACK)
         slime->health -= 25 * GAME(rpg)->player->intel;
-    if (slime->health <= 0)
+    if (slime->health <= 0) {
+        if (GAME(rpg)->quest->name != NULL &&
+            ice_strcmp(GAME(rpg)->quest->name, "Kill") == 0)
+            GAME(rpg)->quest->progress++;
         destroy_monster(rpg, monster, node);
+    }
 }
 
 static void destroy_slime(monster_t *monster)

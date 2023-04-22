@@ -6,15 +6,38 @@
 */
 
 #include <malloc.h>
+#include <stdlib.h>
 
 #include "ice/memory.h"
 #include "my_rpg/game.h"
 
+static void get_quest(rpg_t *rpg)
+{
+    int random = rand() % 2;
+
+    if (random == 0) {
+        GAME(rpg)->quest->name = "Kill";
+        GAME(rpg)->quest->description = "Kill 10 enemies";
+        GAME(rpg)->quest->progress = 0;
+        GAME(rpg)->quest->reward = 100;
+        GAME(rpg)->quest->objective = 10;
+    } else {
+        GAME(rpg)->quest->name = "Survive";
+        GAME(rpg)->quest->description = "Survive The next 2 stages";
+        GAME(rpg)->quest->progress = 0;
+        GAME(rpg)->quest->reward = 100;
+        GAME(rpg)->quest->objective = 3;
+    }
+}
+
 static void update_devil(rpg_t *rpg, npc_t *npc)
 {
     if (npc->character->collider->collide & COLLIDER_PLAYER &&
-        GAME(rpg)->player->interact == sfTrue)
-        set_scale_character(npc->character, (sfVector2f){0.5, 0.5});
+        GAME(rpg)->player->interact == sfTrue &&
+        GAME(rpg)->quest->name == NULL) {
+        GAME(rpg)->player->interact = sfFalse;
+        get_quest(rpg);
+        }
 }
 
 static void destroy_devil(npc_t *npc)

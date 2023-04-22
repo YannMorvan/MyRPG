@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg/game.h"
+#include "ice/string.h"
 
 void undo_velocity(player_t *player)
 {

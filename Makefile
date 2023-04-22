@@ -117,6 +117,8 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_npcs.c		\
 				destroy_npcs.c		\
 				destroy_npc.c		\
+				create_quest.c		\
+				update_quest.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/npcs/devil/)

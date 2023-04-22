@@ -50,6 +50,14 @@ typedef struct npc_s {
     void *component;
 } npc_t;
 
+typedef struct quest_s {
+    char *name;
+    char *description;
+    int reward;
+    int progress;
+    int objective;
+} quest_t;
+
 typedef struct player_s {
     character_t *character;
     unsigned int exp;
@@ -72,6 +80,7 @@ typedef struct game_s {
     list_t *attacks;
     list_t *npcs;
     hud_t *hud;
+    quest_t *quest;
     map_t *map;
 } game_t;
 
@@ -295,6 +304,21 @@ void destroy_npcs(rpg_t *rpg);
  * @param node The node
  */
 void destroy_npc(rpg_t *rpg, npc_t *npc, list_node_t *node);
+
+/**
+ * @brief Create the quest
+ *
+ * @param rpg The rpg
+ */
+quest_t *create_quest(void);
+
+/**
+ * @brief Update the quest
+ *
+ * @param rpg The rpg
+ * @param quest The quest
+ */
+void update_quest(rpg_t *rpg);
 
 /**
  * @brief Create the npc
