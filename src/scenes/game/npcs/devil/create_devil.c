@@ -28,7 +28,6 @@ static void get_quest(rpg_t *rpg)
         GAME(rpg)->quest->reward = 50;
         GAME(rpg)->quest->objective = 3;
     }
-    printf("quest: %s\n", GAME(rpg)->quest->name);
 }
 
 static void update_devil(rpg_t *rpg, npc_t *npc)
