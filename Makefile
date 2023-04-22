@@ -138,6 +138,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_mana.c	\
 				display_spell.c	\
 				display_hud.c	\
+				destroy_hud.c	\
 				)
 
 DIR_TEST	:=	./tests/

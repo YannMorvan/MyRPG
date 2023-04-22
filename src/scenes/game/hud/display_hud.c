@@ -18,4 +18,6 @@ void display_hud(engine_t *engine)
         sfRenderWindow_drawSprite(win, hud->inv->sprite, NULL);
         sfRenderWindow_drawSprite(win, hud->spell[i]->sprite, NULL);
     }
+    sfRenderWindow_drawRectangleShape(win, hud->mana_font, NULL);
+    sfRenderWindow_drawRectangleShape(win, hud->mana_bar, NULL);
 }

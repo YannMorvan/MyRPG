@@ -286,6 +286,13 @@ sprite_t *use_spell(sprite_t *spell);
 */
 void display_hud(engine_t *engine);
 
+/**
+ * @brief Destroy RectangleShape and free hud struct
+ *
+ * @param hud The hud
+*/
+void destroy_hud(hud_t *hud);
+
 //
 // Player
 //
