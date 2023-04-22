@@ -10,8 +10,14 @@
 
 static void player_stats(player_t *player)
 {
-    player->speed = 150;
-    player->intel = 1;
+    player->stats = ice_calloc(1, sizeof(stats_t));
+    player->stats->speed = 150;
+    player->stats->intel = 1;
+    player->stats->level = 1;
+    player->stats->exp = 0;
+    player->stats->mana = 100;
+    player->stats->elapsed_time = 0;
+    player->stats->wait_time = 1;
 }
 
 player_t *create_player(engine_t *engine)
