@@ -15,11 +15,10 @@ game_t *create_game(rpg_t *rpg)
 
     if (!game)
         return NULL;
-    game->hud = create_hud(rpg->engine);
     game->monsters = list_create();
     game->player = create_player(rpg->engine);
     game->map = create_map(rpg);
-    return (!game->monsters || !game->hud
+    return (!game->monsters
         || !create_pause_button(rpg) || !create_attacks(game)) ?
         NULL : game;
 }

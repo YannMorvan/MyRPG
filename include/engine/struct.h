@@ -44,15 +44,9 @@ typedef struct sprite_t {
     list_node_t *node;
 } sprite_t;
 
-typedef struct hud_s {
-    sprite_t *heart;
-    sprite_t *inv;
-    sprite_t *spell[4];
-    unsigned int m_life;
-    unsigned int c_life;
-    unsigned int box;
-    unsigned int spl;
-} hud_t;
+typedef struct rect_t {
+    sfRectangleShape *bar;
+} rect_t;
 
 typedef struct character_s {
     sprite_t *sprite;
@@ -93,6 +87,19 @@ typedef struct window_s {
     splash_screen_t *splash_screen;
 } window_t;
 
+typedef struct hud_s {
+    sprite_t *heart;
+    sprite_t *inv;
+    sprite_t *spell[3];
+    rect_t *mana[2];
+    unsigned int m_life;
+    unsigned int c_life;
+    unsigned int m_mana;
+    unsigned int c_mana;
+    unsigned int box;
+    unsigned int spl;
+} hud_t;
+
 typedef struct engine_s {
     window_t *window;
     delta_time_t *time;
@@ -101,6 +108,7 @@ typedef struct engine_s {
     list_t *sprites;
     list_t *colliders;
     list_t *buttons;
+    hud_t *hud;
     mouse_t *mouse;
     sfBool (*scene)(void *component);
     sfBool debug;

@@ -62,7 +62,6 @@ typedef struct game_s {
     player_t *player;
     list_t *monsters;
     list_t *attacks;
-    hud_t *hud;
     map_t *map;
 } game_t;
 
@@ -244,6 +243,15 @@ hud_t *init_heart(engine_t *engine, hud_t *hud, unsigned int f);
 hud_t *update_life(engine_t *engine, hud_t *hud);
 
 /**
+ * @brief Update mana when you use spell or restore mana
+ *
+ * @param engine The engine
+ * @param hud The hud
+ * @return hud_t* The hud
+*/
+hud_t *update_mana(hud_t *hud);
+
+/**
  * @brief Add spell to the inventory
  *
  * @param engine The engine
@@ -260,6 +268,13 @@ hud_t *add_spell(engine_t *engine, hud_t *hud, char *path);
  * @return sprite_t* The grey sprite
 */
 sprite_t *use_spell(sprite_t *spell);
+
+/**
+ * @brief Update the hud display
+ *
+ * @param engine The engine
+*/
+void display_hud(engine_t *engine);
 
 //
 // Player

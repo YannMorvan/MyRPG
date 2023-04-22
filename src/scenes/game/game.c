@@ -12,6 +12,7 @@ sfBool game(void *component)
     rpg_t *rpg = (rpg_t *)component;
 
     rpg->scene = create_game(rpg);
+    rpg->engine->hud = create_hud(rpg->engine);
     if (!rpg->scene)
         return sfFalse;
     while (scene_is_open(rpg->engine, game)) {
