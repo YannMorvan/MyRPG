@@ -28,16 +28,14 @@ static sfBool create_tutorial(rpg_t *rpg)
     sprite_t *sprite = add_sprite_and_texture(rpg->engine,
         "tutorial", "./assets/tutorial.png");
     sfFloatRect rect;
-    sfVector2u size;
 
     if (!sprite)
         return sfFalse;
     sfSprite_setScale(sprite->sprite, (sfVector2f){3.25f, 3.25f});
     rect = sfSprite_getGlobalBounds(sprite->sprite);
-    size = sfRenderWindow_getSize(WINDOW(rpg));
     sfSprite_setPosition(sprite->sprite, (sfVector2f){
-        (float)size.x / 2 - rect.width / 2,
-        (float)size.y / 2 - rect.height / 2
+        ((float)rpg->engine->window->mode.width / 2) - (rect.width / 2),
+        ((float)rpg->engine->window->mode.height / 2) - (rect.height / 2)
     });
     return sfTrue;
 }
