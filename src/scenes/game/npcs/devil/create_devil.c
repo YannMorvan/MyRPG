@@ -14,16 +14,17 @@
 static void print_quest(rpg_t *rpg, npc_t *npc)
 {
     sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("./assets/fonts/opensans.ttf");
+    sfFont *font = sfFont_createFromFile("./assets/fonts/Cinzel.ttf");
 
     sfText_setFont(text, font);
     sfText_setString(text, GAME(rpg)->quest->description);
+    sfText_setColor(text, sfYellow);
+    sfText_setCharacterSize(text, 40);
     sfText_setPosition(text, (sfVector2f)
         {sfSprite_getPosition(npc->character->sprite->sprite).x -
         sfText_getGlobalBounds(text).width / 2,
         sfSprite_getPosition(npc->character->sprite->sprite).y -
         sfText_getGlobalBounds(text).height - 10});
-    sfText_setCharacterSize(text, 30);
     sfRenderWindow_drawText(rpg->engine->window->window, text, NULL);
     sfRenderWindow_display(rpg->engine->window->window);
     sfSleep((sfTime){1000000});
