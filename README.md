@@ -1,4 +1,4 @@
-# My RPG
+# Slime Slaughter
 
 <div style="text-align: center">
     <img alt="How to play" src="./assets/tutorial_large.png"/>
