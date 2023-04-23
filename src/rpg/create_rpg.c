@@ -7,7 +7,9 @@
 
 #include <time.h>
 #include <stdlib.h>
+
 #include "my_rpg.h"
+#include "ice/memory.h"
 
 static config_t *get_config(void)
 {
@@ -39,7 +41,7 @@ static void destroy_config(config_t *config)
 
 rpg_t *create_rpg(sfBool debug)
 {
-    rpg_t *rpg = malloc(sizeof(rpg_t));
+    rpg_t *rpg = ice_calloc(1, sizeof(rpg_t));
     config_t *config = get_config();
 
     if (!rpg || !config)

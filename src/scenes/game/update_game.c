@@ -51,5 +51,7 @@ sfBool update_game(rpg_t *rpg)
         GAME(rpg)->create_sub_scene(rpg);
         GAME(rpg)->create_sub_scene = NULL;
     }
+    if (rpg->load && !load(rpg))
+        return sfFalse;
     return (GAME(rpg)->scene == GAME_MAP) ? sub_scene_map(rpg) : sfTrue;
 }
