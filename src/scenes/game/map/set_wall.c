@@ -57,8 +57,9 @@ sfBool set_wall(rpg_t *rpg, char **map, sfVector2i pos, sfVector2i offset)
     set_scale_character(wall, (sfVector2f){2, 2});
     set_rect_character(wall, (sfIntRect){16, 16, 16, 16});
     collider_set_type(wall->collider, COLLIDER_WALL);
-    return !(((pos.y < 1 || (pos.x < (int)ice_strlen(map[pos.y - 1])
+    return !((((pos.y < 1 || (pos.x < (int)ice_strlen(map[pos.y - 1])
         && map[pos.y - 1][pos.x] != 'w'))
+        || (int)ice_strlen(map[pos.y - 1]) <= pos.x)
         && !set_upper_wall(rpg, (sfVector2i){pos.x, pos.y - 1}, offset))
         || (pos.x > 1 && map[pos.y][pos.x - 1] == 'f'
         && !set_left_wall(rpg, (sfVector2i){pos.x, pos.y}, offset))
