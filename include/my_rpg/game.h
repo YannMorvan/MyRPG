@@ -102,6 +102,7 @@ typedef struct game_s {
     sprite_t *icon;
     int size_index;
     game_scene_t scene;
+    int stage;
     sfBool (*create_sub_scene)(rpg_t *rpg);
 } game_t;
 
