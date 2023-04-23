@@ -70,7 +70,6 @@ typedef struct stats_s {
     unsigned int level;
     unsigned int exp;
     unsigned int speed;
-    unsigned int attack;
     unsigned int intel;
     unsigned int mana;
     float elapsed_time;
@@ -530,5 +529,13 @@ button_t *create_save_button(rpg_t *rpg , float index, int scene);
  * @return sfBool False if an error occurred
  */
 sfBool save_game(rpg_t *rpg);
+
+/**
+ * @brief Load the game
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool load(rpg_t *rpg);
 
 #endif /* !MY_RPG_GAME_H */

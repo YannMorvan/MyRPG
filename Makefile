@@ -183,6 +183,7 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 DIR			+=	$(addprefix $(DIR_SCENES), game/save/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				save.c		\
+				load.c		\
 				)
 
 DIR_TEST	:=	./tests/

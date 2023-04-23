@@ -14,8 +14,10 @@ static void update_load_button(void *component, button_t *button)
     rpg_t *rpg = (rpg_t *)component;
 
     update_button_texture(button);
-    if (button->state == CLICK)
+    if (button->state == CLICK) {
+        rpg->load = sfTrue;
         rpg->engine->scene = game;
+    }
 }
 
 button_t *create_load_button(rpg_t *rpg, float index, UNUSED int scene)
