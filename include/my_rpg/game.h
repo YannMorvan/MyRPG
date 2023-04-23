@@ -304,6 +304,14 @@ void destroy_player(player_t *player);
 //
 
 /**
+ * @brief Print the quest
+ *
+ * @param rpg The rpg
+ * @param npc The npc
+ */
+void print_quest(rpg_t *rpg, npc_t *npc);
+
+/**
  * @brief Update the npcs
  *
  * @param rpg The rpg

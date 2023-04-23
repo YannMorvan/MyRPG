@@ -11,25 +11,9 @@
 #include "ice/memory.h"
 #include "my_rpg/game.h"
 
-static void print_quest(rpg_t *rpg, npc_t *npc)
+static void destroy_devil(npc_t *npc)
 {
-    sfText *text = sfText_create();
-    sfFont *font = sfFont_createFromFile("./assets/fonts/Cinzel.ttf");
-
-    sfText_setFont(text, font);
-    sfText_setString(text, GAME(rpg)->quest->description);
-    sfText_setColor(text, sfYellow);
-    sfText_setCharacterSize(text, 40);
-    sfText_setPosition(text, (sfVector2f)
-        {sfSprite_getPosition(npc->character->sprite->sprite).x -
-        sfText_getGlobalBounds(text).width / 2,
-        sfSprite_getPosition(npc->character->sprite->sprite).y -
-        sfText_getGlobalBounds(text).height - 10});
-    sfRenderWindow_drawText(rpg->engine->window->window, text, NULL);
-    sfRenderWindow_display(rpg->engine->window->window);
-    sfSleep((sfTime){1000000});
-    sfText_destroy(text);
-    sfFont_destroy(font);
+    free(npc->component);
 }
 
 static void get_quest(rpg_t *rpg)
@@ -59,12 +43,8 @@ static void update_devil(rpg_t *rpg, npc_t *npc)
         GAME(rpg)->player->interact = sfFalse;
         get_quest(rpg);
         print_quest(rpg, npc);
+        destroy_devil(npc);
         }
-}
-
-static void destroy_devil(npc_t *npc)
-{
-    free(npc->component);
 }
 
 sfBool create_devil(rpg_t *rpg, game_t *game)
