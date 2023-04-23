@@ -21,6 +21,7 @@
     #define COLLIDER_ATTACK 0b00010000
     #define COLLIDER_BUTTON 0b00100000
     #define COLLIDER_LADDER 0b01000000
+    #define COLLIDER_NPC 0b10000000
 
 typedef enum collider_static_s {MOVING = 0, STATIC = 1} collider_static_t;
 

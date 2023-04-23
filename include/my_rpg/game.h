@@ -40,7 +40,7 @@ typedef struct attack_s {
 
 typedef struct slime_s {
     sfVector2f speed;
-    unsigned int health;
+    int health;
     unsigned int damages;
 } slime_t;
 
@@ -50,6 +50,21 @@ typedef struct monster_s {
     void (*destroy)(struct monster_s *monster);
     void *component;
 } monster_t;
+
+typedef struct npc_s {
+    character_t *character;
+    void (*update)(rpg_t *rpg, struct npc_s *npc);
+    void (*destroy)(struct npc_s *npc);
+    void *component;
+} npc_t;
+
+typedef struct quest_s {
+    char *name;
+    char *description;
+    int reward;
+    int progress;
+    int objective;
+} quest_t;
 
 typedef struct stats_s {
     unsigned int level;
@@ -61,12 +76,14 @@ typedef struct stats_s {
     float elapsed_time;
     float wait_time;
     float cd[3];
+    sfBool acces[3];
 } stats_t;
 
 typedef struct player_s {
     character_t *character;
     stats_t *stats;
     sfVector2f velocity;
+    sfBool interact;
 } player_t;
 
 typedef struct map_s {
@@ -78,7 +95,9 @@ typedef struct game_s {
     player_t *player;
     list_t *monsters;
     list_t *attacks;
+    list_t *npcs;
     hud_t *hud;
+    quest_t *quest;
     map_t *map;
     sprite_t *icon;
     int size_index;
@@ -279,6 +298,65 @@ void update_player(rpg_t *rpg);
  * @param rpg The rpg
  */
 void destroy_player(player_t *player);
+
+//
+// Npc
+//
+
+/**
+ * @brief Print the quest
+ *
+ * @param rpg The rpg
+ * @param npc The npc
+ */
+void print_quest(rpg_t *rpg, npc_t *npc);
+
+/**
+ * @brief Update the npcs
+ *
+ * @param rpg The rpg
+ */
+void update_npcs(rpg_t *rpg);
+
+/**
+ * @brief Destroy the npcs
+ *
+ * @param rpg The rpg
+ */
+void destroy_npcs(rpg_t *rpg);
+
+/**
+ * @brief Destroy the npc
+ *
+ * @param rpg The rpg
+ * @param npc The npc
+ * @param node The node
+ */
+void destroy_npc(rpg_t *rpg, npc_t *npc, list_node_t *node);
+
+/**
+ * @brief Create the quest
+ *
+ * @param rpg The rpg
+ */
+quest_t *create_quest(void);
+
+/**
+ * @brief Update the quest
+ *
+ * @param rpg The rpg
+ * @param quest The quest
+ */
+void update_quest(rpg_t *rpg);
+
+/**
+ * @brief Create the npc
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return npc_t* The npc
+ */
+sfBool create_devil(rpg_t *rpg, game_t *game);
 
 //
 // Monster

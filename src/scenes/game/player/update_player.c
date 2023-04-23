@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg/game.h"
+#include "ice/string.h"
 
 static void update_player_stats(player_t *player, rpg_t *rpg)
 {

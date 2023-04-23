@@ -141,6 +141,21 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				destroy_player.c	\
 				)
 
+DIR			+=	$(addprefix $(DIR_SCENES), game/npcs/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				update_npcs.c		\
+				destroy_npcs.c		\
+				destroy_npc.c		\
+				create_quest.c		\
+				update_quest.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), game/npcs/devil/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_devil.c		\
+				print_quest.c 		\
+				)
+
 DIR			+=	$(addprefix $(DIR_SCENES), game/monsters/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				update_monsters.c	\

@@ -33,8 +33,10 @@ game_t *create_game(rpg_t *rpg)
         return NULL;
     game->hud = create_hud(rpg->engine);
     game->monsters = list_create();
+    game->npcs = list_create();
     game->player = create_player(rpg->engine);
     game->map = create_map(rpg);
+    game->quest = create_quest();
     return (!game->monsters || !game->hud
         || !create_buttons_map_game(rpg) || !create_attacks(game)
         || !create_sound(rpg->engine, "ladder",
