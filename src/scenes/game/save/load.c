@@ -25,5 +25,6 @@ sfBool load(rpg_t *rpg)
     if (stats->acces[0] < 0 || stats->acces[1] < 0 || stats->acces[2] < 0)
         return sfFalse;
     destroy_parse(list);
+    rpg->load = sfFalse;
     return sfTrue;
 }
