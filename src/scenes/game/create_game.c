@@ -32,8 +32,10 @@ game_t *create_game(rpg_t *rpg)
     if (!game || !create_background(rpg))
         return NULL;
     game->monsters = list_create();
+    game->npcs = list_create();
     game->player = create_player(rpg->engine);
     game->map = create_map(rpg);
+    game->quest = create_quest();
     return (!game->monsters
         || !create_buttons_map_game(rpg) || !create_attacks(game)
         || !create_sound(rpg->engine, "ladder",

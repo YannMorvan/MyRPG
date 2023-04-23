@@ -21,6 +21,7 @@
     #define COLLIDER_ATTACK 0b00010000
     #define COLLIDER_BUTTON 0b00100000
     #define COLLIDER_LADDER 0b01000000
+    #define COLLIDER_NPC 0b10000000
 
 typedef enum collider_static_s {MOVING = 0, STATIC = 1} collider_static_t;
 
@@ -87,7 +88,7 @@ typedef struct window_s {
 typedef struct hud_s {
     sprite_t *heart;
     sprite_t *inv;
-    sprite_t *spell[3];
+    sprite_t *spell[6];
     sfRectangleShape *mana_font;
     sfRectangleShape *mana_bar;
     unsigned int m_life;
@@ -95,7 +96,6 @@ typedef struct hud_s {
     unsigned int m_mana;
     unsigned int c_mana;
     unsigned int box;
-    unsigned int spl;
 } hud_t;
 
 typedef struct text_s {

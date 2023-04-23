@@ -40,7 +40,7 @@ typedef struct attack_s {
 
 typedef struct slime_s {
     sfVector2f speed;
-    unsigned int health;
+    int health;
     unsigned int damages;
 } slime_t;
 
@@ -51,9 +51,24 @@ typedef struct monster_s {
     void *component;
 } monster_t;
 
+typedef struct npc_s {
+    character_t *character;
+    void (*update)(rpg_t *rpg, struct npc_s *npc);
+    void (*destroy)(struct npc_s *npc);
+    void *component;
+} npc_t;
+
+typedef struct quest_s {
+    char *name;
+    char *description;
+    int reward;
+    int progress;
+    int objective;
+} quest_t;
+
 typedef struct stats_s {
     unsigned int level;
-    unsigned int life;
+    int life;
     unsigned int exp;
     unsigned int speed;
     unsigned int attack;
@@ -62,12 +77,14 @@ typedef struct stats_s {
     float elapsed_time;
     float wait_time;
     float cd[3];
+    sfBool acces[3];
 } stats_t;
 
 typedef struct player_s {
     character_t *character;
     stats_t *stats;
     sfVector2f velocity;
+    sfBool interact;
 } player_t;
 
 typedef struct map_s {
@@ -79,6 +96,9 @@ typedef struct game_s {
     player_t *player;
     list_t *monsters;
     list_t *attacks;
+    list_t *npcs;
+    hud_t *hud;
+    quest_t *quest;
     map_t *map;
     sprite_t *icon;
     int size_index;
@@ -273,17 +293,6 @@ hud_t *update_life(engine_t *engine, hud_t *hud);
 hud_t *update_mana(hud_t *hud);
 
 /**
- * @brief Add spell to the inventory
- *
- * @param engine The engine
- * @param hud The hud
- * @param path Path to the spell icon
- * @param n Numero of the spell
- * @return hud_t* The hud
-*/
-hud_t *display_spell(engine_t *engine, hud_t *hud, char *path, unsigned int n);
-
-/**
  * @brief Grey the using spell icon and update mana
  *
  * @param rpg The rpg
@@ -294,9 +303,9 @@ hud_t *use_spell(rpg_t *rpg);
 /**
  * @brief Update the hud display
  *
- * @param engine The engine
+ * @param rpg The rpg
 */
-void display_hud(engine_t *engine);
+void display_hud(rpg_t *rpg);
 
 /**
  * @brief Destroy RectangleShape and free hud struct
@@ -339,6 +348,65 @@ void update_player(rpg_t *rpg);
  * @param rpg The rpg
  */
 void destroy_player(player_t *player);
+
+//
+// Npc
+//
+
+/**
+ * @brief Print the quest
+ *
+ * @param rpg The rpg
+ * @param npc The npc
+ */
+void print_quest(rpg_t *rpg, npc_t *npc);
+
+/**
+ * @brief Update the npcs
+ *
+ * @param rpg The rpg
+ */
+void update_npcs(rpg_t *rpg);
+
+/**
+ * @brief Destroy the npcs
+ *
+ * @param rpg The rpg
+ */
+void destroy_npcs(rpg_t *rpg);
+
+/**
+ * @brief Destroy the npc
+ *
+ * @param rpg The rpg
+ * @param npc The npc
+ * @param node The node
+ */
+void destroy_npc(rpg_t *rpg, npc_t *npc, list_node_t *node);
+
+/**
+ * @brief Create the quest
+ *
+ * @param rpg The rpg
+ */
+quest_t *create_quest(void);
+
+/**
+ * @brief Update the quest
+ *
+ * @param rpg The rpg
+ * @param quest The quest
+ */
+void update_quest(rpg_t *rpg);
+
+/**
+ * @brief Create the npc
+ *
+ * @param rpg The rpg
+ * @param game The game
+ * @return npc_t* The npc
+ */
+sfBool create_devil(rpg_t *rpg, game_t *game);
 
 //
 // Monster

@@ -14,6 +14,8 @@ sfBool destroy_game(rpg_t *rpg)
     destroy_player(GAME(rpg)->player);
     destroy_map(rpg);
     destroy_monsters(rpg);
+    destroy_npcs(rpg);
+    free(GAME(rpg)->quest);
     destroy_hud(rpg->engine->hud);
     free(GAME(rpg)->attacks);
     free(GAME(rpg));
