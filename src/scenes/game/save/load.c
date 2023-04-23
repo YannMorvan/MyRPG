@@ -19,8 +19,11 @@ sfBool load(rpg_t *rpg)
     stats->exp = (int)get_parse_value(list, "XP");
     stats->speed = (int)get_parse_value(list, "SPEED");
     stats->intel = (int)get_parse_value(list, "INTEL");
-    stats->cd[0] = (float)get_parse_value(list, "SP1");
-    stats->cd[1] = (float)get_parse_value(list, "SP2");
-    stats->cd[2] = (float)get_parse_value(list, "SP3");
-    return stats->cd[0] >= 0 && stats->cd[1] >= 0 && stats->cd[2] >= 0;
+    stats->acces[0] = (int)get_parse_value(list, "SP1");
+    stats->acces[1] = (int)get_parse_value(list, "SP2");
+    stats->acces[2] = (int)get_parse_value(list, "SP3");
+    if (stats->acces[0] < 0 || stats->acces[1] < 0 || stats->acces[2] < 0)
+        return sfFalse;
+    destroy_parse(list);
+    return sfTrue;
 }
