@@ -11,14 +11,15 @@
 #include "ice/memory.h"
 #include "my_rpg/game.h"
 
-static void print_quest(rpg_t *rpg)
+static void print_quest(rpg_t *rpg, npc_t *npc)
 {
     sfText *text = sfText_create();
     sfFont *font = sfFont_createFromFile("./assets/fonts/opensans.ttf");
 
     sfText_setFont(text, font);
     sfText_setString(text, GAME(rpg)->quest->description);
-    sfText_setPosition(text, sfView_getCenter(rpg->engine->window->view));
+    sfText_setPosition(text, (sfVector2f){sfSprite_getPosition(npc->character->sprite->sprite).x - sfText_getGlobalBounds(text).width / 2,
+        sfSprite_getPosition(npc->character->sprite->sprite).y - sfText_getGlobalBounds(text).height - 10});
     sfText_setCharacterSize(text, 30);
     sfRenderWindow_drawText(rpg->engine->window->window, text, NULL);
     sfRenderWindow_display(rpg->engine->window->window);
@@ -44,7 +45,6 @@ static void get_quest(rpg_t *rpg)
         GAME(rpg)->quest->reward = 50;
         GAME(rpg)->quest->objective = 3;
     }
-    print_quest(rpg);
 }
 
 static void update_devil(rpg_t *rpg, npc_t *npc)
@@ -54,6 +54,7 @@ static void update_devil(rpg_t *rpg, npc_t *npc)
         GAME(rpg)->quest->name == NULL) {
         GAME(rpg)->player->interact = sfFalse;
         get_quest(rpg);
+        print_quest(rpg, npc);
         }
 }
 
