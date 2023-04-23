@@ -172,6 +172,7 @@ DIR			+=	$(addprefix $(DIR_SCENES), game/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
 				create_buttons_game.c			\
 				create_pause_button.c			\
+				create_info_button.c			\
 				create_save_button.c			\
 				)
 

@@ -52,7 +52,7 @@ RM			:=	rm -rf
 
 CC			:=	gcc
 CLINKER		:=	ar rc
-CFLAGS		:=	-I../include/ -Wall -Wextra -g
+CFLAGS		:=	-I../include/ -Wall -Wextra
 LDLIBS		:=	-lcsfml-graphics -lcsfml-system -lcsfml-audio
 
 all:				$(DIR_OBJ) $(NAME)

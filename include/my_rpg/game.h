@@ -560,6 +560,14 @@ sfBool create_buttons_settings_game(rpg_t *rpg);
 button_t *create_pause_button(rpg_t *rpg);
 
 /**
+ * @brief Create the info button
+ *
+ * @param rpg The rpg
+ * @return button_t* The button
+ */
+button_t *create_info_button(rpg_t *rpg, float index, int scene);
+
+/**
  * @brief Create the save button
  *
  * @param rpg The rpg
