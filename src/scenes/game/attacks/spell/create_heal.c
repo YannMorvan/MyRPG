@@ -62,6 +62,7 @@ sfBool create_heal(rpg_t *rpg, game_t *game)
     if (!attack || !heal || GAME(rpg)->player->stats->mana < 10)
         return sfFalse;
     GAME(rpg)->player->stats->mana -= 25;
+    GAME(rpg)->player->stats->life += 1;
     attack->component = heal;
     set_spell_stats(heal);
     attack->character = create_character(rpg->engine,

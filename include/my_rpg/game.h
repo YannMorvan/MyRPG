@@ -68,6 +68,7 @@ typedef struct quest_s {
 
 typedef struct stats_s {
     unsigned int level;
+    int life;
     unsigned int exp;
     unsigned int speed;
     unsigned int intel;
@@ -259,10 +260,59 @@ sfBool set_npc(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
 /**
  * @brief Create the hud
  *
- * @param engine The engine
+ * @param rpg The rpg
  * @return hud_t* The hud
 */
-hud_t *create_hud(engine_t *engine);
+hud_t *create_hud(rpg_t *rpg);
+
+/**
+ * @brief Create a new heart on the hud
+ *
+ * @param engine The engine
+ * @param hud The hud
+ * @return hud_t The hud
+*/
+hud_t *init_heart(engine_t *engine, hud_t *hud, unsigned int f);
+
+/**
+ * @brief Update life when taking damage or restore life
+ *
+ * @param engine The engine
+ * @param hud The hud
+ * @return hud_t* The hud
+*/
+hud_t *update_life(engine_t *engine, hud_t *hud);
+
+/**
+ * @brief Update mana when you use spell or restore mana
+ *
+ * @param engine The engine
+ * @param hud The hud
+ * @return hud_t* The hud
+*/
+hud_t *update_mana(hud_t *hud);
+
+/**
+ * @brief Grey the using spell icon and update mana
+ *
+ * @param rpg The rpg
+ * @return hud_t* The grey sprite
+*/
+hud_t *use_spell(rpg_t *rpg);
+
+/**
+ * @brief Update the hud display
+ *
+ * @param rpg The rpg
+*/
+void display_hud(rpg_t *rpg);
+
+/**
+ * @brief Destroy RectangleShape and free hud struct
+ *
+ * @param hud The hud
+*/
+void destroy_hud(hud_t *hud);
 
 //
 // Player

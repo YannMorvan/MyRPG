@@ -46,11 +46,6 @@ typedef struct sprite_t {
     list_node_t *node;
 } sprite_t;
 
-typedef struct hud_s {
-    sprite_t *heart;
-    unsigned int life;
-} hud_t;
-
 typedef struct character_s {
     sprite_t *sprite;
     collider_t *collider;
@@ -90,6 +85,19 @@ typedef struct window_s {
     splash_screen_t *splash_screen;
 } window_t;
 
+typedef struct hud_s {
+    sprite_t *heart;
+    sprite_t *inv;
+    sprite_t *spell[6];
+    sfRectangleShape *mana_font;
+    sfRectangleShape *mana_bar;
+    unsigned int m_life;
+    unsigned int c_life;
+    unsigned int m_mana;
+    unsigned int c_mana;
+    unsigned int box;
+} hud_t;
+
 typedef struct text_s {
     sfText *text;
     char *name;
@@ -123,6 +131,7 @@ typedef struct engine_s {
     list_t *sprites;
     list_t *colliders;
     list_t *buttons;
+    hud_t *hud;
     list_t *fonts;
     list_t *texts;
     mouse_t *mouse;

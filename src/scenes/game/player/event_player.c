@@ -5,7 +5,10 @@
 ** event_player.c
 */
 
+#include "my_rpg.h"
 #include "my_rpg/game.h"
+#include "my_rpg/home.h"
+#include "my_rpg/menu.h"
 
 static sfBool player_actions(rpg_t *rpg, sfEvent event)
 {
@@ -65,6 +68,8 @@ static sfBool key_unpressed(rpg_t *rpg, sfEvent event)
 
 sfBool event_player(rpg_t *rpg, sfEvent event)
 {
+    if (GAME(rpg)->player->stats->life <= 0)
+        rpg->engine->scene = home;
     if (event.type == sfEvtKeyPressed)
         return key_pressed(rpg, event);
     if (event.type == sfEvtKeyReleased)

@@ -6,11 +6,13 @@
 */
 
 #include "my_rpg/struct.h"
+#include "my_rpg/game.h"
 
 void display_game(rpg_t *rpg)
 {
     clear_window(rpg->engine);
     display_sprites(rpg->engine);
     display_texts(rpg->engine);
+    display_hud(rpg);
     sfRenderWindow_display(WINDOW(rpg));
 }
