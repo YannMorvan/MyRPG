@@ -43,7 +43,6 @@ static void update_devil(rpg_t *rpg, npc_t *npc)
         GAME(rpg)->player->interact = sfFalse;
         get_quest(rpg);
         print_quest(rpg, npc);
-        destroy_devil(npc);
         }
 }
 

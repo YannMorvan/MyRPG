@@ -9,6 +9,18 @@
 #include "my_rpg/menu.h"
 #include "ice/string.h"
 
+static void destroy_current_npc(rpg_t *rpg)
+{
+    list_node_t *next;
+
+    if (GAME(rpg)->npcs->size == 0)
+        return;
+    for (list_node_t *node = GAME(rpg)->npcs->head; node; node = next) {
+        next = node->next;
+        destroy_npc(rpg, node->value, node);
+    }
+}
+
 static sfBool sub_scene_map(rpg_t *rpg)
 {
     update_player(rpg);
@@ -23,6 +35,7 @@ static sfBool sub_scene_map(rpg_t *rpg)
         if (GAME(rpg)->quest->name != NULL &&
             ice_strcmp(GAME(rpg)->quest->name, "Survive") == 0)
             GAME(rpg)->quest->progress++;
+        destroy_current_npc(rpg);
         clear_map(rpg);
         return load_map(rpg);
     }
