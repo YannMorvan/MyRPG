@@ -18,8 +18,11 @@ static void print_quest(rpg_t *rpg, npc_t *npc)
 
     sfText_setFont(text, font);
     sfText_setString(text, GAME(rpg)->quest->description);
-    sfText_setPosition(text, (sfVector2f){sfSprite_getPosition(npc->character->sprite->sprite).x - sfText_getGlobalBounds(text).width / 2,
-        sfSprite_getPosition(npc->character->sprite->sprite).y - sfText_getGlobalBounds(text).height - 10});
+    sfText_setPosition(text, (sfVector2f)
+        {sfSprite_getPosition(npc->character->sprite->sprite).x -
+        sfText_getGlobalBounds(text).width / 2,
+        sfSprite_getPosition(npc->character->sprite->sprite).y -
+        sfText_getGlobalBounds(text).height - 10});
     sfText_setCharacterSize(text, 30);
     sfRenderWindow_drawText(rpg->engine->window->window, text, NULL);
     sfRenderWindow_display(rpg->engine->window->window);
