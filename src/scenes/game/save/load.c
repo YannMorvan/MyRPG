@@ -22,7 +22,9 @@ sfBool load(rpg_t *rpg)
     stats->acces[0] = (int)get_parse_value(list, "SP1");
     stats->acces[1] = (int)get_parse_value(list, "SP2");
     stats->acces[2] = (int)get_parse_value(list, "SP3");
-    if (stats->acces[0] < 0 || stats->acces[1] < 0 || stats->acces[2] < 0)
+    GAME(rpg)->stage = (int)get_parse_value(list, "STAGE");
+    if (stats->acces[0] < 0 || stats->acces[1] < 0 || stats->acces[2] < 0 ||
+        GAME(rpg)->stage < 0)
         return sfFalse;
     destroy_parse(list);
     rpg->load = sfFalse;
