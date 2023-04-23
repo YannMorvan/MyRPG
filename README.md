@@ -1,10 +1,10 @@
 # My RPG
 
 <div style="text-align: center">
-    <img alt="How to play" src="./assets/tutorial.png" width="288"/>
+    <img alt="How to play" src="./assets/tutorial_large.png"/>
 </div>
 
-- 2 spells is unlocked by leveling up and you start with one.
+- 2 spells are unlocked by completing quests and you start with one.
 
 # REQUIREMENTS
 
