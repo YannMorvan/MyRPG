@@ -78,8 +78,5 @@ hud_t *create_hud(engine_t *engine)
     }
     hud = init_mana_bar(hud);
     hud->c_life = hud->m_life;
-    hud = add_spell(engine, hud, "assets/hud/swordspell.png");
-    hud = add_spell(engine, hud, "assets/hud/firespell.png");
-    hud = add_spell(engine, hud, "assets/hud/healspell.png");
     return hud;
 }

@@ -10,7 +10,6 @@
 
     #include "my_rpg/struct.h"
 
-//
 /**
  * @brief Create the rpg
  *
@@ -44,7 +43,7 @@ char *read_file(char *path);
  * @param path The path of the file
  * @return list_t* The list config
  */
-list_t  *parse_file(char *path);
+list_t *parse_file(char *path);
 
 /**
  * @brief Get the parse string
@@ -84,22 +83,19 @@ void destroy_parse(list_t *parse);
 sfBool home(void *component);
 
 /**
+ * @brief Create the tutorial scene
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool tutorial(void *component);
+
+/**
  * @brief Create the game scene
  *
  * @param rpg The rpg
  * @return sfBool False if an error occurred
  */
 sfBool game(void *component);
-
-//
-// Update
-//
-
-/**
- * @brief Update the button texture
- *
- * @param button The button
- */
-void update_button_texture(button_t *button);
 
 #endif /* !MY_RPG_MY_RPG_H */
