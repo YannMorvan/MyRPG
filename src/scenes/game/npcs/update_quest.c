@@ -8,6 +8,24 @@
 #include "my_rpg/game.h"
 #include "ice/memory.h"
 
+static void print_square(rpg_t *rpg, sfText *text)
+{
+    sfTexture *texture = sfTexture_createFromFile(
+        "./assets/quest.png", NULL);
+    sfSprite *sprite = sfSprite_create();
+
+    sfSprite_setTexture(sprite, texture, sfTrue);
+    sfSprite_setScale(sprite, (sfVector2f){2.7, 0.5});
+    sfSprite_setPosition(sprite, (sfVector2f)
+        {sfText_getPosition(text).x - 10, sfText_getPosition(text).y - 10});
+    sfRenderWindow_drawSprite(rpg->engine->window->window, sprite, NULL);
+    sfRenderWindow_drawText(rpg->engine->window->window, text, NULL);
+    sfRenderWindow_display(rpg->engine->window->window);
+    sfSleep((sfTime){1000000});
+    sfSprite_destroy(sprite);
+    sfTexture_destroy(texture);
+}
+
 static void print_success(rpg_t *rpg)
 {
     sfText *text = sfText_create();
@@ -17,14 +35,11 @@ static void print_success(rpg_t *rpg)
     sfText_setString(text, "Quest completed");
     sfText_setColor(text, sfYellow);
     sfText_setCharacterSize(text, 40);
+    sfText_setPosition(text, sfView_getCenter(rpg->engine->window->view));
     sfText_setPosition(text, (sfVector2f)
-        {sfSprite_getPosition(GAME(rpg)->player->character->sprite->sprite).x -
-        sfText_getGlobalBounds(text).width / 2,
-        sfSprite_getPosition(GAME(rpg)->player->character->sprite->sprite).y -
-        sfText_getGlobalBounds(text).height - 10});
-    sfRenderWindow_drawText(rpg->engine->window->window, text, NULL);
-    sfRenderWindow_display(rpg->engine->window->window);
-    sfSleep((sfTime){1000000});
+        {sfText_getPosition(text).x - sfText_getGlobalBounds(text).width / 2,
+        sfText_getPosition(text).y - sfText_getGlobalBounds(text).height / 2});
+    print_square(rpg, text);
     sfText_destroy(text);
     sfFont_destroy(font);
 }
