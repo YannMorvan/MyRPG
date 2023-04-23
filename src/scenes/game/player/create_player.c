@@ -11,6 +11,7 @@
 static void player_stats(player_t *player)
 {
     player->stats = ice_calloc(1, sizeof(stats_t));
+    player->stats->life = 6;
     player->stats->speed = 150;
     player->stats->intel = 1;
     player->stats->level = 1;

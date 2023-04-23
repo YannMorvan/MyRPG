@@ -7,21 +7,34 @@
 
 #include "my_rpg/game.h"
 
+hud_t *update_hud(rpg_t *rpg, hud_t *hud, unsigned int i)
+{
+    sfColor sfGrey = sfColor_fromRGB(128, 128, 128);
+
+    if (GAME(rpg)->player->stats->cd[i] <= 0.0) {
+        hud->c_mana = GAME(rpg)->player->stats->mana;
+        hud = update_mana(hud);
+    } else {
+        if (i == 2) {
+            hud->c_life = GAME(rpg)->player->stats->life;
+            hud = update_life(rpg->engine, hud);
+            GAME(rpg)->player->stats->life = hud->c_life;
+        }
+        sfSprite_setColor(hud->spell[i]->sprite, sfGrey);
+    }
+    return hud;
+}
+
 hud_t *use_spell(rpg_t *rpg)
 {
     hud_t *hud = rpg->engine->hud;
-    sfColor sfGrey = sfColor_fromRGB(128, 128, 128);
     unsigned int i = 0;
 
     hud = display_spell(rpg->engine, hud, "assets/hud/swordspell.png", 0);
     hud = display_spell(rpg->engine, hud, "assets/hud/firespell.png", 1);
     hud = display_spell(rpg->engine, hud, "assets/hud/healspell.png", 2);
     for (;i < 3; i++)
-        if (GAME(rpg)->player->stats->cd[i] <= 0.0) {
-            hud->c_mana = GAME(rpg)->player->stats->mana;
-            hud = update_mana(hud);
-        } else
-            sfSprite_setColor(hud->spell[i]->sprite, sfGrey);
+        hud = update_hud(rpg, hud, i);
     return hud;
 }
 

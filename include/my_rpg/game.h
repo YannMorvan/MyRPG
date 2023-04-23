@@ -53,6 +53,7 @@ typedef struct monster_s {
 
 typedef struct stats_s {
     unsigned int level;
+    unsigned int life;
     unsigned int exp;
     unsigned int speed;
     unsigned int attack;
@@ -239,10 +240,10 @@ sfBool set_npc(rpg_t *rpg, sfVector2i pos, sfVector2i offset);
 /**
  * @brief Create the hud
  *
- * @param engine The engine
+ * @param rpg The rpg
  * @return hud_t* The hud
 */
-hud_t *create_hud(engine_t *engine);
+hud_t *create_hud(rpg_t *rpg);
 
 /**
  * @brief Create a new heart on the hud

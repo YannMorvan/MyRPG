@@ -62,21 +62,22 @@ hud_t *init_mana_bar(hud_t *hud)
     return hud;
 }
 
-hud_t *create_hud(engine_t *engine)
+hud_t *create_hud(rpg_t *rpg)
 {
     hud_t *hud = ice_calloc(1, sizeof(hud_t));
 
     if (!hud)
         return NULL;
     hud->m_life = 0;
-    hud->m_mana = 100;
+    hud->m_mana = GAME(rpg)->player->stats->mana;
     hud->box = 0;
-    hud->spl = 0;
     for (unsigned int i = 0; i < 3; i++) {
-        hud = init_heart(engine, hud, 1);
-        hud = create_inventory(engine, hud);
+        hud = init_heart(rpg->engine, hud, 1);
+        hud = create_inventory(rpg->engine, hud);
     }
     hud = init_mana_bar(hud);
-    hud->c_life = hud->m_life;
+    hud->c_life = hud->m_mana;
+    hud->c_life = GAME(rpg)->player->stats->life;
+    hud = update_life(rpg->engine, hud);
     return hud;
 }
