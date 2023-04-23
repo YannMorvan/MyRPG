@@ -14,7 +14,7 @@
 // Struct
 //
 
-typedef enum home_scene_e {
+typedef enum home_scene_s {
     HOME_MENU = 0,
     HOME_SETTINGS = 1
 } home_scene_t;
@@ -72,28 +72,12 @@ sfBool destroy_home(rpg_t *rpg);
 //
 
 /**
- * @brief Load the icon of the window
- *
- * @param rpg The rpg
- * @return sfBool False if an error occurred
- */
-sfBool load_icon(rpg_t *rpg);
-
-/**
  * @brief Load the background of the home scene
  *
  * @param rpg The rpg
  * @return sfBool False if an error occurred
  */
 sfBool load_background(rpg_t *rpg);
-
-/**
- * @brief Create the buttons of the home scene
- *
- * @param rpg The rpg
- * @return sfBool False if an error occurred
- */
-sfVector2u get_window_size(rpg_t *rpg);
 
 //
 // Button
@@ -116,53 +100,12 @@ sfBool create_buttons_home(rpg_t *rpg);
 sfBool create_buttons_settings(rpg_t *rpg);
 
 /**
- * @brief Create the size button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_size_button(rpg_t *rpg, float index);
-
-/**
- * @brief Set the button
- *
- * @param rpg The rpg
- * @param button The button
- * @param index The index of the button
- * @return sfBool False if an error occurred
- */
-sfBool set_button(rpg_t *rpg, button_t *button, float index);
-
-/**
  * @brief Create the start button
  *
  * @param rpg The rpg
+ * @param scene The id of the scene
  * @return button_t* The button
  */
-button_t *create_start_button(rpg_t *rpg, float index);
-
-/**
- * @brief Create the load button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_load_button(rpg_t *rpg, float index);
-
-/**
- * @brief Create the options button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_options_button(rpg_t *rpg, float index);
-
-/**
- * @brief Create the exit button
- *
- * @param rpg The rpg
- * @return button_t* The button
- */
-button_t *create_exit_button(rpg_t *rpg, float index);
+button_t *create_start_button(rpg_t *rpg, float index, int scene);
 
 #endif /* !MY_RPG_HOME_H */

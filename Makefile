@@ -31,9 +31,38 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 				destroy_parse.c			\
 				)
 
-DIR			+=	$(addprefix $(DIR_SRC), update/)
+DIR			+=	$(addprefix $(DIR_SRC), menu/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
+				clear_sub_scene.c		\
+				load_icon.c				\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), menu/buttons/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				set_button.c				\
 				update_button_texture.c		\
+				update_window_size.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), menu/buttons/create/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_load_button.c		\
+				create_options_button.c		\
+				create_exit_button.c		\
+				create_music_button.c		\
+				create_sound_button.c		\
+				create_size_button.c		\
+				update_size_button.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SRC), menu/texts/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				create_size_text.c		\
+				update_size_text.c		\
+				create_music_text.c		\
+				update_music_text.c		\
+				create_sound_text.c		\
+				update_sound_text.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), home/)
@@ -48,20 +77,18 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				load_icon.c			\
 				load_background.c	\
-				get_window_size.c	\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), home/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_buttons.c			\
-				set_button.c				\
+				create_buttons_home.c		\
 				create_start_button.c		\
-				create_load_button.c		\
-				create_options_button.c		\
-				create_exit_button.c		\
-				create_size_button.c		\
+				)
+
+DIR			+=	$(addprefix $(DIR_SCENES), tutorial/)
+SRC			+=	$(addprefix $(lastword $(DIR)),\
+				tutorial.c		\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/)
@@ -142,7 +169,9 @@ SRC			+=	$(addprefix $(lastword $(DIR)),\
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/menu/buttons/)
 SRC			+=	$(addprefix $(lastword $(DIR)),\
-				create_pause_button.c	\
+				create_buttons_game.c			\
+				create_pause_button.c			\
+				create_save_button.c			\
 				)
 
 DIR			+=	$(addprefix $(DIR_SCENES), game/hud/)
@@ -168,7 +197,7 @@ MAKE		:=	make -sC$(LIB) -j
 CC			:=	gcc
 CFLAGS		:=	-I./include/ -Wall -Wextra
 LDFLAGS		:=	-L$(LIB)
-LDLIBS		:=	-lice -lm -lcsfml-graphics -lcsfml-system
+LDLIBS		:=	-lice -lm -lcsfml-graphics -lcsfml-system -lcsfml-audio
 
 all:				$(DIR_OBJ) $(NAME)
 

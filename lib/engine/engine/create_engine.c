@@ -9,6 +9,7 @@
 
 #include "ice/memory.h"
 #include "ice/string.h"
+#include "engine/sound.h"
 #include "engine/mouse.h"
 
 static window_t *create_window(ui_t width, ui_t height,
@@ -45,10 +46,14 @@ static sfBool engine_create(engine_t *engine)
     engine->sprites = list_create();
     engine->colliders = list_create();
     engine->buttons = list_create();
+    engine->fonts = list_create();
+    engine->texts = list_create();
     engine->time->clock = sfClock_create();
     engine->mouse = create_mouse(engine);
+    engine->sounds = create_sounds();
     return engine->textures && engine->sprites && engine->colliders
-        && engine->buttons && engine->time->clock && engine->mouse;
+        && engine->buttons && engine->fonts && engine->texts
+        && engine->time->clock && engine->mouse && engine->sounds;
 }
 
 engine_t *create_engine(ui_t width, ui_t height,
