@@ -519,4 +519,16 @@ button_t *create_pause_button(rpg_t *rpg);
  */
 button_t *create_save_button(rpg_t *rpg , float index, int scene);
 
+//
+// Save
+//
+
+/**
+ * @brief Save the game
+ *
+ * @param rpg The rpg
+ * @return sfBool False if an error occurred
+ */
+sfBool save_game(rpg_t *rpg);
+
 #endif /* !MY_RPG_GAME_H */
