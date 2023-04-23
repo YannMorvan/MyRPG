@@ -77,7 +77,6 @@ static sfBool sub_scene_map(rpg_t *rpg)
 sfBool update_game(rpg_t *rpg)
 {
     update_engine(rpg->engine, rpg);
-    write_framerate(rpg->engine);
     if (GAME(rpg)->create_sub_scene) {
         clear_sub_scene(rpg);
         GAME(rpg)->create_sub_scene(rpg);
