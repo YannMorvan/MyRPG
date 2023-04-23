@@ -34,6 +34,7 @@ typedef struct config_s {
 
 typedef struct rpg_s {
     engine_t *engine;
+    sfBool load;
     void *scene;
 } rpg_t;
 

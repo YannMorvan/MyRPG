@@ -35,6 +35,8 @@ game_t *create_game(rpg_t *rpg)
     game->monsters = list_create();
     game->npcs = list_create();
     game->player = create_player(rpg->engine);
+    if (rpg->load && !load(rpg))
+        return NULL;
     game->map = create_map(rpg);
     game->quest = create_quest();
     return (!game->monsters || !game->hud
