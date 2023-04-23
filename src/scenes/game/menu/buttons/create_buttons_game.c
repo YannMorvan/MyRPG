@@ -31,6 +31,7 @@ sfBool create_buttons_menu_game(rpg_t *rpg)
     button_t *(*array[])(rpg_t *rpg, float index, int scene) = {
         create_save_button,
         create_load_button,
+        create_info_button,
         create_options_button,
         create_exit_button,
         NULL

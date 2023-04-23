@@ -61,9 +61,9 @@
       - [ ] characteristics management
     - [X] Saving
     - [X] Loading
+    - [X] Commands list
     - [X] Settings
       - [X] the same that main menu
-      - [ ] commands list
 
 ### SHOULD
 
