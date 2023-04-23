@@ -73,5 +73,6 @@ sfBool create_heal(rpg_t *rpg, game_t *game)
     modify_sprite(attack);
     attack->update = update_spell;
     attack->destroy = destroy_spell;
+    play_sound(rpg->engine, "heal");
     return list_add(game->attacks, attack);
 }

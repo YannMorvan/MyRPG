@@ -77,5 +77,6 @@ sfBool create_sword_spell(rpg_t *rpg, game_t *game)
     attack->update = update_spell;
     attack->destroy = destroy_spell;
     collider_set_type(attack->character->collider, COLLIDER_ATTACK);
+    play_sound(rpg->engine, "sword");
     return list_add(game->attacks, attack);
 }

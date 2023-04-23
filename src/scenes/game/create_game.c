@@ -24,6 +24,14 @@ static sfBool create_background(rpg_t *rpg)
     return sfTrue;
 }
 
+static sfBool load_sounds(rpg_t *rpg)
+{
+    return create_sound(rpg->engine, "ladder", "./assets/sounds/ladder.ogg")
+        && create_sound(rpg->engine, "sword", "./assets/sounds/sword.ogg")
+        && create_sound(rpg->engine, "fire", "./assets/sounds/fireball.ogg")
+        && create_sound(rpg->engine, "heal", "./assets/sounds/heal.ogg");
+}
+
 game_t *create_game(rpg_t *rpg)
 {
     game_t *game = ice_calloc(1, sizeof(game_t));
@@ -39,8 +47,6 @@ game_t *create_game(rpg_t *rpg)
     game->map = create_map(rpg);
     game->quest = create_quest();
     game->stage = 0;
-    return (!game->monsters
-        || !create_buttons_map_game(rpg) || !create_attacks(game)
-        || !create_sound(rpg->engine, "ladder",
-        "./assets/sounds/ladder.ogg")) ? NULL : game;
+    return (!game->monsters || !create_buttons_map_game(rpg)
+        || !create_attacks(game) || !load_sounds(rpg)) ? NULL : game;
 }
