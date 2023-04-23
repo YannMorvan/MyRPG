@@ -1,3 +1,11 @@
+# Slime Slaughter
+
+<div style="text-align: center">
+    <img alt="How to play" src="./assets/tutorial_large.png"/>
+</div>
+
+- 2 spells are unlocked by completing quests and you start with one.
+
 # REQUIREMENTS
 
 ### MANDATORY
@@ -7,17 +15,17 @@
 - [X] The player have an inventory which can contain a limited set of items
 - [X] The player can earn experience by winning fights and/or accomplishing specific actions
 - [X] The player can level up thanks to experience AND upgrading its characteristics
-- [ ] The game contains NPC
-- [ ] The game contains at least one quest
+- [X] The game contains NPC
+- [X] The game contains at least one quest
 - [X] The game contains a how to play system at the very beginning
 
 ### TECHNICAL REQUIREMENTS
 
-- [ ] A collision system including moving and static elements with different shapes.
+- [X] A collision system including moving and static elements with different shapes.
 - [X] Camera movements (zoom, translation, rotation).
 - [X] 3D effects (depth scaling, isometric projection. . . ).
 - [X] Buttons must have at least 3 differents state
-- [ ] Saving system
+- [X] Saving system
 
 ### MUST
 
@@ -35,9 +43,9 @@
 
 #### Main menu
 
-- [ ] Must contain at least these options
+- [x] Must contain at least these options
     - [X] Start the game
-    - [ ] Resume game (grayed out if not possible)
+    - [X] Resume game (grayed out if not possible)
     - [X] Settings
     - [X] Quit the game
 - [X] The settings option must contain
@@ -46,13 +54,13 @@
 
 #### In game menu
 
-- [ ] Must be accessible by pressing the Escape key
+- [X] Must be accessible by pressing the Escape key
     - Must contain at least these options
     - [ ] Character options
       - [ ] equipment and inventory management
       - [ ] characteristics management
-    - [ ] Saving
-    - [ ] Loading
+    - [X] Saving
+    - [X] Loading
     - [X] Settings
       - [X] the same that main menu
       - [ ] commands list
@@ -85,3 +93,4 @@
 - Music (Only the Braves): [Fitfysounds](https://www.fiftysounds.com)
 - Ladder Sound: [Joseph SARDIN](https://bigsoundbank.com/)
 - Computer Button: [Greatdocbrown](https://greatdocbrown.itch.io/)
+- Slime: [Tienlev](https://tienlev.itch.io/slime-pixel-set)
